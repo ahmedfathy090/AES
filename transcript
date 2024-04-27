@@ -1,24 +1,3 @@
 # Reading pref.tcl
-# OpenFile {C:/Users/ahmed/OneDrive/Desktop/AES Project/AES.mpf}
+# OpenFile C:/Users/ahmed/OneDrive/Desktop/AES/AES.mpf
 # Loading project AES
-# Compile of BCD_E.v was successful.
-# Compile of SubBytes.v was successful.
-# Compile of SBox.v was successful.
-# Compile of SBox_Test.v was successful.
-# Compile of SubBytes_Test.v was successful.
-# 5 compiles, 0 failed with no errors.
-vsim SubBytes_Test
-# vsim SubBytes_Test 
-# Start time: 00:00:07 on Apr 27,2024
-# Loading work.SubBytes_Test
-# Loading work.SubBytes
-# Loading work.SBox
-add wave -position insertpoint sim:/SubBytes_Test/*
-run 200
-# Test for 128 bit input
-# Test passed for 128 bit input
-# Test passed for 128 bit input
-# Test passed for 128 bit input
-# Test passed for 128 bit input
-# End time: 00:16:58 on Apr 27,2024, Elapsed time: 0:16:51
-# Errors: 0, Warnings: 3

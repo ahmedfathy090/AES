@@ -5,13 +5,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	SBox_Test
 
-} {} {}} {C:/Users/ahmed/OneDrive/Desktop/AES Project/SubBytes_Test.v} {1 {vlog -work work -stats=none {C:/Users/ahmed/OneDrive/Desktop/AES Project/SubBytes_Test.v}
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module SubBytes_Test
-
-Top level modules:
-	SubBytes_Test
-
 } {} {}} {C:/Users/ahmed/OneDrive/Desktop/AES Project/SBox.v} {1 {vlog -work work -stats=none {C:/Users/ahmed/OneDrive/Desktop/AES Project/SBox.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module SBox
@@ -19,12 +12,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	SBox
 
-} {} {}} {C:/Users/ahmed/OneDrive/Desktop/AES Project/SubBytes.v} {1 {vlog -work work -stats=none {C:/Users/ahmed/OneDrive/Desktop/AES Project/SubBytes.v}
+} {} {}} {C:/Users/ahmed/OneDrive/Desktop/AES Project/SubBytes_Test.v} {1 {vlog -work work -stats=none {C:/Users/ahmed/OneDrive/Desktop/AES Project/SubBytes_Test.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module SubBytes
+-- Compiling module SubBytes_Test
 
 Top level modules:
-	SubBytes
+	SubBytes_Test
 
 } {} {}} {C:/Users/ahmed/OneDrive/Desktop/AES Project/BCD_E.v} {1 {vlog -work work -stats=none {C:/Users/ahmed/OneDrive/Desktop/AES Project/BCD_E.v}
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -33,5 +26,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 
 Top level modules:
 	BCD_E
+
+} {} {}} {C:/Users/ahmed/OneDrive/Desktop/AES Project/SubBytes.v} {1 {vlog -work work -stats=none {C:/Users/ahmed/OneDrive/Desktop/AES Project/SubBytes.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module SubBytes
+
+Top level modules:
+	SubBytes
 
 } {} {}}
