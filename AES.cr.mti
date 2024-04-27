@@ -1,25 +1,11 @@
-{C:/Users/ahmed/OneDrive/Desktop/AES Project/SBox_Test.v} {1 {vlog -work work -stats=none {C:/Users/ahmed/OneDrive/Desktop/AES Project/SBox_Test.v}
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module SBox_Test
-
-Top level modules:
-	SBox_Test
-
-} {} {}} {C:/Users/ahmed/OneDrive/Desktop/AES Project/SBox.v} {1 {vlog -work work -stats=none {C:/Users/ahmed/OneDrive/Desktop/AES Project/SBox.v}
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module SBox
-
-Top level modules:
-	SBox
-
-} {} {}} {C:/Users/ahmed/OneDrive/Desktop/AES Project/SubBytes_Test.v} {1 {vlog -work work -stats=none {C:/Users/ahmed/OneDrive/Desktop/AES Project/SubBytes_Test.v}
+C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SubBytes_Test.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SubBytes_Test.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module SubBytes_Test
 
 Top level modules:
 	SubBytes_Test
 
-} {} {}} {C:/Users/ahmed/OneDrive/Desktop/AES Project/BCD_E.v} {1 {vlog -work work -stats=none {C:/Users/ahmed/OneDrive/Desktop/AES Project/BCD_E.v}
+} {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Pre/BCD_E.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Pre/BCD_E.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module BCD_E
 -- Compiling module ADD3_E
@@ -27,11 +13,11 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	BCD_E
 
-} {} {}} {C:/Users/ahmed/OneDrive/Desktop/AES Project/SubBytes.v} {1 {vlog -work work -stats=none {C:/Users/ahmed/OneDrive/Desktop/AES Project/SubBytes.v}
+} {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Pre/BCDtoSSD.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Pre/BCDtoSSD.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module SubBytes
+-- Compiling module BCDtoSSD
 
 Top level modules:
-	SubBytes
+	BCDtoSSD
 
 } {} {}}

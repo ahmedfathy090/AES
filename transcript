@@ -1,3 +1,29 @@
 # Reading pref.tcl
 # OpenFile C:/Users/ahmed/OneDrive/Desktop/AES/AES.mpf
 # Loading project AES
+# Error opening C:/Users/ahmed/OneDrive/Desktop/AES Project/SBox.v
+# Path name 'C:/Users/ahmed/OneDrive/Desktop/AES Project/SBox.v' doesn't exist.
+# Error opening C:/Users/ahmed/OneDrive/Desktop/AES Project/SBox.v
+# Path name 'C:/Users/ahmed/OneDrive/Desktop/AES Project/SBox.v' doesn't exist.
+# Error opening C:\Users\ahmed\OneDrive\Desktop\AES Project\SubBytes.v
+# Path name 'C:\Users\ahmed\OneDrive\Desktop\AES Project\SubBytes.v' doesn't exist.
+# Error opening C:\Users\ahmed\OneDrive\Desktop\AES Project\SubBytes.v
+# Path name 'C:\Users\ahmed\OneDrive\Desktop\AES Project\SubBytes.v' doesn't exist.
+# Error opening C:\Users\ahmed\OneDrive\Desktop\AES Project\SubBytes.v
+# Path name 'C:\Users\ahmed\OneDrive\Desktop\AES Project\SubBytes.v' doesn't exist.
+# Compile of BCD_E.v was successful.
+# Compile of BCDtoSSD.v was successful.
+# Compile of SubBytes_Test.v was successful.
+# Compile of SBox.v was successful.
+# Compile of SBox_Test.v was successful.
+# Compile of SubBytes.v was successful.
+# 6 compiles, 0 failed with no errors.
+# Compile of BCD_E.v was successful.
+# Compile of BCDtoSSD.v was successful.
+# Compile of SBox.v was successful.
+# Compile of SBox_Test.v was successful.
+# Compile of SubBytes.v was successful.
+# Compile of SubBytes_Test.v was successful.
+# 6 compiles, 0 failed with no errors.
+# Compile of Round.v failed with 2 errors.
+# Compile of Round.v was successful.

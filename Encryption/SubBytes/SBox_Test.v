@@ -1,7 +1,7 @@
 module SBox_Test();
 wire [7:0] out;
 reg [7:0] in;
-SBox SBox(in,out);
+SBox SBox1 (in,out);
 
 initial begin
 in = 8'hee;
