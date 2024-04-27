@@ -1,3 +1,10 @@
 # Reading pref.tcl
 # OpenFile C:/Users/ahmed/OneDrive/Desktop/AES/AES.mpf
 # Loading project AES
+# Compile of BCD_E.v was successful.
+# Compile of BCDtoSSD.v was successful.
+# Compile of SBox.v was successful.
+# Compile of SBox_Test.v was successful.
+# Compile of SubBytes.v was successful.
+# Compile of SubBytes_Test.v was successful.
+# 6 compiles, 1 failed with no errors.
