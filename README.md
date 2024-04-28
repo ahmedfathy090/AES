@@ -1,5 +1,6 @@
 <div align = "center" >    
-# AES: ADVANCED ENCRYPTION STANDARD 🔐
+
+  # AES: ADVANCED ENCRYPTION STANDARD 🔐
 </div>
 
 > This project provides a Verilog implementation of the Advanced Encryption Standard (AES) algorithm
