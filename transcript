@@ -1,37 +1,21 @@
-# ** Error: (vish-42) Unsupported ModelSim library format for "C:/Users/tasne/OneDrive/Desktop/AES/work". (Format: 4)
-# 0 compiles, 5 failed with no errors. 
-# Error opening C:/Users/ahmed/OneDrive/Desktop/AES Project/SBox_Test.v
-# Path name 'C:/Users/ahmed/OneDrive/Desktop/AES Project/SBox_Test.v' doesn't exist.
-# Compile of SBox.v failed with 2 errors.
-# Compile of SBox_Test.v failed with 2 errors.
-# Compile of SubBytes.v failed with 2 errors.
-# Compile of SubBytes_Test.v failed with 2 errors.
-# Compile of shift_rows.v failed with 2 errors.
-# Compile of MixColumns.v failed with 2 errors.
-# Compile of InvShiftRows.v failed with 2 errors.
-# Compile of InvMixColumns.v failed with 2 errors.
-# Compile of MC_test.v failed with 2 errors.
-# 9 compiles, 9 failed with 18 errors. 
-# ** Error: (vish-42) Unsupported ModelSim library format for "C:/Users/tasne/OneDrive/Desktop/AES/work". (Format: 4)
-# Compile of SBox.v failed with 2 errors.
-# Compile of SBox_Test.v failed with 2 errors.
-# Compile of SubBytes.v failed with 2 errors.
-# Compile of SubBytes_Test.v failed with 2 errors.
-# Compile of shift_rows.v failed with 2 errors.
-# Compile of MixColumns.v failed with 2 errors.
-# Compile of InvShiftRows.v failed with 2 errors.
-# Compile of InvMixColumns.v failed with 2 errors.
-# Compile of MC_test.v failed with 2 errors.
-# 9 compiles, 9 failed with 18 errors. 
-# ** Error: (vish-42) Unsupported ModelSim library format for "C:/Users/tasne/OneDrive/Desktop/AES/work". (Format: 4)
-# Compile of SBox.v failed with 2 errors.
-# Compile of SBox_Test.v failed with 2 errors.
-# Compile of SubBytes.v failed with 2 errors.
-# Compile of SubBytes_Test.v failed with 2 errors.
-# Compile of shift_rows.v failed with 2 errors.
-# Compile of MixColumns.v failed with 2 errors.
-# Compile of InvShiftRows.v failed with 2 errors.
-# Compile of InvMixColumns.v failed with 2 errors.
-# Compile of MC_test.v failed with 2 errors.
-# 9 compiles, 9 failed with 18 errors. 
-# ** Error: (vish-42) Unsupported ModelSim library format for "C:/Users/tasne/OneDrive/Desktop/AES/work". (Format: 4)
+# Reading pref.tcl
+# OpenFile C:/Users/ahmed/OneDrive/Desktop/AES/AES.mpf
+# Loading project AES
+# Compile of BCD_E.v was successful.
+# Compile of BCDtoSSD.v was successful.
+# Compile of SBox.v was successful.
+# Compile of SBox_Test.v was successful.
+# Compile of SubBytes.v was successful.
+# Compile of SubBytes_Test.v was successful.
+# 6 compiles, 1 failed with no errors.
+# Compile of BCD_E.v was successful.
+# Compile of BCDtoSSD.v was successful.
+# Compile of SBox.v was successful.
+# Compile of SBox_Test.v was successful.
+# Compile of SubBytes.v was successful.
+# Compile of SubBytes_Test.v was successful.
+# Compile of InvShiftRows.v was successful.
+# Compile of InvSBox.v was successful.
+# Compile of InvSubBytes.v was successful.
+# Compile of shift_rows.v was successful.
+# 10 compiles, 0 failed with no errors.
