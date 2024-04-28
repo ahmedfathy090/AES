@@ -1,9 +1,58 @@
-C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SubBytes_Test.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SubBytes_Test.v
+C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox_Test.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox_Test.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module SBox_Test
+
+Top level modules:
+SBox_Test
+
+} {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/ShiftRows/shift_rows.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/ShiftRows/shift_rows.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module shift_rows
+
+Top level modules:
+shift_rows
+
+} {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSBox.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSBox.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module InvSBox
+
+Top level modules:
+InvSBox
+
+} {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InverseShiftRows/InvShiftRows.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InverseShiftRows/InvShiftRows.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module inverse_shift_rows
+
+Top level modules:
+inverse_shift_rows
+
+} {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SubBytes_Test.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SubBytes_Test.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module SubBytes_Test
 
 Top level modules:
-	SubBytes_Test
+SubBytes_Test
+
+} {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module SBox
+
+Top level modules:
+SBox
+
+} {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSubBytes.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSubBytes.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module InvSubBytes
+
+Top level modules:
+InvSubBytes
+
+} {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SubBytes.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SubBytes.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module SubBytes
+
+Top level modules:
+SubBytes
 
 } {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Pre/BCD_E.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Pre/BCD_E.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -11,13 +60,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 -- Compiling module ADD3_E
 
 Top level modules:
-	BCD_E
+BCD_E
 
 } {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Pre/BCDtoSSD.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Pre/BCDtoSSD.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module BCDtoSSD
 
 Top level modules:
-	BCDtoSSD
+BCDtoSSD
 
 } {} {}}

@@ -10,7 +10,7 @@ z2
 cModel Technology
 dD:/CMP/Modelsim projects
 vADD3_E
-Z0 !s110 1714229917
+Z0 !s110 1714237769
 !i10b 1
 !s100 <R:h@9;?M_E`;C0onDU;J3
 Z1 !s11b Dg1SIo80bB@j0V0VzS_@n1
@@ -20,13 +20,13 @@ Z3 dC:/Users/ahmed/OneDrive/Desktop/AES
 Z4 w1714228827
 Z5 8C:/Users/ahmed/OneDrive/Desktop/AES/Pre/BCD_E.v
 Z6 FC:/Users/ahmed/OneDrive/Desktop/AES/Pre/BCD_E.v
-!i122 75
+!i122 69
 L0 21 14
 Z7 OV;L;2020.1;71
 r1
 !s85 0
 31
-Z8 !s108 1714229917.000000
+Z8 !s108 1714237769.000000
 Z9 !s107 C:/Users/ahmed/OneDrive/Desktop/AES/Pre/BCD_E.v|
 Z10 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/ahmed/OneDrive/Desktop/AES/Pre/BCD_E.v|
 !i113 1
@@ -44,7 +44,7 @@ R3
 R4
 R5
 R6
-!i122 75
+!i122 69
 L0 6 14
 R7
 r1
@@ -68,7 +68,7 @@ R3
 R4
 8C:/Users/ahmed/OneDrive/Desktop/AES/Pre/BCDtoSSD.v
 FC:/Users/ahmed/OneDrive/Desktop/AES/Pre/BCDtoSSD.v
-!i122 76
+!i122 70
 L0 1 23
 R7
 r1
@@ -81,48 +81,24 @@ R8
 R11
 R12
 n@b@c@dto@s@s@d
-vRound
-!s110 1714233791
-!i10b 1
-!s100 21OVV;NcbVLUZToPRV36N0
-R1
-IH`?QRYXSY?lCMW[e@mj5B3
-R2
-R3
-w1714233779
-8C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/Round/Round.v
-FC:/Users/ahmed/OneDrive/Desktop/AES/Encryption/Round/Round.v
-!i122 81
-L0 1 13
-R7
-r1
-!s85 0
-31
-!s108 1714233791.000000
-!s107 C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/Round/Round.v|
-!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/Round/Round.v|
-!i113 1
-R11
-R12
-n@round
 vSBox
-R0
+Z13 !s110 1714237770
 !i10b 1
 !s100 P`PLiGcon:z]3CWXjUF5H3
 R1
 IV2ooZCb6MCf>RX9n6h?_23
 R2
 R3
-Z13 w1714228838
+w1714230074
 8C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox.v
 FC:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox.v
-!i122 77
+!i122 71
 L0 1 271
 R7
 r1
 !s85 0
 31
-R8
+Z14 !s108 1714237770.000000
 !s107 C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox.v|
 !i113 1
@@ -130,23 +106,23 @@ R11
 R12
 n@s@box
 vSBox_Test
-Z14 !s110 1714229918
+R13
 !i10b 1
 !s100 WKFmelZS_J0z`HMgNoHI^3
 R1
 I0YoBl`Aaa_NUD`zSikXmV1
 R2
 R3
-R13
+Z15 w1714235354
 8C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox_Test.v
 FC:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox_Test.v
-!i122 78
+!i122 72
 L0 1 22
 R7
 r1
 !s85 0
 31
-R8
+R14
 !s107 C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox_Test.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox_Test.v|
 !i113 1
@@ -154,23 +130,23 @@ R11
 R12
 n@s@box_@test
 vSubBytes
-R14
+R13
 !i10b 1
 !s100 Z=:[fX[O?kRJg2VPV2_az1
 R1
 I=<1O>nXIbU[M0DaEKNn;A2
 R2
 R3
-R13
+R15
 8C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SubBytes.v
 FC:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SubBytes.v
-!i122 79
+!i122 73
 L0 1 8
 R7
 r1
 !s85 0
 31
-Z15 !s108 1714229918.000000
+R14
 !s107 C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SubBytes.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SubBytes.v|
 !i113 1
@@ -178,23 +154,23 @@ R11
 R12
 n@sub@bytes
 vSubBytes_Test
-R14
+R13
 !i10b 1
 !s100 PbS?@^4Z4fNSe7KU^@3HV3
 R1
 Io`=O6QRO[TnbMQjl@BTU;1
 R2
 R3
-R13
+w1714228838
 8C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SubBytes_Test.v
 FC:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SubBytes_Test.v
-!i122 80
+!i122 74
 L0 1 37
 R7
 r1
 !s85 0
 31
-R15
+R14
 !s107 C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SubBytes_Test.v|
 !s90 -reportprogress|300|-work|work|-stats=none|C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SubBytes_Test.v|
 !i113 1
