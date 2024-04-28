@@ -2,8 +2,8 @@
 # AES: ADVANCED ENCRYPTION STANDARD 🔐
 </div>
 
-This project provides a Verilog implementation of the Advanced Encryption Standard (AES) algorithm as a part of our Advanced Logic Design course.
-![1686899357412](https://github.com/ahmedfathy090/AES/assets/137416623/91c70bd3-e723-4a2e-9117-4a4a921976db)
+> This project provides a Verilog implementation of the Advanced Encryption Standard (AES) algorithm
+> as a part of our Advanced Logic Design course.
 
 ## Project Overview:
 The cipher.v module implements the core AES algorithm. It performs the following steps:
@@ -19,5 +19,7 @@ The cipher.v module implements the core AES algorithm. It performs the following
 - Output: The final state after all rounds is the encrypted text.
 
 ### Customization:
-> The `Nk` and `Nr` parameters in cipher.v control the key size (Nk words) and number of rounds (Nr = Nk + 6).
-> You can modify the data width (currently 128 bits) by adjusting the wire sizes throughout the code.
+- The `Nk` and `Nr` parameters in cipher.v control the key size (Nk words) and number of rounds (Nr = Nk + 6).
+- You can modify the data width (currently 128 bits) by adjusting the wire sizes throughout the code.
+</br>
+![1686899357412](https://github.com/ahmedfathy090/AES/assets/137416623/91c70bd3-e723-4a2e-9117-4a4a921976db)
