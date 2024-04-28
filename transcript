@@ -24,3 +24,14 @@
 # Compile of MC_test.v failed with 2 errors.
 # 9 compiles, 9 failed with 18 errors. 
 # ** Error: (vish-42) Unsupported ModelSim library format for "C:/Users/tasne/OneDrive/Desktop/AES/work". (Format: 4)
+# Compile of SBox.v failed with 2 errors.
+# Compile of SBox_Test.v failed with 2 errors.
+# Compile of SubBytes.v failed with 2 errors.
+# Compile of SubBytes_Test.v failed with 2 errors.
+# Compile of shift_rows.v failed with 2 errors.
+# Compile of MixColumns.v failed with 2 errors.
+# Compile of InvShiftRows.v failed with 2 errors.
+# Compile of InvMixColumns.v failed with 2 errors.
+# Compile of MC_test.v failed with 2 errors.
+# 9 compiles, 9 failed with 18 errors. 
+# ** Error: (vish-42) Unsupported ModelSim library format for "C:/Users/tasne/OneDrive/Desktop/AES/work". (Format: 4)

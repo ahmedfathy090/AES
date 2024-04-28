@@ -1,8 +1,13 @@
 module MixColumns(input [0:127] stateIn, output [0:127] stateOut);
+
+/*
+    function that performs multiplication by 2 operation, it checks if the leftmost byte equals 0 only shift left, 
+	else state byte is shifted and xored with 1b.
+*/
      
 	function [7:0] Multiply_2(input[7:0] stateByte);
 	    begin
-	        if(stateByte[7] == 0) 
+	        if(stateByte[7] == 0)   
 		        Multiply_2 = stateByte << 1;
 		      else begin
 		        Multiply_2 = stateByte << 1;
@@ -11,6 +16,7 @@ module MixColumns(input [0:127] stateIn, output [0:127] stateOut);
 		 end
 	endfunction
 	
+	// 11 = 01 ^ 10
 	function [7:0] Multiply_3(input[7:0] stateByte);
 	    begin
 	        Multiply_3 = Multiply_2(stateByte) ^ stateByte;

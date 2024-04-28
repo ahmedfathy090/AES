@@ -12,23 +12,23 @@ module InvMixColumns(input [0:127] stateIn, output [0:127] stateOut);
 	endfunction
 	
 	
-	//9 = 8 + 1
+	//9 = 8 + 1 -> 1000 ^ 0001 = 1001
 	function [7:0] Multiply_9(input[7:0] stateByte);
 	    Multiply_9 = Multiply_2(Multiply_2(Multiply_2(stateByte))) ^ stateByte;
 	endfunction
 	
-	//11 = 9 + 2
+	//11 = 9 + 2 -> 1001 ^ 0010 = 1011
 	function [7:0] Multiply_11(input[7:0] stateByte);
 	    Multiply_11 = Multiply_9(stateByte) ^ Multiply_2(stateByte);
 	endfunction
 	
-	//13 = 9 + 4
+	//13 = 9 + 4 -> 1001 ^ 0100 = 1101
 	function [7:0] Multiply_13(input[7:0] stateByte);
 	    Multiply_13 = Multiply_9(stateByte) ^ Multiply_2(Multiply_2(stateByte));
 	endfunction
 	
 
-    //14 = 8 + 4 + 2 why not 9 + 4 + 1??
+    //14 = 8 + 4 + 2  -> 1000 ^ 0100 ^ 0010 = 1110
     function [7:0] Multiply_14(input[7:0] stateByte);
 	    Multiply_14 = Multiply_2(Multiply_2(Multiply_2(stateByte))) ^ Multiply_2(Multiply_2(stateByte)) ^ Multiply_2(stateByte);
 	endfunction
@@ -45,15 +45,4 @@ module InvMixColumns(input [0:127] stateIn, output [0:127] stateOut);
 	endgenerate
 endmodule
 
-module test;
-  reg [0:127] in;
-  wire [0:127] out;
-  
-  InvMixColumns mixCol(in, out);
-  initial begin
-   $monitor("input= %H , output= %h",in,out);
-   in= 128'h627bceb9999d5aaac945ecf423f56da5;
-   #10;
- end
- endmodule
 
