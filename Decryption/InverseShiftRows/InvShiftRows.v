@@ -1,4 +1,4 @@
-module inverse_shift_rows(input [0:127] stateIn, output [0:127] stateOut);
+module Invshift_rows(input [0:127] stateIn, output [0:127] stateOut);
 
 assign stateOut[0:7]   = stateIn[0:7];//0 
 
