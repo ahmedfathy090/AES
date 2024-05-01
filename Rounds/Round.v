@@ -9,7 +9,7 @@ output [127:0] roundOut;
 wire [127:0] SB_OUT, SR_OUT, MC_OUT, ARK_OUT;
 
 // Round steps
-SubBytes S_B (state, SB_OUT);
+SubBytes SB (state, SB_OUT);
 shift_rows SR(SB_OUT, SR_OUT);
 MixColumns MC(SR_OUT,MC_OUT);
 AddRoundKey ARK(MC_OUT, ARK_OUT);

@@ -10,7 +10,7 @@ wire [127:0] SB_IN, SB_OUT, SR_OUT, AR_OUT;
 wire [127:0] state [0:Nr]; // array of (128bit wire) of size Nr
 
 // initial round 
-AddRoundKey ARK (plainText, keys[0+:128], state[0]);
+AddRoundKey ARK (plainText, key[0+:128], state[0]);
 
 // Loop through all rounds (excluding final round)
 genvar i;
