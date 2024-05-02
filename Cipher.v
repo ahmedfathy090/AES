@@ -1,41 +1,60 @@
-module Cipher #(parameter Nk=4,parameter Nr = Nk + 6) (plainText, keys, encryptedText, roundOutreg); 
+module Cipher #(parameter Nk=4,parameter Nr = Nk + 6) ( clk, reset, plainText, keys, encryptedText); 
 
 // Main module parameters
+input clk, reset;
 input [127:0] plainText;
-input [(Nk*32) * Nr - 1:0] keys; // whole keys
-output [127:0] encryptedText;
-output reg [0:(Nr+1)*128-1] roundOutreg ;
+input [0:(Nk*32) * Nr - 1] keys; // whole keys
+output reg [127:0] encryptedText;
 
 // temp parameters
 wire [127:0] SB_IN, SB_OUT, SR_OUT;
-wire [127:0] state [0:Nr]; // array of (128bit wire) of size Nr
+reg [127:0] state [0:Nr]; // array of (128bit wire) of size Nr
+wire [127:0] RoundIn, RoundOut,RoundOut1;
+reg [127:0] RoundInReg;
+reg [3:0] round = 4'b0000; // Counter for the current round
 
-// initial round 
-AddRoundKey ARK (plainText, keys[0+:128], state[0]);
-initial
-roundOutreg[0:128] = state[0];
-// Loop through all rounds (excluding final round)
-genvar i;
-generate
-for (i = 1; i < Nr; i = i + 1) begin : Cipherloop
-Round #(Nk,Nr) encryptionRound (state[i - 1], keys[128*i+:128], state[i]);
-end
-endgenerate
-integer j;
 
-assign SB_IN = state[Nr - 1];
+localparam INITIAL_ROUND = 2'b00, ROUNDS = 2'b01, FINAL_ROUND = 2'b10;
 
-// Final round
-SubBytes SB (SB_IN, SB_OUT);
+reg[1:0] currentstate = INITIAL_ROUND; // Initial state
+AddRoundKey ARK (plainText, keys[0:127], RoundIn);
+Round #(Nk,Nr) encryptionRound (RoundInReg, keys[128*round+:128], RoundOut);
+SubBytes SB (state[Nr - 1], SB_OUT);
 shift_rows SR(SB_OUT, SR_OUT);
-AddRoundKey ARK1 (SR_OUT, keys[(Nr-1)*128+:128], state[Nr]);
+AddRoundKey ARK1 (SR_OUT, keys[(Nr-1)*128+:128], RoundOut1);
 
-assign encryptedText = state[Nr];
 
-// Store all the states to be printed
-initial begin
-    for (j = 0; j <= Nr; j = j + 1) begin
-       roundOutreg[128*j+:128] = state[j];
-     end
+
+always @(posedge clk or posedge reset) begin
+    if (reset) begin
+        round <= 4'b0000;
+        currentstate <= INITIAL_ROUND;
+    end else begin 
+        case (currentstate)
+            INITIAL_ROUND: begin
+                state[0] <= RoundIn;
+                encryptedText <= RoundIn;
+                RoundInReg <= RoundIn;
+                currentstate <= ROUNDS;
+            end
+            ROUNDS: begin
+                if (round < Nr - 1) begin
+                    round <= round + 4'b0001; 
+                    state[round] <= RoundOut;
+                    RoundInReg <= state[round];
+                    encryptedText <= RoundOut;
+                end else begin
+                    currentstate <= FINAL_ROUND;
+                end
+            end
+            FINAL_ROUND: begin
+                if(round + 1 == Nr) begin
+                encryptedText <= RoundOut1; 
+                round <= round + 4'b0001;
+                end
+            end
+        endcase
+    end
 end
+
 endmodule
