@@ -12,8 +12,8 @@ wire [127:0] SB_OUT, SR_OUT, MC_OUT, ARK_OUT;
 SubBytes SB (state, SB_OUT);
 shift_rows SR(SB_OUT, SR_OUT);
 MixColumns MC(SR_OUT,MC_OUT);
-AddRoundKey ARK(MC_OUT, ARK_OUT);
+AddRoundKey ARK(MC_OUT, key, ARK_OUT);
 
-assign roundOut = SB_OUT;
+assign roundOut = ARK_OUT;
 
 endmodule

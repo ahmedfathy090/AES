@@ -1,3 +1,19 @@
 # Reading pref.tcl
 # OpenFile C:/Users/ahmed/OneDrive/Desktop/AES/AES.mpf
 # Loading project AES
+# Compile of AddRoundKey.v was successful.
+# Compile of MixColumns.v was successful.
+# Compile of shift_rows.v was successful.
+# Compile of SubBytes.v was successful.
+# Compile of SBox.v was successful.
+# Compile of InvMixColumns.v was successful.
+# Compile of InvShiftRows.v was successful.
+# Compile of InvSBox.v was successful.
+# Compile of InvSubBytes.v was successful.
+# Compile of BCDtoSSD.v was successful.
+# Compile of BCD_E.v was successful.
+# Compile of Round.v was successful.
+# Compile of InvRound.v was successful.
+# Compile of Cipher.v was successful.
+# Compile of InvCipher.v was successful.
+# 15 compiles, 0 failed with no errors.
