@@ -3,7 +3,7 @@ module Cipher #(parameter Nk=4,parameter Nr = Nk + 6) ( clk, reset, plainText, k
 // Main module parameters
 input clk, reset;
 input [127:0] plainText;
-input [0:(Nk*32) * Nr - 1] keys; // whole keys
+input [0:(Nk*32) * (Nr + 1) - 1] keys; // whole keys
 output reg [127:0] encryptedText;
 
 // temp parameters

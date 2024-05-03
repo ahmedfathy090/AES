@@ -1,4 +1,4 @@
-module key_expansion(input [0:127] wIn, output [0:127] wOut, input [3:0] roundNum);
+module key_expansion #( parameter roundNum = 1) (input [0:127] wIn, output [0:127] wOut);
 function [0:7] SBox (input [0:7] In);
 begin
 case (In)
@@ -284,7 +284,7 @@ end
 endfunction
 
 
-  function [0:31] roundConst (input [0:3] roundNum);
+  function [0:31] roundConst ( input roundNum);
 begin
     case(roundNum)
     1: roundConst = 32'h01000000;

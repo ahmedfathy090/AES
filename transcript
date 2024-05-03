@@ -16,4 +16,62 @@
 # Compile of InvRound.v was successful.
 # Compile of Cipher.v was successful.
 # Compile of InvCipher.v was successful.
-# 15 compiles, 0 failed with no errors.
+# Compile of Main.v was successful.
+# Compile of Key_expansion.v was successful.
+# Compile of KeysGenerator.v was successful.
+# 18 compiles, 0 failed with no errors.
+# Compile of Main.v was successful.
+vsim Main
+# vsim Main 
+# Start time: 17:28:09 on May 03,2024
+# Loading work.Main
+# Loading work.KeysGenerator
+# Loading work.Cipher
+# Loading work.AddRoundKey
+# Loading work.Round
+# Loading work.SubBytes
+# Loading work.shift_rows
+# Loading work.MixColumns
+# Loading work.InvCipher
+# Loading work.InvRound
+# Loading work.Invshift_rows
+# Loading work.InvSubBytes
+# Loading work.InvMixColumns
+# Loading work.BCD_E
+# Loading work.ADD3_E
+# Loading work.BCDtoSSD
+# Loading work.key_expansion
+# Loading work.SBox
+# Loading work.InvSBox
+add wave -position insertpoint  \
+sim:/Main/Nk \
+sim:/Main/Nr \
+sim:/Main/clk \
+sim:/Main/reset \
+sim:/Main/enable \
+sim:/Main/successFlag \
+sim:/Main/Units_seg \
+sim:/Main/Tens_seg \
+sim:/Main/Hunds_seg \
+sim:/Main/keysContainer \
+sim:/Main/keysContainer_InvC \
+sim:/Main/plainText \
+sim:/Main/key \
+sim:/Main/encryptedText \
+sim:/Main/outPlainText \
+sim:/Main/expectedEncrypt \
+sim:/Main/units \
+sim:/Main/tens \
+sim:/Main/hunds \
+sim:/Main/Units_reg \
+sim:/Main/Hunds_reg \
+sim:/Main/Tens_reg \
+sim:/Main/displayedOut \
+sim:/Main/count
+force -freeze sim:/Main/clk 1 0, 0 {50 ps} -r 100
+force -freeze sim:/Main/reset 0 0
+force -freeze sim:/Main/enable 1 0
+run 3000
+# WARNING: No extended dataflow license exists
+# End time: 17:39:32 on May 03,2024, Elapsed time: 0:11:23
+# Errors: 0, Warnings: 3

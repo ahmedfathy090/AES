@@ -1,25 +1,22 @@
 module Main #(parameter Nk = 4, parameter Nr = Nk + 6) (clk, enable,reset, successFlag, Units_seg, Tens_seg, Hunds_seg);
 
 input clk, reset, enable;
-output reg successFlag = 1'b0;
+output reg successFlag;
 output [0:6] Units_seg, Tens_seg, Hunds_seg;
 
 // Store the keys for the encryption & decryption
 wire [0:1407] keysContainer;
 wire [1407:0] keysContainer_InvC = keysContainer;
 
-wire [0:127] plainText = 128'h00112233445566778899aabbccddeeff;
+wire [0:127] plainText = 128'h00112233445566778899aabbccddeefff;
 wire [0:127] key = 128'h000102030405060708090a0b0c0d0e0f;
 
 wire [0:127] encryptedText, outPlainText;
 wire [0:127] expectedEncrypt;
 
-wire [3:0] units, tens, hunds;
-reg[3:0] Units_reg, Hunds_reg, Tens_reg;
-
 reg [0:127] displayedOut;
 
-KeysGenerator KG (key, keysContainer);
+KeysGenerator(key, keysContainer);
 
 Cipher #(4, 10) C (clk, reset, plainText, keysContainer [0:1407], encryptedText);
 InvCipher #(4, 10) IC (clk, reset, encryptedText, keysContainer_InvC [1407:0], outPlainText);
@@ -52,7 +49,8 @@ always @(posedge clk) begin
     end 
 end 
 
-
+wire [3:0] units, tens, hunds;
+reg[3:0] Units_reg, Hunds_reg, Tens_reg;
 
 
 

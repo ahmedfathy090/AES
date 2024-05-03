@@ -5,6 +5,13 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	AddRoundKey
 
+} {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module SBox
+
+Top level modules:
+	SBox
+
 } {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InverseMixColumns/InvMixColumns.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InverseMixColumns/InvMixColumns.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module InvMixColumns
@@ -12,12 +19,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	InvMixColumns
 
-} {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox.v
+} {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module SBox
+-- Compiling module InvCipher
 
 Top level modules:
-	SBox
+	InvCipher
 
 } {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/ShiftRows/shift_rows.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/ShiftRows/shift_rows.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -33,6 +40,20 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	InvSubBytes
 
+} {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Main.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Main.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Main
+
+Top level modules:
+	Main
+
+} {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Keys/KeysGenerator.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Keys/KeysGenerator.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module KeysGenerator
+
+Top level modules:
+	KeysGenerator
+
 } {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSBox.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSBox.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module InvSBox
@@ -40,12 +61,26 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	InvSBox
 
+} {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Rounds/InvRound.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Rounds/InvRound.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module InvRound
+
+Top level modules:
+	InvRound
+
 } {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/MixColumns/MixColumns.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/MixColumns/MixColumns.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module MixColumns
 
 Top level modules:
 	MixColumns
+
+} {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module key_expansion
+
+Top level modules:
+	key_expansion
 
 } {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Convertors/BCD_E.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Convertors/BCD_E.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -62,13 +97,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	Round
 
-} {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InverseShiftRows/InvShiftRows.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InverseShiftRows/InvShiftRows.v
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module Invshift_rows
-
-Top level modules:
-	Invshift_rows
-
 } {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Convertors/BCDtoSSD.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Convertors/BCDtoSSD.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module BCDtoSSD
@@ -76,11 +104,25 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	BCDtoSSD
 
+} {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InverseShiftRows/InvShiftRows.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InverseShiftRows/InvShiftRows.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Invshift_rows
+
+Top level modules:
+	Invshift_rows
+
 } {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SubBytes.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SubBytes.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module SubBytes
 
 Top level modules:
 	SubBytes
+
+} {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Cipher.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Cipher.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Cipher
+
+Top level modules:
+	Cipher
 
 } {} {}}

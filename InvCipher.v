@@ -2,7 +2,7 @@ module InvCipher #(parameter Nk=4,parameter Nr = Nk + 6) (clk, reset, encryptedT
 // Main module parameters
 input clk, reset;
 input [127:0] encryptedText;
-input [0:(Nk*32) * Nr - 1] keys; // whole keys
+input [0:(Nk*32) * (Nr + 1) - 1] keys; // whole keys
 output reg [127:0] decryptedText;
 
 // temp parameters
