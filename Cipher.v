@@ -23,7 +23,7 @@ AddRoundKey ARK (plainText, keys[0:127], RoundIn);
 Round #(Nk,Nr) encryptionRound (RoundInReg, keys[128*round+:128], RoundOut);
 SubBytes SB (state[Nr - 1], SB_OUT);
 shift_rows SR(SB_OUT, SR_OUT);
-AddRoundKey ARK1 (SR_OUT, keys[(Nr-1)*128+:128], RoundOut1);
+AddRoundKey ARK1 (SR_OUT, keys[(Nr)*128+:128], RoundOut1);
 
 
 always @(posedge clk or posedge reset) begin
@@ -36,14 +36,15 @@ always @(posedge clk or posedge reset) begin
                 state[0] <= RoundIn;
                 encryptedText <= RoundIn;
                 RoundInReg <= RoundIn;
+                round <= round + 4'b0001; 
                 currentstate <= ROUNDS;
             end
             ROUNDS: begin
-                if (round < Nr - 1) begin
-                    round <= round + 4'b0001; 
+                if (round < Nr - 1) begin 
                     state[round] <= RoundOut;
                     RoundInReg <= state[round];
                     encryptedText <= RoundOut;
+                    round <= round + 4'b0001;
                 end else begin
                     currentstate <= FINAL_ROUND;
                 end

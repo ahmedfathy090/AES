@@ -2,7 +2,7 @@ module Round #(parameter Nk=4, parameter Nr=10) (state, key, roundOut);
 
 // Main module parameters
 input [0:127] state;
-input [32*Nk -1: 0] key;
+input [0 : 32*Nk -1] key;
 output [0:127] roundOut;
 
 // Temp wires
