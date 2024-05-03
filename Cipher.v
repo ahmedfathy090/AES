@@ -17,12 +17,13 @@ reg [3:0] round = 4'b0000; // Counter for the current round
 localparam INITIAL_ROUND = 2'b00, ROUNDS = 2'b01, FINAL_ROUND = 2'b10;
 
 reg[1:0] currentstate = INITIAL_ROUND; // Initial state
+
+
 AddRoundKey ARK (plainText, keys[0:127], RoundIn);
 Round #(Nk,Nr) encryptionRound (RoundInReg, keys[128*round+:128], RoundOut);
 SubBytes SB (state[Nr - 1], SB_OUT);
 shift_rows SR(SB_OUT, SR_OUT);
 AddRoundKey ARK1 (SR_OUT, keys[(Nr-1)*128+:128], RoundOut1);
-
 
 
 always @(posedge clk or posedge reset) begin
@@ -56,5 +57,4 @@ always @(posedge clk or posedge reset) begin
         endcase
     end
 end
-
 endmodule
