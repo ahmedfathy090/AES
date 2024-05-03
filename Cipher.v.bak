@@ -1,13 +1,13 @@
 module Cipher #(parameter Nk=4,parameter Nr = Nk + 6) (plainText, keys, encryptedText); 
 
 // Main module parameters
-input [127:0] plainText;
+input [0:127] plainText;
 input [(Nk*32) * Nr - 1:0] keys; // whole keys
-output [127:0] encryptedText;
+output [0:127] encryptedText;
 
 // temp parameters
-wire [127:0] SB_IN, SB_OUT, SR_OUT, AR_OUT;
-wire [127:0] state [0:Nr]; // array of (128bit wire) of size Nr
+wire [0:127] SB_IN, SB_OUT, SR_OUT, AR_OUT;
+wire [0:127] state [0:Nr]; // array of (128bit wire) of size Nr
 
 // initial round 
 AddRoundKey ARK (plainText, key[0+:128], state[0]);

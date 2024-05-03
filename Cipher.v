@@ -2,15 +2,15 @@ module Cipher #(parameter Nk=4,parameter Nr = Nk + 6) ( clk, reset, plainText, k
 
 // Main module parameters
 input clk, reset;
-input [127:0] plainText;
+input [0:127] plainText;
 input [0:(Nk*32) * (Nr + 1) - 1] keys; // whole keys
-output reg [127:0] encryptedText;
+output reg [0:127] encryptedText;
 
 // temp parameters
-wire [127:0] SB_IN, SB_OUT, SR_OUT;
-reg [127:0] state [0:Nr]; // array of (128bit wire) of size Nr
-wire [127:0] RoundIn, RoundOut,RoundOut1;
-reg [127:0] RoundInReg;
+wire [0:127] SB_IN, SB_OUT, SR_OUT;
+reg [0:127] state [0:Nr]; // array of (128bit wire) of size Nr
+wire [0:127] RoundIn, RoundOut,RoundOut1;
+reg [0:127] RoundInReg;
 reg [3:0] round = 4'b0000; // Counter for the current round
 
 

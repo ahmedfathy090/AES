@@ -1,12 +1,12 @@
 module Round #(parameter Nk=4, parameter Nr=10) (state, key, roundOut); 
 
 // Main module parameters
-input [127:0] state;
+input [0:127] state;
 input [32*Nk -1: 0] key;
-output [127:0] roundOut;
+output [0:127] roundOut;
 
 // Temp wires
-wire [127:0] SB_OUT, SR_OUT, MC_OUT, ARK_OUT;
+wire [0:127] SB_OUT, SR_OUT, MC_OUT, ARK_OUT;
 
 // Round steps
 SubBytes SB (state, SB_OUT);
