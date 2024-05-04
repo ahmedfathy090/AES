@@ -4,7 +4,8 @@ module KeysGenerator  #(parameter Nk=4,parameter Nr = Nk + 6) (input [0:127] key
      generate 
         for (i = 1; i < Nr + 1; i = i + 1) 
           begin : keyG
-            key_expansion #(i) KE (allKeys[128*(i-1)+:128], allKeys[128*i+:128]); 
+            localparam [3:0] count = i;
+            key_expansion KE (allKeys[128*(i-1)+:128], allKeys[128*i+:128], count); 
           end
       endgenerate  
 endmodule
