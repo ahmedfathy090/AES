@@ -12,6 +12,7 @@ wire [0:127] RoundIn, RoundOut,RoundOut1;
 reg [0:127] final_round;
 reg [0:127] RoundInReg;
 reg [3:0] round = 4'b0000; // Counter for the current round
+reg C_reset = 1'b0;
 
 
 localparam INITIAL_ROUND = 2'b00, ROUNDS = 2'b01, FINAL_ROUND = 2'b10;
@@ -23,20 +24,24 @@ Round #(Nk,Nr) encryptionRound (clks ,RoundInReg, keys[128*(round)+:128], RoundO
 SubBytes SB (final_round, SB_OUT);
 shift_rows SR(SB_OUT, SR_OUT);
 AddRoundKey ARK1 (SR_OUT, keys[(Nr)*128+:128], RoundOut1);
-
+always @(*) begin
+    RoundInReg <= RoundIn;
+    encryptedText <= RoundIn;
+end
 
 
 
 always @(posedge clks) begin
    // $display("Round :%d ",round);
-    if (reset) begin
+    if (reset | C_reset) begin
         round <= 4'b0000;
         currentstate <= INITIAL_ROUND;
+        C_reset <= 1'b0;
     end 
         case (currentstate)
             INITIAL_ROUND: begin
-                RoundInReg <= RoundIn;
-                encryptedText <= RoundIn;
+                //RoundInReg <= RoundIn;
+               // encryptedText <= RoundIn;
                 round <= round + 4'b0001;
                 currentstate <= ROUNDS;
             end
@@ -55,6 +60,7 @@ always @(posedge clks) begin
               if(round==Nr) begin
                 encryptedText <= RoundOut1; 
                 round <= round + 4'b0001;
+                C_reset <= 1'b1;
                 end
             end
         endcase

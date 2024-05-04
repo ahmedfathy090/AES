@@ -22,34 +22,41 @@ reg[3:0] Units_reg, Hunds_reg, Tens_reg;
 
 reg [0:127] displayedOut;
 KeysGenerator KG (key, keysContainer);
-Cipher #(4, 10) C (clk, reset, plainText, keysContainer [0:1407], encryptedText);
-InvCipher #(4, 10) IC (clk, reset, encryptedText_reg, keysContainer_InvC [1407:0], outPlainText);
+Cipher #(4, 10) C (clk, C_reset, plainText, keysContainer [0:1407], encryptedText);
+
+InvCipher #(4, 10) IC (clk, IC_reset, encryptedText_reg, keysContainer_InvC [1407:0], outPlainText);
 
 reg [4:0] count = 5'd0;
 
 always @(posedge clk) begin 
      $display("round out :%h ",encryptedText);
+     $display("inround out :%h ",outPlainText);
      $display("count :%d ",count);
      $display("encryptedText :%h ",encryptedText_reg);
+     $display("outPlainText :%h ",outPlainText_reg);
     if (reset) begin
         count <= 5'd0;
     end 
     else begin
         if(count <= 10) begin
             C_reset <= 1'b0;
-           displayedOut <= encryptedText;
+           displayedOut = encryptedText;
         end
-        else if(count == 11)
-        begin 
-              IC_reset <= 1'b1;
-              encryptedText_reg <= encryptedText;
-        end else if(count <= 21) begin
+        else if(count <= 21) begin
            IC_reset <= 1'b0;
-           displayedOut <= outPlainText;
-        end else if(count == 21)
+           displayedOut = outPlainText;
+           outPlainText_reg = outPlainText;
+        end 
+        if(count == 10) begin
+            IC_reset <= 1'b1;
+        end
+        if(count == 11) begin
+            encryptedText_reg = encryptedText;
+        end
+        if(count == 21)
         begin
               C_reset <= 1'b1;
-              outPlainText_reg <= outPlainText;
+              outPlainText_reg = outPlainText;
         end
 
 
