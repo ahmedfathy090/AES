@@ -22,3 +22,16 @@ Trace back: can't read "Project(EchoCompileOutput)": no such element in array
     (command bound to event)
   <2:C:/intelFPGA/20.1/modelsim_ase/win32aloem/tk8.6/bgerror.tcl:106: ::tkerror {can't read "Project(EchoCompileOutput)": no such element in array}
   <1:eval:1: ::tk::dialog::error::bgerror {can't read "Project(EchoCompileOutput)": no such element in array}
+Fri May 03 16:34:30 +0300 2024
+Trace back: bad window path name ".srcobjdlg"
+    while executing
+"tk_dialog .srcobjdlg "Warning!" "$msg" "" 1 Overwrite Reload Ignore"
+    (object "::.main_pane.source.interior.cs.body.srcobj" method "::vsimwidgets::Srcobj::CheckModification" body line 18)
+    invoked from within
+"::.main_pane.source.interior.cs.body.srcobj CheckModification"
+    (in namespace inscope "::vsimwidgets::Srcobj" script line 1)
+    invoked from within
+"namespace inscope ::vsimwidgets::Srcobj {::.main_pane.source.interior.cs.body.srcobj CheckModification}"
+    (command bound to event)
+  <2:C:/intelFPGA/20.1/modelsim_ase/win32aloem/tk8.6/bgerror.tcl:106: ::tkerror {bad window path name ".srcobjdlg"}
+  <1:eval:1: ::tk::dialog::error::bgerror {bad window path name ".srcobjdlg"}

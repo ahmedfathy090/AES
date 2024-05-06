@@ -1,60 +1,99 @@
-module Cipher #(parameter Nk=4,parameter Nr = Nk + 6) ( clk, reset, plainText, keys, encryptedText); 
+module Cipher #(parameter Nk=4,parameter Nr = Nk + 6) ( clks, reset, plainText, keys, encryptedText); 
 
 // Main module parameters
-input clk, reset;
-input [127:0] plainText;
-input [0:(Nk*32) * Nr - 1] keys; // whole keys
-output reg [127:0] encryptedText;
+input clks, reset;
+input [0:127] plainText;
+input [0:(Nk*32) * (Nr + 1) - 1] keys; // whole keys
+output reg [0:127] encryptedText;
 
 // temp parameters
-wire [127:0] SB_IN, SB_OUT, SR_OUT;
-reg [127:0] state [0:Nr]; // array of (128bit wire) of size Nr
-wire [127:0] RoundIn, RoundOut,RoundOut1;
-reg [127:0] RoundInReg;
+wire [0:127] SB_IN, SB_OUT, SR_OUT;
+wire [0:127] RoundIn, RoundOut,RoundOut1;
+reg [0:127] final_round;
+reg [0:127] RoundInReg;
 reg [3:0] round = 4'b0000; // Counter for the current round
+reg C_reset = 1'b0;
 
 
 localparam INITIAL_ROUND = 2'b00, ROUNDS = 2'b01, FINAL_ROUND = 2'b10;
 
 reg[1:0] currentstate = INITIAL_ROUND; // Initial state
 
-
 AddRoundKey ARK (plainText, keys[0:127], RoundIn);
-Round #(Nk,Nr) encryptionRound (RoundInReg, keys[128*round+:128], RoundOut);
-SubBytes SB (state[Nr - 1], SB_OUT);
+Round #(Nk,Nr) encryptionRound (clks ,RoundInReg, keys[128*(round)+:128], RoundOut);
+SubBytes SB (final_round, SB_OUT);
 shift_rows SR(SB_OUT, SR_OUT);
-AddRoundKey ARK1 (SR_OUT, keys[(Nr-1)*128+:128], RoundOut1);
+AddRoundKey ARK1 (SR_OUT, keys[(Nr)*128+:128], RoundOut1);
+always @(*) begin
+    RoundInReg <= RoundIn;
+    encryptedText <= RoundIn;
+end
 
 
-always @(posedge clk or posedge reset) begin
-    if (reset) begin
+
+always @(posedge clks) begin
+   // $display("Round :%d ",round);
+    if (reset | C_reset) begin
         round <= 4'b0000;
         currentstate <= INITIAL_ROUND;
-    end else begin 
+        C_reset <= 1'b0;
+    end 
         case (currentstate)
             INITIAL_ROUND: begin
-                state[0] <= RoundIn;
-                encryptedText <= RoundIn;
-                RoundInReg <= RoundIn;
+                //RoundInReg <= RoundIn;
+               // encryptedText <= RoundIn;
+                round <= round + 4'b0001;
                 currentstate <= ROUNDS;
             end
             ROUNDS: begin
-                if (round < Nr - 1) begin
-                    round <= round + 4'b0001; 
-                    state[round] <= RoundOut;
-                    RoundInReg <= state[round];
+                if (round < Nr ) begin 
+                    RoundInReg <= RoundOut;
                     encryptedText <= RoundOut;
-                end else begin
-                    currentstate <= FINAL_ROUND;
+                    round <= round + 4'b0001;
+                    if(round == Nr-1 ) begin
+                        final_round <= RoundOut;
+                        currentstate <= FINAL_ROUND;
+                        end
                 end
             end
             FINAL_ROUND: begin
-                if(round + 1 == Nr) begin
+              if(round==Nr) begin
                 encryptedText <= RoundOut1; 
                 round <= round + 4'b0001;
+                C_reset <= 1'b1;
                 end
             end
         endcase
-    end
+    
 end
+
+
+
+
+
+
 endmodule
+
+
+module Cipher_tb;
+    reg clks, reset;
+    reg [0:127] plainText;
+    reg [0:(4*32) * (11) - 1] keys; // whole keys
+    wire [0:127] encryptedText;
+
+    // Instantiate the Cipher module
+    Cipher #(4, 10) cipher(clks, reset, plainText, keys, encryptedText);
+
+    // Initialize the inputs
+    initial begin
+        clks = 0;
+        reset = 0;
+        plainText = 128'h00112233445566778899aabbccddeeff;
+        keys = 1408'h000102030405060708090a0b0c0d0e0fd6aa74fdd2af72fadaa678f1d6ab76feb692cf0b643dbdf1be9bc5006830b3feb6ff744ed2c2c9bf6c590cbf0469bf4147f7f7bc95353e03f96c32bcfd058dfd3caaa3e8a99f9deb50f3af57adf622aa5e390f7df7a69296a7553dc10aa31f6b14f9701ae35fe28c440adf4d4ea9c02647438735a41c65b9e016baf4aebf7ad2549932d1f08557681093ed9cbe2c974e13111d7fe3944a17f307a78b4d2b30c5;
+        #1500; 
+    end
+
+    // Toggle the clock
+    always #100 clks = ~clks;
+
+    endmodule

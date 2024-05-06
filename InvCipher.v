@@ -1,59 +1,86 @@
-module InvCipher #(parameter Nk=4,parameter Nr = Nk + 6) (clk, reset, encryptedText, keys, decryptedText); 
+module InvCipher #(parameter Nk=4,parameter Nr = Nk + 6) (clks, reset, encryptedText, keys, decryptedText); 
+
+
 // Main module parameters
-input clk, reset;
-input [127:0] encryptedText;
-input [0:(Nk*32) * Nr - 1] keys; // whole keys
-output reg [127:0] decryptedText;
+input clks, reset;
+input [0:127] encryptedText;
+input [0:(Nk*32) * (Nr + 1) - 1] keys; // whole keys
+output reg [0:127] decryptedText;
 
 // temp parameters
-wire [127:0] Inv_SB_IN, Inv_SB_OUT, Inv_SR_OUT;
-reg [127:0] state [0:Nr]; // array of (128bit wire) of size Nr
-wire [127:0] RoundIn, RoundOut,RoundOut1;
-reg [127:0] RoundInReg;
+wire [0:127] Inv_SB_IN, Inv_SB_OUT, Inv_SR_OUT;
+wire [0:127] RoundIn, RoundOut,RoundOut1;
+reg [0:127] final_round;
+reg [0:127] RoundInReg;
 reg [3:0] round = 4'b0000; // Counter for the current round
+reg InvC_reset = 1'b0;
+
+
 
 
 localparam INITIAL_ROUND = 2'b00, ROUNDS = 2'b01, FINAL_ROUND = 2'b10;
 
 reg[1:0] currentstate = INITIAL_ROUND; // Initial state
-AddRoundKey ARK (encryptedText, keys[0:127], RoundIn);
-InvRound #(Nk,Nr) decryptionRound (RoundInReg, keys[128*round+:128], RoundOut);
-InvSubBytes SB (state[Nr - 1], Inv_SB_OUT);
+
+AddRoundKey ARK (encryptedText, keys[1407-:128], RoundIn);
+InvRound #(Nk,Nr) decryptionRound (clks, RoundInReg, keys[(128*(Nr-round+1)-1)-:128], RoundOut);
+InvSubBytes SB (final_round, Inv_SB_OUT);
 Invshift_rows SR(Inv_SB_OUT, Inv_SR_OUT);
-AddRoundKey ARK1 (Inv_SR_OUT, keys[(Nr-1)*128+:128], RoundOut1);
+AddRoundKey ARK1 (Inv_SR_OUT, keys[0:127], RoundOut1);
+
+always @(*) begin
+    if(round == 0) begin
+        RoundInReg <= RoundIn;
+        decryptedText <= RoundIn;
+    end
+    else if(round < Nr) begin
+        decryptedText <= RoundOut;
+    end else if(round == Nr) begin
+        decryptedText <= RoundOut1;
+        end
+end
 
 
-always @(posedge clk or posedge reset) begin
-    if (reset) begin
+always @(posedge clks) begin
+    
+    $display("Round :%d ",round);
+    $display("InvCpher ::  :: :: :: :: :: :: :: :: :: encryptedText :%h ",RoundIn);
+    $display("InvCpher ::  :: :: :: :: :: :: :: :: :: decryptedText :%h ",RoundOut);
+    if (reset | InvC_reset) begin
         round <= 4'b0000;
         currentstate <= INITIAL_ROUND;
-    end else begin 
+        InvC_reset <= 1'b0;
+    end 
         case (currentstate)
             INITIAL_ROUND: begin
-                state[0] <= RoundIn;
-                decryptedText <= RoundIn;
-                RoundInReg <= RoundIn;
+                // RoundInReg <= RoundIn;
+                // decryptedText <= RoundIn;
+                round <= round + 4'b0001;
                 currentstate <= ROUNDS;
             end
             ROUNDS: begin
-                if (round < Nr - 1) begin
-                    round <= round + 4'b0001; 
-                    state[round] <= RoundOut;
-                    RoundInReg <= state[round];
+                if (round < Nr ) begin 
+                    RoundInReg <= RoundOut;
                     decryptedText <= RoundOut;
-                end else begin
-                    currentstate <= FINAL_ROUND;
+                    round <= round + 4'b0001;
+                    if(round == Nr-1 ) begin
+                        final_round <= RoundOut;
+                        currentstate <= FINAL_ROUND;
+                        end
                 end
             end
             FINAL_ROUND: begin
-                if(round + 1 == Nr) begin
+             if(round==Nr) begin
                 decryptedText <= RoundOut1; 
                 round <= round + 4'b0001;
-                end
+                InvC_reset <= 1'b1;
+             end
             end
         endcase
-    end
+    
 end
+
+
 
 endmodule
 
