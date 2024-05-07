@@ -4,7 +4,8 @@ module Cipher #(parameter Nk=4,parameter Nr = Nk + 6) ( clks, reset, plainText, 
 input clks, reset;
 input [0:127] plainText;
 input [0:(Nk*32) * (Nr + 1) - 1] keys; // whole keys
-output reg [0:127] encryptedText;
+output [0:127] encryptedText;
+reg [0:127] tempEncryptedText;
 
 // temp parameters
 wire [0:127] SB_IN, SB_OUT, SR_OUT;
@@ -24,9 +25,10 @@ Round #(Nk,Nr) encryptionRound (clks ,RoundInReg, keys[128*(round)+:128], RoundO
 SubBytes SB (final_round, SB_OUT);
 shift_rows SR(SB_OUT, SR_OUT);
 AddRoundKey ARK1 (SR_OUT, keys[(Nr)*128+:128], RoundOut1);
+
 always @(*) begin
-    RoundInReg <= RoundIn;
-    encryptedText <= RoundIn;
+    //RoundInReg = RoundIn;
+    //tempEncryptedText = RoundIn;
 end
 
 
@@ -40,15 +42,15 @@ always @(posedge clks) begin
     end 
         case (currentstate)
             INITIAL_ROUND: begin
-                //RoundInReg <= RoundIn;
-               // encryptedText <= RoundIn;
+                RoundInReg <= RoundIn;
+                tempEncryptedText <= RoundIn;
                 round <= round + 4'b0001;
                 currentstate <= ROUNDS;
             end
             ROUNDS: begin
                 if (round < Nr ) begin 
                     RoundInReg <= RoundOut;
-                    encryptedText <= RoundOut;
+                    tempEncryptedText <= RoundOut;
                     round <= round + 4'b0001;
                     if(round == Nr-1 ) begin
                         final_round <= RoundOut;
@@ -58,7 +60,7 @@ always @(posedge clks) begin
             end
             FINAL_ROUND: begin
               if(round==Nr) begin
-                encryptedText <= RoundOut1; 
+                tempEncryptedText <= RoundOut1; 
                 round <= round + 4'b0001;
                 C_reset <= 1'b1;
                 end
@@ -68,7 +70,7 @@ always @(posedge clks) begin
 end
 
 
-
+assign encryptedText = tempEncryptedText;
 
 
 

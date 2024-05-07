@@ -1,0 +1,1429 @@
+Analysis & Synthesis report for AES
+Tue May  7 17:12:05 2024
+Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |AES|InvCipher:IC|currentstate
+  9. State Machine - |AES|Cipher:C|currentstate
+ 10. User-Specified and Inferred Latches
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: Top-level Entity: |AES
+ 14. Parameter Settings for User Entity Instance: KeysGenerator:KG
+ 15. Parameter Settings for User Entity Instance: Cipher:C
+ 16. Parameter Settings for User Entity Instance: Cipher:C|Round:encryptionRound
+ 17. Parameter Settings for User Entity Instance: InvCipher:IC
+ 18. Parameter Settings for User Entity Instance: InvCipher:IC|InvRound:decryptionRound
+ 19. Port Connectivity Checks: "BCD_E:bcd_encoder|ADD3_E:C6"
+ 20. Port Connectivity Checks: "BCD_E:bcd_encoder|ADD3_E:C1"
+ 21. Port Connectivity Checks: "Cipher:C"
+ 22. Port Connectivity Checks: "KeysGenerator:KG|key_expansion:keyG[10].KE"
+ 23. Port Connectivity Checks: "KeysGenerator:KG|key_expansion:keyG[9].KE"
+ 24. Port Connectivity Checks: "KeysGenerator:KG|key_expansion:keyG[8].KE"
+ 25. Port Connectivity Checks: "KeysGenerator:KG|key_expansion:keyG[7].KE"
+ 26. Port Connectivity Checks: "KeysGenerator:KG|key_expansion:keyG[6].KE"
+ 27. Port Connectivity Checks: "KeysGenerator:KG|key_expansion:keyG[5].KE"
+ 28. Port Connectivity Checks: "KeysGenerator:KG|key_expansion:keyG[4].KE"
+ 29. Port Connectivity Checks: "KeysGenerator:KG|key_expansion:keyG[3].KE"
+ 30. Port Connectivity Checks: "KeysGenerator:KG|key_expansion:keyG[2].KE"
+ 31. Port Connectivity Checks: "KeysGenerator:KG|key_expansion:keyG[1].KE"
+ 32. Port Connectivity Checks: "KeysGenerator:KG"
+ 33. Post-Synthesis Netlist Statistics for Top Partition
+ 34. Elapsed Time Per Partition
+ 35. Analysis & Synthesis Messages
+ 36. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++---------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Tue May  7 17:12:05 2024          ;
+; Quartus Prime Version           ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
+; Revision Name                   ; AES                                            ;
+; Top-level Entity Name           ; AES                                            ;
+; Family                          ; Cyclone V                                      ;
+; Logic utilization (in ALMs)     ; N/A                                            ;
+; Total registers                 ; 663                                            ;
+; Total pins                      ; 25                                             ;
+; Total virtual pins              ; 0                                              ;
+; Total block memory bits         ; 0                                              ;
+; Total DSP Blocks                ; 0                                              ;
+; Total HSSI RX PCSs              ; 0                                              ;
+; Total HSSI PMA RX Deserializers ; 0                                              ;
+; Total HSSI TX PCSs              ; 0                                              ;
+; Total HSSI PMA TX Serializers   ; 0                                              ;
+; Total PLLs                      ; 0                                              ;
+; Total DLLs                      ; 0                                              ;
++---------------------------------+------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; AES                ; AES                ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                  ;
++-------------------------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path                ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                     ; Library ;
++-------------------------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------+---------+
+; ../Decryption/InvSubBytes/InvSBox.v             ; yes             ; User Verilog HDL File  ; C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSBox.v             ;         ;
+; ../Decryption/InvSubBytes/InvSubBytes.v         ; yes             ; User Verilog HDL File  ; C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSubBytes.v         ;         ;
+; ../Decryption/InverseShiftRows/InvShiftRows.v   ; yes             ; User Verilog HDL File  ; C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InverseShiftRows/InvShiftRows.v   ;         ;
+; ../Decryption/InverseMixColumns/InvMixColumns.v ; yes             ; User Verilog HDL File  ; C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InverseMixColumns/InvMixColumns.v ;         ;
+; ../Encryption/SubBytes/SBox.v                   ; yes             ; User Verilog HDL File  ; C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox.v                   ;         ;
+; ../Encryption/SubBytes/SubBytes.v               ; yes             ; User Verilog HDL File  ; C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SubBytes.v               ;         ;
+; ../Encryption/ShiftRows/shift_rows.v            ; yes             ; User Verilog HDL File  ; C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/ShiftRows/shift_rows.v            ;         ;
+; ../Encryption/MixColumns/MixColumns.v           ; yes             ; User Verilog HDL File  ; C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/MixColumns/MixColumns.v           ;         ;
+; ../Encryption/AddRoundKey/AddRoundKey.v         ; yes             ; User Verilog HDL File  ; C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/AddRoundKey/AddRoundKey.v         ;         ;
+; ../Keys/KeysGenerator.v                         ; yes             ; User Verilog HDL File  ; C:/Users/ahmed/OneDrive/Desktop/AES/Keys/KeysGenerator.v                         ;         ;
+; ../Keys/Key_expansion.v                         ; yes             ; User Verilog HDL File  ; C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v                         ;         ;
+; ../Rounds/Round.v                               ; yes             ; User Verilog HDL File  ; C:/Users/ahmed/OneDrive/Desktop/AES/Rounds/Round.v                               ;         ;
+; ../Rounds/InvRound.v                            ; yes             ; User Verilog HDL File  ; C:/Users/ahmed/OneDrive/Desktop/AES/Rounds/InvRound.v                            ;         ;
+; ../Convertors/BCDtoSSD.v                        ; yes             ; User Verilog HDL File  ; C:/Users/ahmed/OneDrive/Desktop/AES/Convertors/BCDtoSSD.v                        ;         ;
+; ../Convertors/BCD_E.v                           ; yes             ; User Verilog HDL File  ; C:/Users/ahmed/OneDrive/Desktop/AES/Convertors/BCD_E.v                           ;         ;
+; ../InvCipher.v                                  ; yes             ; User Verilog HDL File  ; C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v                                  ;         ;
+; ../Cipher.v                                     ; yes             ; User Verilog HDL File  ; C:/Users/ahmed/OneDrive/Desktop/AES/Cipher.v                                     ;         ;
+; ../AES.v                                        ; yes             ; User Verilog HDL File  ; C:/Users/ahmed/OneDrive/Desktop/AES/AES.v                                        ;         ;
++-------------------------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimate of Logic utilization (ALMs needed) ; 3657      ;
+;                                             ;           ;
+; Combinational ALUT usage for logic          ; 4373      ;
+;     -- 7 input functions                    ; 0         ;
+;     -- 6 input functions                    ; 2876      ;
+;     -- 5 input functions                    ; 306       ;
+;     -- 4 input functions                    ; 744       ;
+;     -- <=3 input functions                  ; 447       ;
+;                                             ;           ;
+; Dedicated logic registers                   ; 663       ;
+;                                             ;           ;
+; I/O pins                                    ; 25        ;
+;                                             ;           ;
+; Total DSP Blocks                            ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 663       ;
+; Total fan-out                               ; 24875     ;
+; Average fan-out                             ; 4.89      ;
++---------------------------------------------+-----------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                       ;
++------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------+---------------+--------------+
+; Compilation Hierarchy Node               ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                    ; Entity Name   ; Library Name ;
++------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------+---------------+--------------+
+; |AES                                     ; 4373 (79)           ; 663 (7)                   ; 0                 ; 0          ; 25   ; 0            ; |AES                                                                                   ; AES           ; work         ;
+;    |BCD_E:bcd_encoder|                   ; 15 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|BCD_E:bcd_encoder                                                                 ; BCD_E         ; work         ;
+;       |ADD3_E:C1|                        ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|BCD_E:bcd_encoder|ADD3_E:C1                                                       ; ADD3_E        ; work         ;
+;       |ADD3_E:C2|                        ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|BCD_E:bcd_encoder|ADD3_E:C2                                                       ; ADD3_E        ; work         ;
+;       |ADD3_E:C3|                        ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|BCD_E:bcd_encoder|ADD3_E:C3                                                       ; ADD3_E        ; work         ;
+;       |ADD3_E:C4|                        ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|BCD_E:bcd_encoder|ADD3_E:C4                                                       ; ADD3_E        ; work         ;
+;       |ADD3_E:C5|                        ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|BCD_E:bcd_encoder|ADD3_E:C5                                                       ; ADD3_E        ; work         ;
+;       |ADD3_E:C6|                        ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|BCD_E:bcd_encoder|ADD3_E:C6                                                       ; ADD3_E        ; work         ;
+;       |ADD3_E:C7|                        ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|BCD_E:bcd_encoder|ADD3_E:C7                                                       ; ADD3_E        ; work         ;
+;    |BCDtoSSD:B2S_1|                      ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|BCDtoSSD:B2S_1                                                                    ; BCDtoSSD      ; work         ;
+;    |BCDtoSSD:B2S_2|                      ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|BCDtoSSD:B2S_2                                                                    ; BCDtoSSD      ; work         ;
+;    |BCDtoSSD:B2S_3|                      ; 6 (6)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|BCDtoSSD:B2S_3                                                                    ; BCDtoSSD      ; work         ;
+;    |Cipher:C|                            ; 2024 (552)          ; 392 (392)                 ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C                                                                          ; Cipher        ; work         ;
+;       |Round:encryptionRound|            ; 832 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound                                                    ; Round         ; work         ;
+;          |AddRoundKey:ARK|               ; 192 (192)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|AddRoundKey:ARK                                    ; AddRoundKey   ; work         ;
+;          |SubBytes:SB|                   ; 640 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB                                        ; SubBytes      ; work         ;
+;             |SBox:stateLoop[0].S1|       ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[0].S1                   ; SBox          ; work         ;
+;             |SBox:stateLoop[10].S1|      ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[10].S1                  ; SBox          ; work         ;
+;             |SBox:stateLoop[11].S1|      ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[11].S1                  ; SBox          ; work         ;
+;             |SBox:stateLoop[12].S1|      ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[12].S1                  ; SBox          ; work         ;
+;             |SBox:stateLoop[13].S1|      ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[13].S1                  ; SBox          ; work         ;
+;             |SBox:stateLoop[14].S1|      ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[14].S1                  ; SBox          ; work         ;
+;             |SBox:stateLoop[15].S1|      ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[15].S1                  ; SBox          ; work         ;
+;             |SBox:stateLoop[1].S1|       ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[1].S1                   ; SBox          ; work         ;
+;             |SBox:stateLoop[2].S1|       ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[2].S1                   ; SBox          ; work         ;
+;             |SBox:stateLoop[3].S1|       ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[3].S1                   ; SBox          ; work         ;
+;             |SBox:stateLoop[4].S1|       ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[4].S1                   ; SBox          ; work         ;
+;             |SBox:stateLoop[5].S1|       ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[5].S1                   ; SBox          ; work         ;
+;             |SBox:stateLoop[6].S1|       ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[6].S1                   ; SBox          ; work         ;
+;             |SBox:stateLoop[7].S1|       ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[7].S1                   ; SBox          ; work         ;
+;             |SBox:stateLoop[8].S1|       ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[8].S1                   ; SBox          ; work         ;
+;             |SBox:stateLoop[9].S1|       ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[9].S1                   ; SBox          ; work         ;
+;       |SubBytes:SB|                      ; 640 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB                                                              ; SubBytes      ; work         ;
+;          |SBox:stateLoop[0].S1|          ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB|SBox:stateLoop[0].S1                                         ; SBox          ; work         ;
+;          |SBox:stateLoop[10].S1|         ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB|SBox:stateLoop[10].S1                                        ; SBox          ; work         ;
+;          |SBox:stateLoop[11].S1|         ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB|SBox:stateLoop[11].S1                                        ; SBox          ; work         ;
+;          |SBox:stateLoop[12].S1|         ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB|SBox:stateLoop[12].S1                                        ; SBox          ; work         ;
+;          |SBox:stateLoop[13].S1|         ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB|SBox:stateLoop[13].S1                                        ; SBox          ; work         ;
+;          |SBox:stateLoop[14].S1|         ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB|SBox:stateLoop[14].S1                                        ; SBox          ; work         ;
+;          |SBox:stateLoop[15].S1|         ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB|SBox:stateLoop[15].S1                                        ; SBox          ; work         ;
+;          |SBox:stateLoop[1].S1|          ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB|SBox:stateLoop[1].S1                                         ; SBox          ; work         ;
+;          |SBox:stateLoop[2].S1|          ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB|SBox:stateLoop[2].S1                                         ; SBox          ; work         ;
+;          |SBox:stateLoop[3].S1|          ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB|SBox:stateLoop[3].S1                                         ; SBox          ; work         ;
+;          |SBox:stateLoop[4].S1|          ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB|SBox:stateLoop[4].S1                                         ; SBox          ; work         ;
+;          |SBox:stateLoop[5].S1|          ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB|SBox:stateLoop[5].S1                                         ; SBox          ; work         ;
+;          |SBox:stateLoop[6].S1|          ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB|SBox:stateLoop[6].S1                                         ; SBox          ; work         ;
+;          |SBox:stateLoop[7].S1|          ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB|SBox:stateLoop[7].S1                                         ; SBox          ; work         ;
+;          |SBox:stateLoop[8].S1|          ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB|SBox:stateLoop[8].S1                                         ; SBox          ; work         ;
+;          |SBox:stateLoop[9].S1|          ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB|SBox:stateLoop[9].S1                                         ; SBox          ; work         ;
+;    |InvCipher:IC|                        ; 2231 (396)          ; 264 (264)                 ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC                                                                      ; InvCipher     ; work         ;
+;       |InvRound:decryptionRound|         ; 1195 (0)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound                                             ; InvRound      ; work         ;
+;          |AddRoundKey:AR_K|              ; 63 (63)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|AddRoundKey:AR_K                            ; AddRoundKey   ; work         ;
+;          |InvMixColumns:IM_C|            ; 492 (492)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvMixColumns:IM_C                          ; InvMixColumns ; work         ;
+;          |InvSubBytes:IS_B|              ; 640 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B                            ; InvSubBytes   ; work         ;
+;             |InvSBox:InvSubBytes[0].S1|  ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[0].S1  ; InvSBox       ; work         ;
+;             |InvSBox:InvSubBytes[10].S1| ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[10].S1 ; InvSBox       ; work         ;
+;             |InvSBox:InvSubBytes[11].S1| ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[11].S1 ; InvSBox       ; work         ;
+;             |InvSBox:InvSubBytes[12].S1| ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[12].S1 ; InvSBox       ; work         ;
+;             |InvSBox:InvSubBytes[13].S1| ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[13].S1 ; InvSBox       ; work         ;
+;             |InvSBox:InvSubBytes[14].S1| ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[14].S1 ; InvSBox       ; work         ;
+;             |InvSBox:InvSubBytes[15].S1| ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[15].S1 ; InvSBox       ; work         ;
+;             |InvSBox:InvSubBytes[1].S1|  ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[1].S1  ; InvSBox       ; work         ;
+;             |InvSBox:InvSubBytes[2].S1|  ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[2].S1  ; InvSBox       ; work         ;
+;             |InvSBox:InvSubBytes[3].S1|  ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[3].S1  ; InvSBox       ; work         ;
+;             |InvSBox:InvSubBytes[4].S1|  ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[4].S1  ; InvSBox       ; work         ;
+;             |InvSBox:InvSubBytes[5].S1|  ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[5].S1  ; InvSBox       ; work         ;
+;             |InvSBox:InvSubBytes[6].S1|  ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[6].S1  ; InvSBox       ; work         ;
+;             |InvSBox:InvSubBytes[7].S1|  ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[7].S1  ; InvSBox       ; work         ;
+;             |InvSBox:InvSubBytes[8].S1|  ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[8].S1  ; InvSBox       ; work         ;
+;             |InvSBox:InvSubBytes[9].S1|  ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[9].S1  ; InvSBox       ; work         ;
+;       |InvSubBytes:SB|                   ; 640 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvSubBytes:SB                                                       ; InvSubBytes   ; work         ;
+;          |InvSBox:InvSubBytes[0].S1|     ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[0].S1                             ; InvSBox       ; work         ;
+;          |InvSBox:InvSubBytes[10].S1|    ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[10].S1                            ; InvSBox       ; work         ;
+;          |InvSBox:InvSubBytes[11].S1|    ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[11].S1                            ; InvSBox       ; work         ;
+;          |InvSBox:InvSubBytes[12].S1|    ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[12].S1                            ; InvSBox       ; work         ;
+;          |InvSBox:InvSubBytes[13].S1|    ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[13].S1                            ; InvSBox       ; work         ;
+;          |InvSBox:InvSubBytes[14].S1|    ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[14].S1                            ; InvSBox       ; work         ;
+;          |InvSBox:InvSubBytes[15].S1|    ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[15].S1                            ; InvSBox       ; work         ;
+;          |InvSBox:InvSubBytes[1].S1|     ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[1].S1                             ; InvSBox       ; work         ;
+;          |InvSBox:InvSubBytes[2].S1|     ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[2].S1                             ; InvSBox       ; work         ;
+;          |InvSBox:InvSubBytes[3].S1|     ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[3].S1                             ; InvSBox       ; work         ;
+;          |InvSBox:InvSubBytes[4].S1|     ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[4].S1                             ; InvSBox       ; work         ;
+;          |InvSBox:InvSubBytes[5].S1|     ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[5].S1                             ; InvSBox       ; work         ;
+;          |InvSBox:InvSubBytes[6].S1|     ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[6].S1                             ; InvSBox       ; work         ;
+;          |InvSBox:InvSubBytes[7].S1|     ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[7].S1                             ; InvSBox       ; work         ;
+;          |InvSBox:InvSubBytes[8].S1|     ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[8].S1                             ; InvSBox       ; work         ;
+;          |InvSBox:InvSubBytes[9].S1|     ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[9].S1                             ; InvSBox       ; work         ;
++------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------+---------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------+
+; State Machine - |AES|InvCipher:IC|currentstate                                                           ;
++----------------------------+----------------------------+--------------------------+---------------------+
+; Name                       ; currentstate.INITIAL_ROUND ; currentstate.FINAL_ROUND ; currentstate.ROUNDS ;
++----------------------------+----------------------------+--------------------------+---------------------+
+; currentstate.INITIAL_ROUND ; 0                          ; 0                        ; 0                   ;
+; currentstate.ROUNDS        ; 1                          ; 0                        ; 1                   ;
+; currentstate.FINAL_ROUND   ; 1                          ; 1                        ; 0                   ;
++----------------------------+----------------------------+--------------------------+---------------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------+
+; State Machine - |AES|Cipher:C|currentstate                                                               ;
++----------------------------+----------------------------+--------------------------+---------------------+
+; Name                       ; currentstate.INITIAL_ROUND ; currentstate.FINAL_ROUND ; currentstate.ROUNDS ;
++----------------------------+----------------------------+--------------------------+---------------------+
+; currentstate.INITIAL_ROUND ; 0                          ; 0                        ; 0                   ;
+; currentstate.ROUNDS        ; 1                          ; 0                        ; 1                   ;
+; currentstate.FINAL_ROUND   ; 1                          ; 1                        ; 0                   ;
++----------------------------+----------------------------+--------------------------+---------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; User-Specified and Inferred Latches                                                                               ;
++------------------------------------------------------+-----------------------------------+------------------------+
+; Latch Name                                           ; Latch Enable Signal               ; Free of Timing Hazards ;
++------------------------------------------------------+-----------------------------------+------------------------+
+; InvCipher:IC|tempDecryptedText[126]                  ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[125]                  ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[124]                  ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[123]                  ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[122]                  ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[121]                  ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[120]                  ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[119]                  ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[118]                  ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[117]                  ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[116]                  ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[115]                  ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[114]                  ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[113]                  ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[112]                  ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[111]                  ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[110]                  ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[109]                  ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[108]                  ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[107]                  ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[106]                  ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[105]                  ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[104]                  ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[103]                  ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[102]                  ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[101]                  ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[100]                  ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[99]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[98]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[97]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[96]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[95]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[94]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[93]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[92]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[91]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[90]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[89]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[88]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[87]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[86]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[85]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[84]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[83]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[82]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[81]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[80]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[79]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[78]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[77]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[76]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[75]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[74]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[73]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[72]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[71]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[70]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[69]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[68]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[67]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[66]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[65]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[64]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[127]                  ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[63]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[62]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[61]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[60]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[59]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[58]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[57]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[56]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[55]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[54]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[53]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[52]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[51]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[50]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[49]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[48]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[47]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[46]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[45]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[44]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[43]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[42]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[41]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[40]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[39]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[38]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[37]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[36]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[35]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[34]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[33]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[32]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[31]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[30]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[29]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; InvCipher:IC|tempDecryptedText[28]                   ; InvCipher:IC|tempDecryptedText[0] ; yes                    ;
+; Number of user-specified and inferred latches = 136  ;                                   ;                        ;
++------------------------------------------------------+-----------------------------------+------------------------+
+Table restricted to first 100 entries. Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 663   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 128   ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 450   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
+; 4:1                ; 128 bits  ; 256 LEs       ; 0 LEs                ; 256 LEs                ; Yes        ; |AES|InvCipher:IC|RoundInReg[78]        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |AES|Cipher:C|RoundInReg[120]           ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |AES|Cipher:C|tempEncryptedText[18]     ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |AES|InvCipher:IC|round[1]              ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |AES|Cipher:C|round[0]                  ;
+; 3:1                ; 128 bits  ; 256 LEs       ; 256 LEs              ; 0 LEs                  ; No         ; |AES|InvCipher:IC|tempDecryptedText[61] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |AES|BCDtoSSD:B2S_3|seg[6]              ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |AES|BCDtoSSD:B2S_3|seg[4]              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |AES ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; Nk             ; 4     ; Signed Integer                             ;
+; Nr             ; 10    ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: KeysGenerator:KG ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; Nk             ; 4     ; Signed Integer                       ;
+; Nr             ; 10    ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Cipher:C ;
++----------------+-------+------------------------------+
+; Parameter Name ; Value ; Type                         ;
++----------------+-------+------------------------------+
+; Nk             ; 4     ; Signed Integer               ;
+; Nr             ; 10    ; Signed Integer               ;
++----------------+-------+------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Cipher:C|Round:encryptionRound ;
++----------------+-------+----------------------------------------------------+
+; Parameter Name ; Value ; Type                                               ;
++----------------+-------+----------------------------------------------------+
+; Nk             ; 4     ; Signed Integer                                     ;
+; Nr             ; 10    ; Signed Integer                                     ;
++----------------+-------+----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: InvCipher:IC ;
++----------------+-------+----------------------------------+
+; Parameter Name ; Value ; Type                             ;
++----------------+-------+----------------------------------+
+; Nk             ; 4     ; Signed Integer                   ;
+; Nr             ; 10    ; Signed Integer                   ;
++----------------+-------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: InvCipher:IC|InvRound:decryptionRound ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; Nk             ; 4     ; Signed Integer                                            ;
+; Nr             ; 10    ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Port Connectivity Checks: "BCD_E:bcd_encoder|ADD3_E:C6" ;
++------+-------+----------+-------------------------------+
+; Port ; Type  ; Severity ; Details                       ;
++------+-------+----------+-------------------------------+
+; A[3] ; Input ; Info     ; Stuck at GND                  ;
++------+-------+----------+-------------------------------+
+
+
++---------------------------------------------------------+
+; Port Connectivity Checks: "BCD_E:bcd_encoder|ADD3_E:C1" ;
++------+-------+----------+-------------------------------+
+; Port ; Type  ; Severity ; Details                       ;
++------+-------+----------+-------------------------------+
+; A[3] ; Input ; Info     ; Stuck at GND                  ;
++------+-------+----------+-------------------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "Cipher:C"                  ;
++---------------------+-------+----------+--------------+
+; Port                ; Type  ; Severity ; Details      ;
++---------------------+-------+----------+--------------+
+; plainText[26..27]   ; Input ; Info     ; Stuck at VCC ;
+; plainText[30..31]   ; Input ; Info     ; Stuck at VCC ;
+; plainText[49..50]   ; Input ; Info     ; Stuck at VCC ;
+; plainText[53..54]   ; Input ; Info     ; Stuck at VCC ;
+; plainText[57..59]   ; Input ; Info     ; Stuck at VCC ;
+; plainText[61..64]   ; Input ; Info     ; Stuck at VCC ;
+; plainText[75..76]   ; Input ; Info     ; Stuck at VCC ;
+; plainText[79..80]   ; Input ; Info     ; Stuck at VCC ;
+; plainText[90..92]   ; Input ; Info     ; Stuck at VCC ;
+; plainText[94..97]   ; Input ; Info     ; Stuck at VCC ;
+; plainText[100..101] ; Input ; Info     ; Stuck at VCC ;
+; plainText[104..105] ; Input ; Info     ; Stuck at VCC ;
+; plainText[107..109] ; Input ; Info     ; Stuck at VCC ;
+; plainText[111..114] ; Input ; Info     ; Stuck at VCC ;
+; plainText[116..118] ; Input ; Info     ; Stuck at VCC ;
+; plainText[120..127] ; Input ; Info     ; Stuck at VCC ;
+; plainText[0..10]    ; Input ; Info     ; Stuck at GND ;
+; plainText[12..14]   ; Input ; Info     ; Stuck at GND ;
+; plainText[16..17]   ; Input ; Info     ; Stuck at GND ;
+; plainText[19..21]   ; Input ; Info     ; Stuck at GND ;
+; plainText[23..25]   ; Input ; Info     ; Stuck at GND ;
+; plainText[28..29]   ; Input ; Info     ; Stuck at GND ;
+; plainText[34..36]   ; Input ; Info     ; Stuck at GND ;
+; plainText[38..40]   ; Input ; Info     ; Stuck at GND ;
+; plainText[51..52]   ; Input ; Info     ; Stuck at GND ;
+; plainText[55..56]   ; Input ; Info     ; Stuck at GND ;
+; plainText[65..67]   ; Input ; Info     ; Stuck at GND ;
+; plainText[69..71]   ; Input ; Info     ; Stuck at GND ;
+; plainText[73..74]   ; Input ; Info     ; Stuck at GND ;
+; plainText[77..78]   ; Input ; Info     ; Stuck at GND ;
+; plainText[98..99]   ; Input ; Info     ; Stuck at GND ;
+; plainText[102..103] ; Input ; Info     ; Stuck at GND ;
+; plainText[11]       ; Input ; Info     ; Stuck at VCC ;
+; plainText[15]       ; Input ; Info     ; Stuck at VCC ;
+; plainText[18]       ; Input ; Info     ; Stuck at VCC ;
+; plainText[22]       ; Input ; Info     ; Stuck at VCC ;
+; plainText[32]       ; Input ; Info     ; Stuck at GND ;
+; plainText[33]       ; Input ; Info     ; Stuck at VCC ;
+; plainText[37]       ; Input ; Info     ; Stuck at VCC ;
+; plainText[41]       ; Input ; Info     ; Stuck at VCC ;
+; plainText[42]       ; Input ; Info     ; Stuck at GND ;
+; plainText[43]       ; Input ; Info     ; Stuck at VCC ;
+; plainText[44]       ; Input ; Info     ; Stuck at GND ;
+; plainText[45]       ; Input ; Info     ; Stuck at VCC ;
+; plainText[46]       ; Input ; Info     ; Stuck at GND ;
+; plainText[47]       ; Input ; Info     ; Stuck at VCC ;
+; plainText[48]       ; Input ; Info     ; Stuck at GND ;
+; plainText[60]       ; Input ; Info     ; Stuck at GND ;
+; plainText[68]       ; Input ; Info     ; Stuck at VCC ;
+; plainText[72]       ; Input ; Info     ; Stuck at VCC ;
+; plainText[81]       ; Input ; Info     ; Stuck at GND ;
+; plainText[82]       ; Input ; Info     ; Stuck at VCC ;
+; plainText[83]       ; Input ; Info     ; Stuck at GND ;
+; plainText[84]       ; Input ; Info     ; Stuck at VCC ;
+; plainText[85]       ; Input ; Info     ; Stuck at GND ;
+; plainText[86]       ; Input ; Info     ; Stuck at VCC ;
+; plainText[87]       ; Input ; Info     ; Stuck at GND ;
+; plainText[88]       ; Input ; Info     ; Stuck at VCC ;
+; plainText[89]       ; Input ; Info     ; Stuck at GND ;
+; plainText[93]       ; Input ; Info     ; Stuck at GND ;
+; plainText[106]      ; Input ; Info     ; Stuck at GND ;
+; plainText[110]      ; Input ; Info     ; Stuck at GND ;
+; plainText[115]      ; Input ; Info     ; Stuck at GND ;
+; plainText[119]      ; Input ; Info     ; Stuck at GND ;
++---------------------+-------+----------+--------------+
+
+
++------------------------------------------------------------------------+
+; Port Connectivity Checks: "KeysGenerator:KG|key_expansion:keyG[10].KE" ;
++-------------+-------+----------+---------------------------------------+
+; Port        ; Type  ; Severity ; Details                               ;
++-------------+-------+----------+---------------------------------------+
+; roundNum[0] ; Input ; Info     ; Stuck at VCC                          ;
+; roundNum[1] ; Input ; Info     ; Stuck at GND                          ;
+; roundNum[2] ; Input ; Info     ; Stuck at VCC                          ;
+; roundNum[3] ; Input ; Info     ; Stuck at GND                          ;
++-------------+-------+----------+---------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Port Connectivity Checks: "KeysGenerator:KG|key_expansion:keyG[9].KE" ;
++----------------+-------+----------+-----------------------------------+
+; Port           ; Type  ; Severity ; Details                           ;
++----------------+-------+----------+-----------------------------------+
+; roundNum[1..2] ; Input ; Info     ; Stuck at GND                      ;
+; roundNum[0]    ; Input ; Info     ; Stuck at VCC                      ;
+; roundNum[3]    ; Input ; Info     ; Stuck at VCC                      ;
++----------------+-------+----------+-----------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Port Connectivity Checks: "KeysGenerator:KG|key_expansion:keyG[8].KE" ;
++----------------+-------+----------+-----------------------------------+
+; Port           ; Type  ; Severity ; Details                           ;
++----------------+-------+----------+-----------------------------------+
+; roundNum[1..3] ; Input ; Info     ; Stuck at GND                      ;
+; roundNum[0]    ; Input ; Info     ; Stuck at VCC                      ;
++----------------+-------+----------+-----------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Port Connectivity Checks: "KeysGenerator:KG|key_expansion:keyG[7].KE" ;
++----------------+-------+----------+-----------------------------------+
+; Port           ; Type  ; Severity ; Details                           ;
++----------------+-------+----------+-----------------------------------+
+; roundNum[1..3] ; Input ; Info     ; Stuck at VCC                      ;
+; roundNum[0]    ; Input ; Info     ; Stuck at GND                      ;
++----------------+-------+----------+-----------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Port Connectivity Checks: "KeysGenerator:KG|key_expansion:keyG[6].KE" ;
++----------------+-------+----------+-----------------------------------+
+; Port           ; Type  ; Severity ; Details                           ;
++----------------+-------+----------+-----------------------------------+
+; roundNum[1..2] ; Input ; Info     ; Stuck at VCC                      ;
+; roundNum[0]    ; Input ; Info     ; Stuck at GND                      ;
+; roundNum[3]    ; Input ; Info     ; Stuck at GND                      ;
++----------------+-------+----------+-----------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Port Connectivity Checks: "KeysGenerator:KG|key_expansion:keyG[5].KE" ;
++-------------+-------+----------+--------------------------------------+
+; Port        ; Type  ; Severity ; Details                              ;
++-------------+-------+----------+--------------------------------------+
+; roundNum[0] ; Input ; Info     ; Stuck at GND                         ;
+; roundNum[1] ; Input ; Info     ; Stuck at VCC                         ;
+; roundNum[2] ; Input ; Info     ; Stuck at GND                         ;
+; roundNum[3] ; Input ; Info     ; Stuck at VCC                         ;
++-------------+-------+----------+--------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Port Connectivity Checks: "KeysGenerator:KG|key_expansion:keyG[4].KE" ;
++----------------+-------+----------+-----------------------------------+
+; Port           ; Type  ; Severity ; Details                           ;
++----------------+-------+----------+-----------------------------------+
+; roundNum[2..3] ; Input ; Info     ; Stuck at GND                      ;
+; roundNum[0]    ; Input ; Info     ; Stuck at GND                      ;
+; roundNum[1]    ; Input ; Info     ; Stuck at VCC                      ;
++----------------+-------+----------+-----------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Port Connectivity Checks: "KeysGenerator:KG|key_expansion:keyG[3].KE" ;
++----------------+-------+----------+-----------------------------------+
+; Port           ; Type  ; Severity ; Details                           ;
++----------------+-------+----------+-----------------------------------+
+; roundNum[2..3] ; Input ; Info     ; Stuck at VCC                      ;
+; roundNum[0..1] ; Input ; Info     ; Stuck at GND                      ;
++----------------+-------+----------+-----------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Port Connectivity Checks: "KeysGenerator:KG|key_expansion:keyG[2].KE" ;
++----------------+-------+----------+-----------------------------------+
+; Port           ; Type  ; Severity ; Details                           ;
++----------------+-------+----------+-----------------------------------+
+; roundNum[0..1] ; Input ; Info     ; Stuck at GND                      ;
+; roundNum[2]    ; Input ; Info     ; Stuck at VCC                      ;
+; roundNum[3]    ; Input ; Info     ; Stuck at GND                      ;
++----------------+-------+----------+-----------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Port Connectivity Checks: "KeysGenerator:KG|key_expansion:keyG[1].KE" ;
++----------------+-------+----------+-----------------------------------+
+; Port           ; Type  ; Severity ; Details                           ;
++----------------+-------+----------+-----------------------------------+
+; roundNum[0..2] ; Input ; Info     ; Stuck at GND                      ;
+; roundNum[3]    ; Input ; Info     ; Stuck at VCC                      ;
++----------------+-------+----------+-----------------------------------+
+
+
++-------------------------------------------------+
+; Port Connectivity Checks: "KeysGenerator:KG"    ;
++---------------+-------+----------+--------------+
+; Port          ; Type  ; Severity ; Details      ;
++---------------+-------+----------+--------------+
+; key[30..31]   ; Input ; Info     ; Stuck at VCC ;
+; key[53..54]   ; Input ; Info     ; Stuck at VCC ;
+; key[61..63]   ; Input ; Info     ; Stuck at VCC ;
+; key[94..95]   ; Input ; Info     ; Stuck at VCC ;
+; key[100..101] ; Input ; Info     ; Stuck at VCC ;
+; key[108..109] ; Input ; Info     ; Stuck at VCC ;
+; key[116..118] ; Input ; Info     ; Stuck at VCC ;
+; key[124..127] ; Input ; Info     ; Stuck at VCC ;
+; key[0..14]    ; Input ; Info     ; Stuck at GND ;
+; key[16..21]   ; Input ; Info     ; Stuck at GND ;
+; key[23..29]   ; Input ; Info     ; Stuck at GND ;
+; key[32..36]   ; Input ; Info     ; Stuck at GND ;
+; key[38..44]   ; Input ; Info     ; Stuck at GND ;
+; key[48..52]   ; Input ; Info     ; Stuck at GND ;
+; key[55..60]   ; Input ; Info     ; Stuck at GND ;
+; key[64..67]   ; Input ; Info     ; Stuck at GND ;
+; key[69..75]   ; Input ; Info     ; Stuck at GND ;
+; key[77..78]   ; Input ; Info     ; Stuck at GND ;
+; key[80..83]   ; Input ; Info     ; Stuck at GND ;
+; key[87..91]   ; Input ; Info     ; Stuck at GND ;
+; key[96..99]   ; Input ; Info     ; Stuck at GND ;
+; key[102..107] ; Input ; Info     ; Stuck at GND ;
+; key[112..115] ; Input ; Info     ; Stuck at GND ;
+; key[119..123] ; Input ; Info     ; Stuck at GND ;
+; key[15]       ; Input ; Info     ; Stuck at VCC ;
+; key[22]       ; Input ; Info     ; Stuck at VCC ;
+; key[37]       ; Input ; Info     ; Stuck at VCC ;
+; key[45]       ; Input ; Info     ; Stuck at VCC ;
+; key[46]       ; Input ; Info     ; Stuck at GND ;
+; key[47]       ; Input ; Info     ; Stuck at VCC ;
+; key[68]       ; Input ; Info     ; Stuck at VCC ;
+; key[76]       ; Input ; Info     ; Stuck at VCC ;
+; key[79]       ; Input ; Info     ; Stuck at VCC ;
+; key[84]       ; Input ; Info     ; Stuck at VCC ;
+; key[85]       ; Input ; Info     ; Stuck at GND ;
+; key[86]       ; Input ; Info     ; Stuck at VCC ;
+; key[92]       ; Input ; Info     ; Stuck at VCC ;
+; key[93]       ; Input ; Info     ; Stuck at GND ;
+; key[110]      ; Input ; Info     ; Stuck at GND ;
+; key[111]      ; Input ; Info     ; Stuck at VCC ;
++---------------+-------+----------+--------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 663                         ;
+;     ENA               ; 322                         ;
+;     ENA SLD           ; 128                         ;
+;     plain             ; 213                         ;
+; arriav_lcell_comb     ; 4374                        ;
+;     normal            ; 4374                        ;
+;         1 data inputs ; 64                          ;
+;         2 data inputs ; 181                         ;
+;         3 data inputs ; 203                         ;
+;         4 data inputs ; 744                         ;
+;         5 data inputs ; 306                         ;
+;         6 data inputs ; 2876                        ;
+; boundary_port         ; 25                          ;
+;                       ;                             ;
+; Max LUT depth         ; 6.00                        ;
+; Average LUT depth     ; 4.69                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:16     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
+    Info: Processing started: Tue May  7 17:11:36 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off AES -c AES
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ahmed/onedrive/desktop/aes/decryption/invsubbytes/invsbox.v
+    Info (12023): Found entity 1: InvSBox File: C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSBox.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ahmed/onedrive/desktop/aes/decryption/invsubbytes/invsubbytes.v
+    Info (12023): Found entity 1: InvSubBytes File: C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSubBytes.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ahmed/onedrive/desktop/aes/decryption/inverseshiftrows/invshiftrows.v
+    Info (12023): Found entity 1: Invshift_rows File: C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InverseShiftRows/InvShiftRows.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ahmed/onedrive/desktop/aes/decryption/inversemixcolumns/invmixcolumns.v
+    Info (12023): Found entity 1: InvMixColumns File: C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InverseMixColumns/InvMixColumns.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ahmed/onedrive/desktop/aes/encryption/subbytes/sbox.v
+    Info (12023): Found entity 1: SBox File: C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ahmed/onedrive/desktop/aes/encryption/subbytes/subbytes.v
+    Info (12023): Found entity 1: SubBytes File: C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SubBytes.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ahmed/onedrive/desktop/aes/encryption/shiftrows/shift_rows.v
+    Info (12023): Found entity 1: shift_rows File: C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/ShiftRows/shift_rows.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ahmed/onedrive/desktop/aes/encryption/mixcolumns/mixcolumns.v
+    Info (12023): Found entity 1: MixColumns File: C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/MixColumns/MixColumns.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ahmed/onedrive/desktop/aes/encryption/addroundkey/addroundkey.v
+    Info (12023): Found entity 1: AddRoundKey File: C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/AddRoundKey/AddRoundKey.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ahmed/onedrive/desktop/aes/keys/keysgenerator.v
+    Info (12023): Found entity 1: KeysGenerator File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/KeysGenerator.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ahmed/onedrive/desktop/aes/keys/key_expansion.v
+    Info (12023): Found entity 1: key_expansion File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ahmed/onedrive/desktop/aes/rounds/round.v
+    Info (12023): Found entity 1: Round File: C:/Users/ahmed/OneDrive/Desktop/AES/Rounds/Round.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ahmed/onedrive/desktop/aes/rounds/invround.v
+    Info (12023): Found entity 1: InvRound File: C:/Users/ahmed/OneDrive/Desktop/AES/Rounds/InvRound.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ahmed/onedrive/desktop/aes/convertors/bcdtossd.v
+    Info (12023): Found entity 1: BCDtoSSD File: C:/Users/ahmed/OneDrive/Desktop/AES/Convertors/BCDtoSSD.v Line: 1
+Info (12021): Found 2 design units, including 2 entities, in source file /users/ahmed/onedrive/desktop/aes/convertors/bcd_e.v
+    Info (12023): Found entity 1: BCD_E File: C:/Users/ahmed/OneDrive/Desktop/AES/Convertors/BCD_E.v Line: 6
+    Info (12023): Found entity 2: ADD3_E File: C:/Users/ahmed/OneDrive/Desktop/AES/Convertors/BCD_E.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ahmed/onedrive/desktop/aes/invcipher.v
+    Info (12023): Found entity 1: InvCipher File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 1
+Info (12021): Found 2 design units, including 2 entities, in source file /users/ahmed/onedrive/desktop/aes/cipher.v
+    Info (12023): Found entity 1: Cipher File: C:/Users/ahmed/OneDrive/Desktop/AES/Cipher.v Line: 1
+    Info (12023): Found entity 2: Cipher_tb File: C:/Users/ahmed/OneDrive/Desktop/AES/Cipher.v Line: 80
+Info (12021): Found 1 design units, including 1 entities, in source file /users/ahmed/onedrive/desktop/aes/aes.v
+    Info (12023): Found entity 1: AES File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 1
+Info (12127): Elaborating entity "AES" for the top level hierarchy
+Warning (10240): Verilog HDL Always Construct warning at AES.v(34): inferring latch(es) for variable "displayedOut", which holds its previous value in one or more paths through the always construct File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 34
+Warning (10230): Verilog HDL assignment warning at AES.v(87): truncated value with size 32 to match size of target (5) File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 87
+Info (10041): Inferred latch for "displayedOut[127]" at AES.v(49) File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
+Info (10041): Inferred latch for "displayedOut[126]" at AES.v(49) File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
+Info (10041): Inferred latch for "displayedOut[125]" at AES.v(49) File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
+Info (10041): Inferred latch for "displayedOut[124]" at AES.v(49) File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
+Info (10041): Inferred latch for "displayedOut[123]" at AES.v(49) File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
+Info (10041): Inferred latch for "displayedOut[122]" at AES.v(49) File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
+Info (10041): Inferred latch for "displayedOut[121]" at AES.v(49) File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
+Info (10041): Inferred latch for "displayedOut[120]" at AES.v(49) File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
+Info (12128): Elaborating entity "KeysGenerator" for hierarchy "KeysGenerator:KG" File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 24
+Warning (10230): Verilog HDL assignment warning at KeysGenerator.v(7): truncated value with size 32 to match size of target (4) File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/KeysGenerator.v Line: 7
+Info (12128): Elaborating entity "key_expansion" for hierarchy "KeysGenerator:KG|key_expansion:keyG[1].KE" File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/KeysGenerator.v Line: 8
+Info (12128): Elaborating entity "Cipher" for hierarchy "Cipher:C" File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 25
+Info (12128): Elaborating entity "AddRoundKey" for hierarchy "Cipher:C|AddRoundKey:ARK" File: C:/Users/ahmed/OneDrive/Desktop/AES/Cipher.v Line: 23
+Info (12128): Elaborating entity "Round" for hierarchy "Cipher:C|Round:encryptionRound" File: C:/Users/ahmed/OneDrive/Desktop/AES/Cipher.v Line: 24
+Info (12128): Elaborating entity "SubBytes" for hierarchy "Cipher:C|Round:encryptionRound|SubBytes:SB" File: C:/Users/ahmed/OneDrive/Desktop/AES/Rounds/Round.v Line: 14
+Info (12128): Elaborating entity "SBox" for hierarchy "Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[0].S1" File: C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SubBytes.v Line: 6
+Info (12128): Elaborating entity "shift_rows" for hierarchy "Cipher:C|Round:encryptionRound|shift_rows:SR" File: C:/Users/ahmed/OneDrive/Desktop/AES/Rounds/Round.v Line: 15
+Info (12128): Elaborating entity "MixColumns" for hierarchy "Cipher:C|Round:encryptionRound|MixColumns:MC" File: C:/Users/ahmed/OneDrive/Desktop/AES/Rounds/Round.v Line: 16
+Info (12128): Elaborating entity "InvCipher" for hierarchy "InvCipher:IC" File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 26
+Warning (10240): Verilog HDL Always Construct warning at InvCipher.v(34): inferring latch(es) for variable "tempDecryptedText", which holds its previous value in one or more paths through the always construct File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 34
+Info (10041): Inferred latch for "tempDecryptedText[127]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[126]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[125]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[124]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[123]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[122]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[121]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[120]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[119]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[118]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[117]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[116]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[115]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[114]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[113]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[112]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[111]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[110]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[109]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[108]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[107]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[106]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[105]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[104]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[103]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[102]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[101]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[100]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[99]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[98]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[97]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[96]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[95]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[94]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[93]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[92]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[91]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[90]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[89]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[88]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[87]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[86]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[85]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[84]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[83]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[82]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[81]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[80]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[79]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[78]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[77]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[76]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[75]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[74]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[73]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[72]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[71]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[70]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[69]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[68]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[67]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[66]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[65]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[64]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[63]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[62]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[61]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[60]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[59]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[58]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[57]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[56]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[55]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[54]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[53]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[52]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[51]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[50]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[49]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[48]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[47]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[46]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[45]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[44]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[43]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[42]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[41]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[40]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[39]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[38]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[37]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[36]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[35]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[34]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[33]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[32]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[31]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[30]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[29]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[28]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[27]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[26]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[25]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[24]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[23]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[22]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[21]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[20]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[19]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[18]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[17]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[16]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[15]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[14]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[13]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[12]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[11]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[10]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[9]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[8]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[7]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[6]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[5]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[4]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[3]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[2]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[1]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (10041): Inferred latch for "tempDecryptedText[0]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+Info (12128): Elaborating entity "InvRound" for hierarchy "InvCipher:IC|InvRound:decryptionRound" File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 27
+Info (12128): Elaborating entity "Invshift_rows" for hierarchy "InvCipher:IC|InvRound:decryptionRound|Invshift_rows:IS_R" File: C:/Users/ahmed/OneDrive/Desktop/AES/Rounds/InvRound.v Line: 13
+Info (12128): Elaborating entity "InvSubBytes" for hierarchy "InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B" File: C:/Users/ahmed/OneDrive/Desktop/AES/Rounds/InvRound.v Line: 14
+Info (12128): Elaborating entity "InvSBox" for hierarchy "InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[0].S1" File: C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSubBytes.v Line: 6
+Info (12128): Elaborating entity "InvMixColumns" for hierarchy "InvCipher:IC|InvRound:decryptionRound|InvMixColumns:IM_C" File: C:/Users/ahmed/OneDrive/Desktop/AES/Rounds/InvRound.v Line: 16
+Info (12128): Elaborating entity "BCD_E" for hierarchy "BCD_E:bcd_encoder" File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 31
+Info (12128): Elaborating entity "ADD3_E" for hierarchy "BCD_E:bcd_encoder|ADD3_E:C1" File: C:/Users/ahmed/OneDrive/Desktop/AES/Convertors/BCD_E.v Line: 8
+Warning (10230): Verilog HDL assignment warning at BCD_E.v(30): truncated value with size 32 to match size of target (4) File: C:/Users/ahmed/OneDrive/Desktop/AES/Convertors/BCD_E.v Line: 30
+Info (12128): Elaborating entity "BCDtoSSD" for hierarchy "BCDtoSSD:B2S_1" File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 58
+Info (276014): Found 72 instances of uninferred RAM logic
+    Info (276007): RAM logic "InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[15].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSBox.v Line: 4
+    Info (276007): RAM logic "InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[14].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSBox.v Line: 4
+    Info (276007): RAM logic "InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[13].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSBox.v Line: 4
+    Info (276007): RAM logic "InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[12].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSBox.v Line: 4
+    Info (276007): RAM logic "InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[11].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSBox.v Line: 4
+    Info (276007): RAM logic "InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[10].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSBox.v Line: 4
+    Info (276007): RAM logic "InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[9].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSBox.v Line: 4
+    Info (276007): RAM logic "InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[8].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSBox.v Line: 4
+    Info (276007): RAM logic "InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[7].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSBox.v Line: 4
+    Info (276007): RAM logic "InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[6].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSBox.v Line: 4
+    Info (276007): RAM logic "InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[5].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSBox.v Line: 4
+    Info (276007): RAM logic "InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[4].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSBox.v Line: 4
+    Info (276007): RAM logic "InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[3].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSBox.v Line: 4
+    Info (276007): RAM logic "InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[2].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSBox.v Line: 4
+    Info (276007): RAM logic "InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[1].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSBox.v Line: 4
+    Info (276007): RAM logic "InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[0].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSBox.v Line: 4
+    Info (276007): RAM logic "Cipher:C|SubBytes:SB|SBox:stateLoop[15].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox.v Line: 4
+    Info (276007): RAM logic "Cipher:C|SubBytes:SB|SBox:stateLoop[14].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox.v Line: 4
+    Info (276007): RAM logic "Cipher:C|SubBytes:SB|SBox:stateLoop[13].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox.v Line: 4
+    Info (276007): RAM logic "Cipher:C|SubBytes:SB|SBox:stateLoop[12].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox.v Line: 4
+    Info (276007): RAM logic "Cipher:C|SubBytes:SB|SBox:stateLoop[11].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox.v Line: 4
+    Info (276007): RAM logic "Cipher:C|SubBytes:SB|SBox:stateLoop[10].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox.v Line: 4
+    Info (276007): RAM logic "Cipher:C|SubBytes:SB|SBox:stateLoop[9].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox.v Line: 4
+    Info (276007): RAM logic "Cipher:C|SubBytes:SB|SBox:stateLoop[8].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox.v Line: 4
+    Info (276007): RAM logic "Cipher:C|SubBytes:SB|SBox:stateLoop[7].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox.v Line: 4
+    Info (276007): RAM logic "Cipher:C|SubBytes:SB|SBox:stateLoop[6].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox.v Line: 4
+    Info (276007): RAM logic "Cipher:C|SubBytes:SB|SBox:stateLoop[5].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox.v Line: 4
+    Info (276007): RAM logic "Cipher:C|SubBytes:SB|SBox:stateLoop[4].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox.v Line: 4
+    Info (276007): RAM logic "Cipher:C|SubBytes:SB|SBox:stateLoop[3].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox.v Line: 4
+    Info (276007): RAM logic "Cipher:C|SubBytes:SB|SBox:stateLoop[2].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox.v Line: 4
+    Info (276007): RAM logic "Cipher:C|SubBytes:SB|SBox:stateLoop[1].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox.v Line: 4
+    Info (276007): RAM logic "Cipher:C|SubBytes:SB|SBox:stateLoop[0].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SBox.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[10].KE|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[10].KE|Ram1" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[10].KE|Ram2" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[10].KE|Ram3" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[9].KE|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[9].KE|Ram1" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[9].KE|Ram2" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[9].KE|Ram3" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[8].KE|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[8].KE|Ram1" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[8].KE|Ram2" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[8].KE|Ram3" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[7].KE|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[7].KE|Ram1" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[7].KE|Ram2" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[7].KE|Ram3" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[6].KE|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[6].KE|Ram1" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[6].KE|Ram2" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[6].KE|Ram3" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[5].KE|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[5].KE|Ram1" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[5].KE|Ram2" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[5].KE|Ram3" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[4].KE|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[4].KE|Ram1" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[4].KE|Ram2" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[4].KE|Ram3" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[3].KE|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[3].KE|Ram1" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[3].KE|Ram2" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[3].KE|Ram3" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[2].KE|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[2].KE|Ram1" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[2].KE|Ram2" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[2].KE|Ram3" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[1].KE|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[1].KE|Ram1" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[1].KE|Ram2" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+    Info (276007): RAM logic "KeysGenerator:KG|key_expansion:keyG[1].KE|Ram3" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/Key_expansion.v Line: 4
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[126] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[125] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[124] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[123] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[122] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[121] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[120] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[119] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[118] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[117] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[116] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[115] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[114] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[113] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[112] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[111] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[110] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[109] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[108] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[107] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[106] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[105] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[104] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[103] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[102] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[101] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[100] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[99] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[98] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[97] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[96] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[95] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[94] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[93] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[92] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[91] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[90] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[89] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[88] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[87] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[86] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[85] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[84] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[83] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[82] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[81] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[80] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[79] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[78] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[77] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[76] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[75] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[74] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[73] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[72] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[71] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[70] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[69] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[68] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[67] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[66] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[65] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[64] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[127] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[63] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[62] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[61] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[60] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[59] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[58] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[57] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[56] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[55] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[54] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[53] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[52] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[51] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[50] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[49] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[48] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[47] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[46] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[45] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[44] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[43] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[42] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[41] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[40] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[39] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[38] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[37] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[36] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[35] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[34] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[33] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[32] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[31] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[30] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[29] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[28] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[27] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[26] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[25] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[24] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[23] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[22] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[21] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[20] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[19] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[18] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[17] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[16] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[15] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[14] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[13] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[12] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[11] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[10] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[9] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[8] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[7] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[6] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[5] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[4] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[3] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[2] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[1] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch InvCipher:IC|tempDecryptedText[0] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
+Warning (13012): Latch displayedOut[124] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal count[4] File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 66
+Warning (13012): Latch displayedOut[123] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal count[4] File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 66
+Warning (13012): Latch displayedOut[122] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal count[4] File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 66
+Warning (13012): Latch displayedOut[120] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal count[4] File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 66
+Warning (13012): Latch displayedOut[121] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal count[4] File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 66
+Warning (13012): Latch displayedOut[125] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal count[4] File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 66
+Warning (13012): Latch displayedOut[126] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal count[4] File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 66
+Warning (13012): Latch displayedOut[127] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal count[4] File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 66
+Info (286030): Timing-Driven Synthesis is running
+Info (144001): Generated suppressed messages file C:/Users/ahmed/OneDrive/Desktop/AES/Quartus files/output_files/AES.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 4720 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 22 output pins
+    Info (21061): Implemented 4695 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 278 warnings
+    Info: Peak virtual memory: 4874 megabytes
+    Info: Processing ended: Tue May  7 17:12:05 2024
+    Info: Elapsed time: 00:00:29
+    Info: Total CPU time (on all processors): 00:00:45
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in C:/Users/ahmed/OneDrive/Desktop/AES/Quartus files/output_files/AES.map.smsg.
+
+
