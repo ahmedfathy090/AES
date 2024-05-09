@@ -73,4 +73,29 @@ set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_location_assignment PIN_AB23 -to Hunds_seg[0]
+set_location_assignment PIN_AE26 -to Units_seg[0]
+set_location_assignment PIN_AE27 -to Units_seg[1]
+set_location_assignment PIN_AE28 -to Units_seg[2]
+set_location_assignment PIN_AD27 -to Tens_seg[6]
+set_location_assignment PIN_AG27 -to Units_seg[3]
+set_location_assignment PIN_AF28 -to Units_seg[4]
+set_location_assignment PIN_AG28 -to Units_seg[5]
+set_location_assignment PIN_AH28 -to Units_seg[6]
+set_location_assignment PIN_AJ29 -to Tens_seg[0]
+set_location_assignment PIN_AH29 -to Tens_seg[1]
+set_location_assignment PIN_AH30 -to Tens_seg[2]
+set_location_assignment PIN_AG30 -to Tens_seg[3]
+set_location_assignment PIN_AF29 -to Tens_seg[4]
+set_location_assignment PIN_AF30 -to Tens_seg[5]
+set_location_assignment PIN_AE29 -to Hunds_seg[1]
+set_location_assignment PIN_AD29 -to Hunds_seg[2]
+set_location_assignment PIN_AC28 -to Hunds_seg[3]
+set_location_assignment PIN_AD30 -to Hunds_seg[4]
+set_location_assignment PIN_AC29 -to Hunds_seg[5]
+set_location_assignment PIN_AC30 -to Hunds_seg[6]
+set_location_assignment PIN_AA14 -to clk
+set_location_assignment PIN_AB12 -to enable
+set_location_assignment PIN_AC12 -to reset
+set_location_assignment PIN_V16 -to successFlag
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

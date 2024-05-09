@@ -13,7 +13,7 @@ wire [0:127] RoundIn, RoundOut,RoundOut1;
 reg [0:127] final_round;
 reg [0:127] RoundInReg;
 reg [3:0] round = 4'b0000; // Counter for the current round
-reg C_reset = 1'b0;
+//reg C_reset = 1'b0;
 
 
 localparam INITIAL_ROUND = 2'b00, ROUNDS = 2'b01, FINAL_ROUND = 2'b10;
@@ -35,10 +35,10 @@ end
 
 always @(posedge clks) begin
    // $display("Round :%d ",round);
-    if (reset | C_reset) begin
+    if (reset) begin
         round <= 4'b0000;
         currentstate <= INITIAL_ROUND;
-        C_reset <= 1'b0;
+       // C_reset <= 1'b0;
     end 
         case (currentstate)
             INITIAL_ROUND: begin
@@ -62,7 +62,7 @@ always @(posedge clks) begin
               if(round==Nr) begin
                 tempEncryptedText <= RoundOut1; 
                 round <= round + 4'b0001;
-                C_reset <= 1'b1;
+                //C_reset <= 1'b1;
                 end
             end
         endcase

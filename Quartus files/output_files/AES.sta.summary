@@ -1,0 +1,149 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1100mV 85C Model Setup 'InvCipher:IC|round[0]'
+Slack : -14.815
+TNS   : -1697.028
+
+Type  : Slow 1100mV 85C Model Setup 'clk'
+Slack : -10.994
+TNS   : -4056.214
+
+Type  : Slow 1100mV 85C Model Setup 'count[0]'
+Slack : -9.060
+TNS   : -70.473
+
+Type  : Slow 1100mV 85C Model Hold 'clk'
+Slack : -7.646
+TNS   : -1491.946
+
+Type  : Slow 1100mV 85C Model Hold 'InvCipher:IC|round[0]'
+Slack : -1.055
+TNS   : -39.497
+
+Type  : Slow 1100mV 85C Model Hold 'count[0]'
+Slack : 1.384
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : -0.394
+TNS   : -535.325
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'InvCipher:IC|round[0]'
+Slack : 0.142
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'count[0]'
+Slack : 0.315
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'InvCipher:IC|round[0]'
+Slack : -14.515
+TNS   : -1661.055
+
+Type  : Slow 1100mV 0C Model Setup 'clk'
+Slack : -10.562
+TNS   : -3961.645
+
+Type  : Slow 1100mV 0C Model Setup 'count[0]'
+Slack : -8.924
+TNS   : -69.528
+
+Type  : Slow 1100mV 0C Model Hold 'clk'
+Slack : -7.511
+TNS   : -1481.707
+
+Type  : Slow 1100mV 0C Model Hold 'InvCipher:IC|round[0]'
+Slack : -1.035
+TNS   : -43.968
+
+Type  : Slow 1100mV 0C Model Hold 'count[0]'
+Slack : 1.373
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : -0.394
+TNS   : -493.250
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'InvCipher:IC|round[0]'
+Slack : 0.109
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'count[0]'
+Slack : 0.303
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'InvCipher:IC|round[0]'
+Slack : -8.449
+TNS   : -943.788
+
+Type  : Fast 1100mV 85C Model Setup 'clk'
+Slack : -7.009
+TNS   : -2277.226
+
+Type  : Fast 1100mV 85C Model Setup 'count[0]'
+Slack : -4.588
+TNS   : -35.036
+
+Type  : Fast 1100mV 85C Model Hold 'clk'
+Slack : -4.268
+TNS   : -807.298
+
+Type  : Fast 1100mV 85C Model Hold 'InvCipher:IC|round[0]'
+Slack : -0.687
+TNS   : -27.056
+
+Type  : Fast 1100mV 85C Model Hold 'count[0]'
+Slack : 0.685
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : -0.344
+TNS   : -259.026
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'InvCipher:IC|round[0]'
+Slack : 0.212
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'count[0]'
+Slack : 0.326
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'InvCipher:IC|round[0]'
+Slack : -7.730
+TNS   : -871.960
+
+Type  : Fast 1100mV 0C Model Setup 'clk'
+Slack : -6.043
+TNS   : -1966.968
+
+Type  : Fast 1100mV 0C Model Setup 'count[0]'
+Slack : -4.365
+TNS   : -33.539
+
+Type  : Fast 1100mV 0C Model Hold 'clk'
+Slack : -4.155
+TNS   : -809.602
+
+Type  : Fast 1100mV 0C Model Hold 'InvCipher:IC|round[0]'
+Slack : -0.590
+TNS   : -22.799
+
+Type  : Fast 1100mV 0C Model Hold 'count[0]'
+Slack : 0.639
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : -0.322
+TNS   : -242.813
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'InvCipher:IC|round[0]'
+Slack : 0.255
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'count[0]'
+Slack : 0.354
+TNS   : 0.000
+
+------------------------------------------------------------

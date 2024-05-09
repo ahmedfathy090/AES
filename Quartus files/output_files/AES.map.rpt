@@ -1,5 +1,5 @@
 Analysis & Synthesis report for AES
-Tue May  7 17:12:05 2024
+Thu May  9 13:06:10 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Tue May  7 17:12:05 2024          ;
+; Analysis & Synthesis Status     ; Successful - Thu May  9 13:06:10 2024          ;
 ; Quartus Prime Version           ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                   ; AES                                            ;
 ; Top-level Entity Name           ; AES                                            ;
@@ -190,7 +190,7 @@ https://fpgasoftware.intel.com/eula.
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.1%      ;
 ;     Processor 3            ;   0.1%      ;
-;     Processor 4            ;   0.1%      ;
+;     Processor 4            ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -225,14 +225,14 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 3657      ;
+; Estimate of Logic utilization (ALMs needed) ; 3653      ;
 ;                                             ;           ;
-; Combinational ALUT usage for logic          ; 4373      ;
+; Combinational ALUT usage for logic          ; 4367      ;
 ;     -- 7 input functions                    ; 0         ;
-;     -- 6 input functions                    ; 2876      ;
+;     -- 6 input functions                    ; 2873      ;
 ;     -- 5 input functions                    ; 306       ;
-;     -- 4 input functions                    ; 744       ;
-;     -- <=3 input functions                  ; 447       ;
+;     -- 4 input functions                    ; 745       ;
+;     -- <=3 input functions                  ; 443       ;
 ;                                             ;           ;
 ; Dedicated logic registers                   ; 663       ;
 ;                                             ;           ;
@@ -242,7 +242,7 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 663       ;
-; Total fan-out                               ; 24875     ;
+; Total fan-out                               ; 24852     ;
 ; Average fan-out                             ; 4.89      ;
 +---------------------------------------------+-----------+
 
@@ -252,17 +252,14 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------+---------------+--------------+
 ; Compilation Hierarchy Node               ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                    ; Entity Name   ; Library Name ;
 +------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+----------------------------------------------------------------------------------------+---------------+--------------+
-; |AES                                     ; 4373 (79)           ; 663 (7)                   ; 0                 ; 0          ; 25   ; 0            ; |AES                                                                                   ; AES           ; work         ;
-;    |BCD_E:bcd_encoder|                   ; 15 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|BCD_E:bcd_encoder                                                                 ; BCD_E         ; work         ;
-;       |ADD3_E:C1|                        ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|BCD_E:bcd_encoder|ADD3_E:C1                                                       ; ADD3_E        ; work         ;
-;       |ADD3_E:C2|                        ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|BCD_E:bcd_encoder|ADD3_E:C2                                                       ; ADD3_E        ; work         ;
-;       |ADD3_E:C3|                        ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|BCD_E:bcd_encoder|ADD3_E:C3                                                       ; ADD3_E        ; work         ;
-;       |ADD3_E:C4|                        ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|BCD_E:bcd_encoder|ADD3_E:C4                                                       ; ADD3_E        ; work         ;
+; |AES                                     ; 4367 (83)           ; 663 (7)                   ; 0                 ; 0          ; 25   ; 0            ; |AES                                                                                   ; AES           ; work         ;
+;    |BCD_E:bcd_encoder|                   ; 8 (0)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|BCD_E:bcd_encoder                                                                 ; BCD_E         ; work         ;
+;       |ADD3_E:C4|                        ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|BCD_E:bcd_encoder|ADD3_E:C4                                                       ; ADD3_E        ; work         ;
 ;       |ADD3_E:C5|                        ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|BCD_E:bcd_encoder|ADD3_E:C5                                                       ; ADD3_E        ; work         ;
 ;       |ADD3_E:C6|                        ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|BCD_E:bcd_encoder|ADD3_E:C6                                                       ; ADD3_E        ; work         ;
 ;       |ADD3_E:C7|                        ; 3 (3)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|BCD_E:bcd_encoder|ADD3_E:C7                                                       ; ADD3_E        ; work         ;
-;    |BCDtoSSD:B2S_1|                      ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|BCDtoSSD:B2S_1                                                                    ; BCDtoSSD      ; work         ;
-;    |BCDtoSSD:B2S_2|                      ; 9 (9)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|BCDtoSSD:B2S_2                                                                    ; BCDtoSSD      ; work         ;
+;    |BCDtoSSD:B2S_1|                      ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|BCDtoSSD:B2S_1                                                                    ; BCDtoSSD      ; work         ;
+;    |BCDtoSSD:B2S_2|                      ; 8 (8)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|BCDtoSSD:B2S_2                                                                    ; BCDtoSSD      ; work         ;
 ;    |BCDtoSSD:B2S_3|                      ; 6 (6)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|BCDtoSSD:B2S_3                                                                    ; BCDtoSSD      ; work         ;
 ;    |Cipher:C|                            ; 2024 (552)          ; 392 (392)                 ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C                                                                          ; Cipher        ; work         ;
 ;       |Round:encryptionRound|            ; 832 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound                                                    ; Round         ; work         ;
@@ -487,7 +484,7 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 ; Number of registers using Synchronous Load   ; 128   ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 450   ;
+; Number of registers using Clock Enable       ; 448   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -497,14 +494,18 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output              ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
-; 4:1                ; 128 bits  ; 256 LEs       ; 0 LEs                ; 256 LEs                ; Yes        ; |AES|InvCipher:IC|RoundInReg[78]        ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |AES|Cipher:C|RoundInReg[120]           ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |AES|Cipher:C|tempEncryptedText[18]     ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |AES|InvCipher:IC|round[1]              ;
-; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |AES|Cipher:C|round[0]                  ;
-; 3:1                ; 128 bits  ; 256 LEs       ; 256 LEs              ; 0 LEs                  ; No         ; |AES|InvCipher:IC|tempDecryptedText[61] ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |AES|BCDtoSSD:B2S_3|seg[6]              ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |AES|BCDtoSSD:B2S_3|seg[4]              ;
+; 4:1                ; 128 bits  ; 256 LEs       ; 0 LEs                ; 256 LEs                ; Yes        ; |AES|InvCipher:IC|RoundInReg[118]       ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |AES|Cipher:C|RoundInReg[41]            ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |AES|Cipher:C|tempEncryptedText[123]    ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |AES|InvCipher:IC|round[0]              ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |AES|Cipher:C|round[2]                  ;
+; 3:1                ; 128 bits  ; 256 LEs       ; 256 LEs              ; 0 LEs                  ; No         ; |AES|InvCipher:IC|tempDecryptedText[62] ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |AES|BCDtoSSD:B2S_3|seg[3]              ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |AES|BCDtoSSD:B2S_3|seg[2]              ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |AES|BCDtoSSD:B2S_1|seg[1]              ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |AES|BCDtoSSD:B2S_2|seg[1]              ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |AES|BCDtoSSD:B2S_1|seg[3]              ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |AES|BCDtoSSD:B2S_2|seg[6]              ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
 
 
@@ -826,17 +827,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; arriav_ff             ; 663                         ;
-;     ENA               ; 322                         ;
+;     ENA               ; 320                         ;
 ;     ENA SLD           ; 128                         ;
-;     plain             ; 213                         ;
-; arriav_lcell_comb     ; 4374                        ;
-;     normal            ; 4374                        ;
+;     plain             ; 215                         ;
+; arriav_lcell_comb     ; 4368                        ;
+;     normal            ; 4368                        ;
 ;         1 data inputs ; 64                          ;
-;         2 data inputs ; 181                         ;
-;         3 data inputs ; 203                         ;
-;         4 data inputs ; 744                         ;
+;         2 data inputs ; 176                         ;
+;         3 data inputs ; 204                         ;
+;         4 data inputs ; 745                         ;
 ;         5 data inputs ; 306                         ;
-;         6 data inputs ; 2876                        ;
+;         6 data inputs ; 2873                        ;
 ; boundary_port         ; 25                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 6.00                        ;
@@ -859,7 +860,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Tue May  7 17:11:36 2024
+    Info: Processing started: Thu May  9 13:05:41 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off AES -c AES
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -902,27 +903,27 @@ Info (12021): Found 2 design units, including 2 entities, in source file /users/
 Info (12021): Found 1 design units, including 1 entities, in source file /users/ahmed/onedrive/desktop/aes/aes.v
     Info (12023): Found entity 1: AES File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 1
 Info (12127): Elaborating entity "AES" for the top level hierarchy
-Warning (10240): Verilog HDL Always Construct warning at AES.v(34): inferring latch(es) for variable "displayedOut", which holds its previous value in one or more paths through the always construct File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 34
-Warning (10230): Verilog HDL assignment warning at AES.v(87): truncated value with size 32 to match size of target (5) File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 87
-Info (10041): Inferred latch for "displayedOut[127]" at AES.v(49) File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
-Info (10041): Inferred latch for "displayedOut[126]" at AES.v(49) File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
-Info (10041): Inferred latch for "displayedOut[125]" at AES.v(49) File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
-Info (10041): Inferred latch for "displayedOut[124]" at AES.v(49) File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
-Info (10041): Inferred latch for "displayedOut[123]" at AES.v(49) File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
-Info (10041): Inferred latch for "displayedOut[122]" at AES.v(49) File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
-Info (10041): Inferred latch for "displayedOut[121]" at AES.v(49) File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
-Info (10041): Inferred latch for "displayedOut[120]" at AES.v(49) File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
-Info (12128): Elaborating entity "KeysGenerator" for hierarchy "KeysGenerator:KG" File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 24
+Warning (10240): Verilog HDL Always Construct warning at AES.v(33): inferring latch(es) for variable "displayedOut", which holds its previous value in one or more paths through the always construct File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 33
+Warning (10230): Verilog HDL assignment warning at AES.v(92): truncated value with size 32 to match size of target (5) File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 92
+Info (10041): Inferred latch for "displayedOut[127]" at AES.v(53) File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 53
+Info (10041): Inferred latch for "displayedOut[126]" at AES.v(53) File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 53
+Info (10041): Inferred latch for "displayedOut[125]" at AES.v(53) File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 53
+Info (10041): Inferred latch for "displayedOut[124]" at AES.v(53) File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 53
+Info (10041): Inferred latch for "displayedOut[123]" at AES.v(53) File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 53
+Info (10041): Inferred latch for "displayedOut[122]" at AES.v(53) File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 53
+Info (10041): Inferred latch for "displayedOut[121]" at AES.v(53) File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 53
+Info (10041): Inferred latch for "displayedOut[120]" at AES.v(53) File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 53
+Info (12128): Elaborating entity "KeysGenerator" for hierarchy "KeysGenerator:KG" File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 23
 Warning (10230): Verilog HDL assignment warning at KeysGenerator.v(7): truncated value with size 32 to match size of target (4) File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/KeysGenerator.v Line: 7
 Info (12128): Elaborating entity "key_expansion" for hierarchy "KeysGenerator:KG|key_expansion:keyG[1].KE" File: C:/Users/ahmed/OneDrive/Desktop/AES/Keys/KeysGenerator.v Line: 8
-Info (12128): Elaborating entity "Cipher" for hierarchy "Cipher:C" File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 25
+Info (12128): Elaborating entity "Cipher" for hierarchy "Cipher:C" File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 24
 Info (12128): Elaborating entity "AddRoundKey" for hierarchy "Cipher:C|AddRoundKey:ARK" File: C:/Users/ahmed/OneDrive/Desktop/AES/Cipher.v Line: 23
 Info (12128): Elaborating entity "Round" for hierarchy "Cipher:C|Round:encryptionRound" File: C:/Users/ahmed/OneDrive/Desktop/AES/Cipher.v Line: 24
 Info (12128): Elaborating entity "SubBytes" for hierarchy "Cipher:C|Round:encryptionRound|SubBytes:SB" File: C:/Users/ahmed/OneDrive/Desktop/AES/Rounds/Round.v Line: 14
 Info (12128): Elaborating entity "SBox" for hierarchy "Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[0].S1" File: C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SubBytes.v Line: 6
 Info (12128): Elaborating entity "shift_rows" for hierarchy "Cipher:C|Round:encryptionRound|shift_rows:SR" File: C:/Users/ahmed/OneDrive/Desktop/AES/Rounds/Round.v Line: 15
 Info (12128): Elaborating entity "MixColumns" for hierarchy "Cipher:C|Round:encryptionRound|MixColumns:MC" File: C:/Users/ahmed/OneDrive/Desktop/AES/Rounds/Round.v Line: 16
-Info (12128): Elaborating entity "InvCipher" for hierarchy "InvCipher:IC" File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 26
+Info (12128): Elaborating entity "InvCipher" for hierarchy "InvCipher:IC" File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 25
 Warning (10240): Verilog HDL Always Construct warning at InvCipher.v(34): inferring latch(es) for variable "tempDecryptedText", which holds its previous value in one or more paths through the always construct File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 34
 Info (10041): Inferred latch for "tempDecryptedText[127]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
 Info (10041): Inferred latch for "tempDecryptedText[126]" at InvCipher.v(37) File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
@@ -1057,10 +1058,10 @@ Info (12128): Elaborating entity "Invshift_rows" for hierarchy "InvCipher:IC|Inv
 Info (12128): Elaborating entity "InvSubBytes" for hierarchy "InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B" File: C:/Users/ahmed/OneDrive/Desktop/AES/Rounds/InvRound.v Line: 14
 Info (12128): Elaborating entity "InvSBox" for hierarchy "InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[0].S1" File: C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSubBytes.v Line: 6
 Info (12128): Elaborating entity "InvMixColumns" for hierarchy "InvCipher:IC|InvRound:decryptionRound|InvMixColumns:IM_C" File: C:/Users/ahmed/OneDrive/Desktop/AES/Rounds/InvRound.v Line: 16
-Info (12128): Elaborating entity "BCD_E" for hierarchy "BCD_E:bcd_encoder" File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 31
+Info (12128): Elaborating entity "BCD_E" for hierarchy "BCD_E:bcd_encoder" File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 30
 Info (12128): Elaborating entity "ADD3_E" for hierarchy "BCD_E:bcd_encoder|ADD3_E:C1" File: C:/Users/ahmed/OneDrive/Desktop/AES/Convertors/BCD_E.v Line: 8
 Warning (10230): Verilog HDL assignment warning at BCD_E.v(30): truncated value with size 32 to match size of target (4) File: C:/Users/ahmed/OneDrive/Desktop/AES/Convertors/BCD_E.v Line: 30
-Info (12128): Elaborating entity "BCDtoSSD" for hierarchy "BCDtoSSD:B2S_1" File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 58
+Info (12128): Elaborating entity "BCDtoSSD" for hierarchy "BCDtoSSD:B2S_1" File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 61
 Info (276014): Found 72 instances of uninferred RAM logic
     Info (276007): RAM logic "InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[15].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSBox.v Line: 4
     Info (276007): RAM logic "InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[14].S1|Ram0" is uninferred due to asynchronous read logic File: C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSBox.v Line: 4
@@ -1390,35 +1391,35 @@ Warning (13012): Latch InvCipher:IC|tempDecryptedText[1] has unsafe behavior Fil
     Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
 Warning (13012): Latch InvCipher:IC|tempDecryptedText[0] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 37
     Warning (13013): Ports D and ENA on the latch are fed by the same signal InvCipher:IC|round[0] File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
-Warning (13012): Latch displayedOut[124] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal count[4] File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 66
-Warning (13012): Latch displayedOut[123] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal count[4] File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 66
-Warning (13012): Latch displayedOut[122] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal count[4] File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 66
-Warning (13012): Latch displayedOut[120] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal count[4] File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 66
-Warning (13012): Latch displayedOut[121] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal count[4] File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 66
-Warning (13012): Latch displayedOut[125] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal count[4] File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 66
-Warning (13012): Latch displayedOut[126] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal count[4] File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 66
-Warning (13012): Latch displayedOut[127] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 49
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal count[4] File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 66
+Warning (13012): Latch displayedOut[127] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal count[4] File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 69
+Warning (13012): Latch displayedOut[126] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal count[4] File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 69
+Warning (13012): Latch displayedOut[125] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal count[4] File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 69
+Warning (13012): Latch displayedOut[124] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal count[4] File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 69
+Warning (13012): Latch displayedOut[123] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal count[4] File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 69
+Warning (13012): Latch displayedOut[122] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal count[4] File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 69
+Warning (13012): Latch displayedOut[120] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal count[4] File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 69
+Warning (13012): Latch displayedOut[121] has unsafe behavior File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 53
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal count[4] File: C:/Users/ahmed/OneDrive/Desktop/AES/AES.v Line: 69
 Info (286030): Timing-Driven Synthesis is running
 Info (144001): Generated suppressed messages file C:/Users/ahmed/OneDrive/Desktop/AES/Quartus files/output_files/AES.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 4720 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 4714 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 22 output pins
-    Info (21061): Implemented 4695 logic cells
+    Info (21061): Implemented 4689 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 278 warnings
-    Info: Peak virtual memory: 4874 megabytes
-    Info: Processing ended: Tue May  7 17:12:05 2024
+    Info: Peak virtual memory: 4873 megabytes
+    Info: Processing ended: Thu May  9 13:06:10 2024
     Info: Elapsed time: 00:00:29
-    Info: Total CPU time (on all processors): 00:00:45
+    Info: Total CPU time (on all processors): 00:00:46
 
 
 +------------------------------------------+

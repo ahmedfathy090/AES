@@ -14,7 +14,7 @@ wire [0:127] RoundIn, RoundOut,RoundOut1;
 reg [0:127] final_round;
 reg [0:127] RoundInReg;
 reg [3:0] round = 4'b0000; // Counter for the current round
-reg InvC_reset = 1'b0;
+//reg InvC_reset = 1'b0;
 
 
 
@@ -48,10 +48,10 @@ always @(posedge clks) begin
     $display("Round :%d ",round);
     $display("InvCpher ::  :: :: :: :: :: :: :: :: :: encryptedText :%h ",RoundIn);
     $display("InvCpher ::  :: :: :: :: :: :: :: :: :: decryptedText :%h ",RoundOut);
-    if (reset | InvC_reset) begin
+    if (reset) begin
         round <= 4'b0000;
         currentstate <= INITIAL_ROUND;
-        InvC_reset <= 1'b0;
+      //  InvC_reset <= 1'b0;
     end 
         case (currentstate)
             INITIAL_ROUND: begin
@@ -75,7 +75,7 @@ always @(posedge clks) begin
              if(round==Nr) begin
                 //tempDecryptedText = RoundOut1; 
                 round <= round + 4'b0001;
-                InvC_reset <= 1'b1;
+                //InvC_reset <= 1'b1;
              end
             end
         endcase
