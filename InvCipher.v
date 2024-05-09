@@ -1,8 +1,8 @@
-module InvCipher #(parameter Nk=4,parameter Nr = Nk + 6) (clks, reset, encryptedText, keys, decryptedText); 
+module InvCipher #(parameter Nk=4,parameter Nr = Nk + 6) (clks, reset, enable, encryptedText, keys, decryptedText); 
 
 
 // Main module parameters
-input clks, reset;
+input clks, reset,enable;
 input [0:127] encryptedText;
 input [0:(Nk*32) * (Nr + 1) - 1] keys; // whole keys
 output  [0:127] decryptedText;
@@ -14,8 +14,6 @@ wire [0:127] RoundIn, RoundOut,RoundOut1;
 reg [0:127] final_round;
 reg [0:127] RoundInReg;
 reg [3:0] round = 4'b0000; // Counter for the current round
-//reg InvC_reset = 1'b0;
-
 
 
 
@@ -29,8 +27,9 @@ InvSubBytes SB (final_round, Inv_SB_OUT);
 Invshift_rows SR(Inv_SB_OUT, Inv_SR_OUT);
 AddRoundKey ARK1 (Inv_SR_OUT, keys[0:127], RoundOut1);
 
-
+/*
 always @(*) begin
+if(enable) begin
    if(round==0)begin 
     tempDecryptedText=RoundIn;
    end
@@ -41,7 +40,8 @@ always @(*) begin
     tempDecryptedText=RoundOut1;
    end
 end
-
+end
+*/
 
 always @(posedge clks) begin
     
@@ -51,19 +51,18 @@ always @(posedge clks) begin
     if (reset) begin
         round <= 4'b0000;
         currentstate <= INITIAL_ROUND;
-      //  InvC_reset <= 1'b0;
-    end 
+    end  else begin
         case (currentstate)
             INITIAL_ROUND: begin
                  RoundInReg <= RoundIn;
-                 //tempDecryptedText = RoundIn;
                 round <= round + 4'b0001;
+                tempDecryptedText<=RoundIn;
                 currentstate <= ROUNDS;
             end
             ROUNDS: begin
                 if (round < Nr ) begin 
                     RoundInReg <= RoundOut;
-                    //tempDecryptedText = RoundOut;
+                    tempDecryptedText<=RoundOut;
                     round <= round + 4'b0001;
                     if(round == Nr-1 ) begin
                         final_round = RoundOut;
@@ -73,13 +72,14 @@ always @(posedge clks) begin
             end
             FINAL_ROUND: begin
              if(round==Nr) begin
-                //tempDecryptedText = RoundOut1; 
-                round <= round + 4'b0001;
-                //InvC_reset <= 1'b1;
+                round <= 4'b0000;
+                tempDecryptedText<=RoundOut1;
+                currentstate <= INITIAL_ROUND;
+
              end
             end
         endcase
-    
+    end
 end
 assign decryptedText = tempDecryptedText;
 

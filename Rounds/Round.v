@@ -18,11 +18,11 @@ AddRoundKey ARK(MC_OUT, key, ARK_OUT);
 assign roundOut = ARK_OUT;
 
 always @(posedge clk) begin
-   // $display("Round: state = %h, key = %h", state, key);
-   // $display("Round: SB_OUT = %h", SB_OUT);
-   // $display("Round: SR_OUT = %h", SR_OUT);
-   // $display("Round: MC_OUT = %h", MC_OUT);
-   // $display("Round: ARK_OUT = %h", ARK_OUT);
+    $display("Round: state = %h, key = %h", state, key);
+    $display("Round: SB_OUT = %h", SB_OUT);
+    $display("Round: SR_OUT = %h", SR_OUT);
+    $display("Round: MC_OUT = %h", MC_OUT);
+    $display("Round: ARK_OUT = %h", ARK_OUT);
 end
 
 endmodule

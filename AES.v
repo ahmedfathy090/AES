@@ -12,17 +12,21 @@ wire [0:127] plainText = 128'h00112233445566778899aabbccddeeff;
 wire [0:127] key = 128'h000102030405060708090a0b0c0d0e0f;
 
 wire [0:127] encryptedText, outPlainText;
-
-reg C_enable = 1'b0, IC_enable = 1'b1;
 wire [0:127] expectedEncrypt= 128'h69c4e0d86a7b0430d8cdb78070b4c55a;
 
 wire [3:0] units, tens, hunds;
 reg[3:0] Units_reg, Hunds_reg, Tens_reg;
 
+reg [1:0] ciphersEnables = 2'b10;
+
 reg [0:127] displayedOut;
+initial begin 
+displayedOut=plainText;
+end
+
 KeysGenerator KG (key, keysContainer);
-Cipher #(4, 10) C (clk, C_enable, plainText, keysContainer, encryptedText);
-InvCipher #(4, 10) IC (.clks(clk) ,.reset( IC_enable), .encryptedText(encryptedText), .keys(keysContainer), .decryptedText(outPlainText));
+Cipher #(4, 10) C (clk, reset, ciphersEnables[1], plainText, keysContainer, encryptedText);
+InvCipher #(4, 10) IC (.clks(clk) ,.reset( reset),.enable(ciphersEnables[0]), .encryptedText(encryptedText), .keys(keysContainer), .decryptedText(outPlainText));
 
 reg [4:0] count = 5'd0;
 
@@ -33,26 +37,33 @@ always@(*)begin
     Units_reg = units;
     Tens_reg = tens;
     Hunds_reg = hunds;
-
-    if (reset) begin
-       // C_enable = 1'b1;
-        //IC_enable = 1'b1;
-    end 
-    if(count == 11) begin
+    
+   if(reset) begin
+		displayedOut = plainText;
+   end else begin
+		if(count == 11) begin
         successFlag = (encryptedText == expectedEncrypt) ? 1'b1:1'b0;
+        ciphersEnables= 2'b01;
         end
-    else if(count == 22) begin
+		else if(count == 22) begin
         successFlag = (outPlainText == plainText) ? 1'b1:1'b0; 
+        ciphersEnables= 2'b10;
         end
-    else begin
+		else begin
         successFlag=1'b0;
-     end
-    if(count <= 11) begin
+		end
+        
+		if(count <= 11) begin
         displayedOut = encryptedText;
         end
-     else if(count <=22) begin
+		else if( count > 11 && count <=22 ) begin
         displayedOut = outPlainText;
+        
         end 
+    end
+      
+
+
 end
 
 
@@ -69,32 +80,12 @@ always @(posedge clk) begin
 
     if (reset) begin
         count <= 5'd0;
-		C_enable = 1'b0;
-        IC_enable = 1'b1;
     end 
     else begin
-        if(count <= 10) begin
-            // C_enable <= 1'b0;
-           // displayedOut <= encryptedText;
-           IC_enable = 1'b1;
-           C_enable = 1'b0;
-        end
-        else if(count <= 21) begin
-            // IC_enable <= 1'b0;
-           //displayedOut <= outPlainText;
-           C_enable = 1'b1;
-           IC_enable = 1'b0; 
-        end 
-        if(count == 11) begin
-            C_enable = 1'b1;
-            IC_enable = 1'b0;
-        end
-        if(count == 22)
-        begin
-            C_enable = 1'b0;
-            IC_enable = 1'b1; 
-        end 
             count <= count + 1;
+            if(count==22)begin 
+             count <= 5'd0;
+        end
     end 
     $display("round out :%h ",encryptedText);
     $display("inround out :%h ",outPlainText);

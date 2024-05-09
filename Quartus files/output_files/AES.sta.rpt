@@ -1,5 +1,5 @@
 Timing Analyzer report for AES
-Thu May  9 13:13:06 2024
+Thu May  9 17:46:30 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -100,36 +100,35 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 2.36        ;
+; Average used               ; 2.32        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  45.4%      ;
-;     Processor 3            ;  45.4%      ;
-;     Processor 4            ;  45.3%      ;
+;     Processor 2            ;  44.2%      ;
+;     Processor 3            ;  44.1%      ;
+;     Processor 4            ;  44.0%      ;
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Clocks                                                                                                                                                                                                       ;
-+-----------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------------------+
-; Clock Name            ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets                   ;
-+-----------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------------------+
-; clk                   ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk }                   ;
-; count[0]              ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { count[0] }              ;
-; InvCipher:IC|round[0] ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { InvCipher:IC|round[0] } ;
-+-----------------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                            ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets   ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------+
+; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk }   ;
+; reset      ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { reset } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------+
 
 
-+------------------------------------------------------------+
-; Slow 1100mV 85C Model Fmax Summary                         ;
-+-----------+-----------------+-----------------------+------+
-; Fmax      ; Restricted Fmax ; Clock Name            ; Note ;
-+-----------+-----------------+-----------------------+------+
-; 66.59 MHz ; 66.59 MHz       ; InvCipher:IC|round[0] ;      ;
-; 83.38 MHz ; 83.38 MHz       ; clk                   ;      ;
-+-----------+-----------------+-----------------------+------+
++--------------------------------------------------+
+; Slow 1100mV 85C Model Fmax Summary               ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 109.85 MHz ; 109.85 MHz      ; clk        ;      ;
+; 124.16 MHz ; 124.16 MHz      ; reset      ;      ;
++------------+-----------------+------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
@@ -139,26 +138,24 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 HTML report is unavailable in plain text report export.
 
 
-+-------------------------------------------------+
-; Slow 1100mV 85C Model Setup Summary             ;
-+-----------------------+---------+---------------+
-; Clock                 ; Slack   ; End Point TNS ;
-+-----------------------+---------+---------------+
-; InvCipher:IC|round[0] ; -14.815 ; -1697.028     ;
-; clk                   ; -10.994 ; -4056.214     ;
-; count[0]              ; -9.060  ; -70.473       ;
-+-----------------------+---------+---------------+
++-------------------------------------+
+; Slow 1100mV 85C Model Setup Summary ;
++-------+--------+--------------------+
+; Clock ; Slack  ; End Point TNS      ;
++-------+--------+--------------------+
+; clk   ; -8.103 ; -5451.336          ;
+; reset ; -8.049 ; -71.077            ;
++-------+--------+--------------------+
 
 
-+------------------------------------------------+
-; Slow 1100mV 85C Model Hold Summary             ;
-+-----------------------+--------+---------------+
-; Clock                 ; Slack  ; End Point TNS ;
-+-----------------------+--------+---------------+
-; clk                   ; -7.646 ; -1491.946     ;
-; InvCipher:IC|round[0] ; -1.055 ; -39.497       ;
-; count[0]              ; 1.384  ; 0.000         ;
-+-----------------------+--------+---------------+
++------------------------------------+
+; Slow 1100mV 85C Model Hold Summary ;
++-------+-------+--------------------+
+; Clock ; Slack ; End Point TNS      ;
++-------+-------+--------------------+
+; clk   ; 0.359 ; 0.000              ;
+; reset ; 1.728 ; 0.000              ;
++-------+-------+--------------------+
 
 
 ------------------------------------------
@@ -175,13 +172,12 @@ No paths to report.
 
 +---------------------------------------------------+
 ; Slow 1100mV 85C Model Minimum Pulse Width Summary ;
-+-----------------------+--------+------------------+
-; Clock                 ; Slack  ; End Point TNS    ;
-+-----------------------+--------+------------------+
-; clk                   ; -0.394 ; -535.325         ;
-; InvCipher:IC|round[0] ; 0.142  ; 0.000            ;
-; count[0]              ; 0.315  ; 0.000            ;
-+-----------------------+--------+------------------+
++-------+--------+----------------------------------+
+; Clock ; Slack  ; End Point TNS                    ;
++-------+--------+----------------------------------+
+; clk   ; -0.394 ; -545.594                         ;
+; reset ; -0.254 ; -0.434                           ;
++-------+--------+----------------------------------+
 
 
 -----------------------------------------------
@@ -190,37 +186,35 @@ No paths to report.
 No synchronizer chains to report.
 
 
-+------------------------------------------------------------+
-; Slow 1100mV 0C Model Fmax Summary                          ;
-+-----------+-----------------+-----------------------+------+
-; Fmax      ; Restricted Fmax ; Clock Name            ; Note ;
-+-----------+-----------------+-----------------------+------+
-; 69.67 MHz ; 69.67 MHz       ; InvCipher:IC|round[0] ;      ;
-; 86.49 MHz ; 86.49 MHz       ; clk                   ;      ;
-+-----------+-----------------+-----------------------+------+
++--------------------------------------------------+
+; Slow 1100mV 0C Model Fmax Summary                ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 114.27 MHz ; 114.27 MHz      ; clk        ;      ;
+; 129.97 MHz ; 129.97 MHz      ; reset      ;      ;
++------------+-----------------+------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
-+-------------------------------------------------+
-; Slow 1100mV 0C Model Setup Summary              ;
-+-----------------------+---------+---------------+
-; Clock                 ; Slack   ; End Point TNS ;
-+-----------------------+---------+---------------+
-; InvCipher:IC|round[0] ; -14.515 ; -1661.055     ;
-; clk                   ; -10.562 ; -3961.645     ;
-; count[0]              ; -8.924  ; -69.528       ;
-+-----------------------+---------+---------------+
++------------------------------------+
+; Slow 1100mV 0C Model Setup Summary ;
++-------+--------+-------------------+
+; Clock ; Slack  ; End Point TNS     ;
++-------+--------+-------------------+
+; reset ; -7.947 ; -70.054           ;
+; clk   ; -7.751 ; -5159.007         ;
++-------+--------+-------------------+
 
 
-+------------------------------------------------+
-; Slow 1100mV 0C Model Hold Summary              ;
-+-----------------------+--------+---------------+
-; Clock                 ; Slack  ; End Point TNS ;
-+-----------------------+--------+---------------+
-; clk                   ; -7.511 ; -1481.707     ;
-; InvCipher:IC|round[0] ; -1.035 ; -43.968       ;
-; count[0]              ; 1.373  ; 0.000         ;
-+-----------------------+--------+---------------+
++-----------------------------------+
+; Slow 1100mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; clk   ; 0.379 ; 0.000             ;
+; reset ; 1.521 ; 0.000             ;
++-------+-------+-------------------+
 
 
 -----------------------------------------
@@ -237,13 +231,12 @@ No paths to report.
 
 +--------------------------------------------------+
 ; Slow 1100mV 0C Model Minimum Pulse Width Summary ;
-+-----------------------+--------+-----------------+
-; Clock                 ; Slack  ; End Point TNS   ;
-+-----------------------+--------+-----------------+
-; clk                   ; -0.394 ; -493.250        ;
-; InvCipher:IC|round[0] ; 0.109  ; 0.000           ;
-; count[0]              ; 0.303  ; 0.000           ;
-+-----------------------+--------+-----------------+
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; clk   ; -0.394 ; -499.257                        ;
+; reset ; -0.230 ; -0.377                          ;
++-------+--------+---------------------------------+
 
 
 ----------------------------------------------
@@ -252,26 +245,24 @@ No paths to report.
 No synchronizer chains to report.
 
 
-+------------------------------------------------+
-; Fast 1100mV 85C Model Setup Summary            ;
-+-----------------------+--------+---------------+
-; Clock                 ; Slack  ; End Point TNS ;
-+-----------------------+--------+---------------+
-; InvCipher:IC|round[0] ; -8.449 ; -943.788      ;
-; clk                   ; -7.009 ; -2277.226     ;
-; count[0]              ; -4.588 ; -35.036       ;
-+-----------------------+--------+---------------+
++-------------------------------------+
+; Fast 1100mV 85C Model Setup Summary ;
++-------+--------+--------------------+
+; Clock ; Slack  ; End Point TNS      ;
++-------+--------+--------------------+
+; clk   ; -5.312 ; -3553.487          ;
+; reset ; -4.213 ; -36.757            ;
++-------+--------+--------------------+
 
 
-+------------------------------------------------+
-; Fast 1100mV 85C Model Hold Summary             ;
-+-----------------------+--------+---------------+
-; Clock                 ; Slack  ; End Point TNS ;
-+-----------------------+--------+---------------+
-; clk                   ; -4.268 ; -807.298      ;
-; InvCipher:IC|round[0] ; -0.687 ; -27.056       ;
-; count[0]              ; 0.685  ; 0.000         ;
-+-----------------------+--------+---------------+
++------------------------------------+
+; Fast 1100mV 85C Model Hold Summary ;
++-------+-------+--------------------+
+; Clock ; Slack ; End Point TNS      ;
++-------+-------+--------------------+
+; clk   ; 0.176 ; 0.000              ;
+; reset ; 0.983 ; 0.000              ;
++-------+-------+--------------------+
 
 
 ------------------------------------------
@@ -288,13 +279,12 @@ No paths to report.
 
 +---------------------------------------------------+
 ; Fast 1100mV 85C Model Minimum Pulse Width Summary ;
-+-----------------------+--------+------------------+
-; Clock                 ; Slack  ; End Point TNS    ;
-+-----------------------+--------+------------------+
-; clk                   ; -0.344 ; -259.026         ;
-; InvCipher:IC|round[0] ; 0.212  ; 0.000            ;
-; count[0]              ; 0.326  ; 0.000            ;
-+-----------------------+--------+------------------+
++-------+--------+----------------------------------+
+; Clock ; Slack  ; End Point TNS                    ;
++-------+--------+----------------------------------+
+; reset ; -0.471 ; -2.656                           ;
+; clk   ; -0.348 ; -263.977                         ;
++-------+--------+----------------------------------+
 
 
 -----------------------------------------------
@@ -303,26 +293,24 @@ No paths to report.
 No synchronizer chains to report.
 
 
-+------------------------------------------------+
-; Fast 1100mV 0C Model Setup Summary             ;
-+-----------------------+--------+---------------+
-; Clock                 ; Slack  ; End Point TNS ;
-+-----------------------+--------+---------------+
-; InvCipher:IC|round[0] ; -7.730 ; -871.960      ;
-; clk                   ; -6.043 ; -1966.968     ;
-; count[0]              ; -4.365 ; -33.539       ;
-+-----------------------+--------+---------------+
++------------------------------------+
+; Fast 1100mV 0C Model Setup Summary ;
++-------+--------+-------------------+
+; Clock ; Slack  ; End Point TNS     ;
++-------+--------+-------------------+
+; clk   ; -4.512 ; -3024.717         ;
+; reset ; -3.912 ; -34.237           ;
++-------+--------+-------------------+
 
 
-+------------------------------------------------+
-; Fast 1100mV 0C Model Hold Summary              ;
-+-----------------------+--------+---------------+
-; Clock                 ; Slack  ; End Point TNS ;
-+-----------------------+--------+---------------+
-; clk                   ; -4.155 ; -809.602      ;
-; InvCipher:IC|round[0] ; -0.590 ; -22.799       ;
-; count[0]              ; 0.639  ; 0.000         ;
-+-----------------------+--------+---------------+
++-----------------------------------+
+; Fast 1100mV 0C Model Hold Summary ;
++-------+-------+-------------------+
+; Clock ; Slack ; End Point TNS     ;
++-------+-------+-------------------+
+; clk   ; 0.166 ; 0.000             ;
+; reset ; 0.823 ; 0.000             ;
++-------+-------+-------------------+
 
 
 -----------------------------------------
@@ -339,13 +327,12 @@ No paths to report.
 
 +--------------------------------------------------+
 ; Fast 1100mV 0C Model Minimum Pulse Width Summary ;
-+-----------------------+--------+-----------------+
-; Clock                 ; Slack  ; End Point TNS   ;
-+-----------------------+--------+-----------------+
-; clk                   ; -0.322 ; -242.813        ;
-; InvCipher:IC|round[0] ; 0.255  ; 0.000           ;
-; count[0]              ; 0.354  ; 0.000           ;
-+-----------------------+--------+-----------------+
++-------+--------+---------------------------------+
+; Clock ; Slack  ; End Point TNS                   ;
++-------+--------+---------------------------------+
+; reset ; -0.376 ; -2.028                          ;
+; clk   ; -0.325 ; -247.558                        ;
++-------+--------+---------------------------------+
 
 
 ----------------------------------------------
@@ -354,20 +341,18 @@ No paths to report.
 No synchronizer chains to report.
 
 
-+-------------------------------------------------------------------------------------------+
-; Multicorner Timing Analysis Summary                                                       ;
-+------------------------+-----------+-----------+----------+---------+---------------------+
-; Clock                  ; Setup     ; Hold      ; Recovery ; Removal ; Minimum Pulse Width ;
-+------------------------+-----------+-----------+----------+---------+---------------------+
-; Worst-case Slack       ; -14.815   ; -7.646    ; N/A      ; N/A     ; -0.394              ;
-;  InvCipher:IC|round[0] ; -14.815   ; -1.055    ; N/A      ; N/A     ; 0.109               ;
-;  clk                   ; -10.994   ; -7.646    ; N/A      ; N/A     ; -0.394              ;
-;  count[0]              ; -9.060    ; 0.639     ; N/A      ; N/A     ; 0.303               ;
-; Design-wide TNS        ; -5823.715 ; -1531.443 ; 0.0      ; 0.0     ; -535.325            ;
-;  InvCipher:IC|round[0] ; -1697.028 ; -43.968   ; N/A      ; N/A     ; 0.000               ;
-;  clk                   ; -4056.214 ; -1491.946 ; N/A      ; N/A     ; -535.325            ;
-;  count[0]              ; -70.473   ; 0.000     ; N/A      ; N/A     ; 0.000               ;
-+------------------------+-----------+-----------+----------+---------+---------------------+
++---------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                             ;
++------------------+-----------+-------+----------+---------+---------------------+
+; Clock            ; Setup     ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+-----------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -8.103    ; 0.166 ; N/A      ; N/A     ; -0.471              ;
+;  clk             ; -8.103    ; 0.166 ; N/A      ; N/A     ; -0.394              ;
+;  reset           ; -8.049    ; 0.823 ; N/A      ; N/A     ; -0.471              ;
+; Design-wide TNS  ; -5522.413 ; 0.0   ; 0.0      ; 0.0     ; -546.028            ;
+;  clk             ; -5451.336 ; 0.000 ; N/A      ; N/A     ; -545.594            ;
+;  reset           ; -71.077   ; 0.000 ; N/A      ; N/A     ; -2.656              ;
++------------------+-----------+-------+----------+---------+---------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -531,35 +516,29 @@ No synchronizer chains to report.
 +--------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 
 
-+-------------------------------------------------------------------------------------------+
-; Setup Transfers                                                                           ;
-+-----------------------+-----------------------+----------+----------+----------+----------+
-; From Clock            ; To Clock              ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
-+-----------------------+-----------------------+----------+----------+----------+----------+
-; clk                   ; clk                   ; 215683   ; 0        ; 0        ; 0        ;
-; count[0]              ; clk                   ; 9        ; 9        ; 0        ; 0        ;
-; InvCipher:IC|round[0] ; clk                   ; 4524     ; 4524     ; 0        ; 0        ;
-; clk                   ; count[0]              ; 32       ; 0        ; 0        ; 0        ;
-; InvCipher:IC|round[0] ; count[0]              ; 8        ; 0        ; 0        ; 0        ;
-; clk                   ; InvCipher:IC|round[0] ; 69985    ; 0        ; 0        ; 0        ;
-; InvCipher:IC|round[0] ; InvCipher:IC|round[0] ; 2320     ; 2320     ; 0        ; 0        ;
-+-----------------------+-----------------------+----------+----------+----------+----------+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 275801   ; 0        ; 0        ; 0        ;
+; reset      ; clk      ; 780      ; 780      ; 0        ; 0        ;
+; clk        ; reset    ; 266      ; 0        ; 40       ; 0        ;
+; reset      ; reset    ; 0        ; 0        ; 8        ; 8        ;
++------------+----------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
-+-------------------------------------------------------------------------------------------+
-; Hold Transfers                                                                            ;
-+-----------------------+-----------------------+----------+----------+----------+----------+
-; From Clock            ; To Clock              ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
-+-----------------------+-----------------------+----------+----------+----------+----------+
-; clk                   ; clk                   ; 215683   ; 0        ; 0        ; 0        ;
-; count[0]              ; clk                   ; 9        ; 9        ; 0        ; 0        ;
-; InvCipher:IC|round[0] ; clk                   ; 4524     ; 4524     ; 0        ; 0        ;
-; clk                   ; count[0]              ; 32       ; 0        ; 0        ; 0        ;
-; InvCipher:IC|round[0] ; count[0]              ; 8        ; 0        ; 0        ; 0        ;
-; clk                   ; InvCipher:IC|round[0] ; 69985    ; 0        ; 0        ; 0        ;
-; InvCipher:IC|round[0] ; InvCipher:IC|round[0] ; 2320     ; 2320     ; 0        ; 0        ;
-+-----------------------+-----------------------+----------+----------+----------+----------+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; clk        ; clk      ; 275801   ; 0        ; 0        ; 0        ;
+; reset      ; clk      ; 780      ; 780      ; 0        ; 0        ;
+; clk        ; reset    ; 266      ; 0        ; 40       ; 0        ;
+; reset      ; reset    ; 0        ; 0        ; 8        ; 8        ;
++------------+----------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
@@ -582,22 +561,21 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 2     ; 2    ;
-; Unconstrained Input Port Paths  ; 28    ; 28   ;
+; Unconstrained Input Ports       ; 1     ; 1    ;
+; Unconstrained Input Port Paths  ; 21    ; 21   ;
 ; Unconstrained Output Ports      ; 22    ; 22   ;
-; Unconstrained Output Port Paths ; 422   ; 422  ;
+; Unconstrained Output Port Paths ; 162   ; 162  ;
 +---------------------------------+-------+------+
 
 
-+--------------------------------------------------------------------+
-; Clock Status Summary                                               ;
-+-----------------------+-----------------------+------+-------------+
-; Target                ; Clock                 ; Type ; Status      ;
-+-----------------------+-----------------------+------+-------------+
-; InvCipher:IC|round[0] ; InvCipher:IC|round[0] ; Base ; Constrained ;
-; clk                   ; clk                   ; Base ; Constrained ;
-; count[0]              ; count[0]              ; Base ; Constrained ;
-+-----------------------+-----------------------+------+-------------+
++-------------------------------------+
+; Clock Status Summary                ;
++--------+-------+------+-------------+
+; Target ; Clock ; Type ; Status      ;
++--------+-------+------+-------------+
+; clk    ; clk   ; Base ; Constrained ;
+; reset  ; reset ; Base ; Constrained ;
++--------+-------+------+-------------+
 
 
 +---------------------------------------------------------------------------------------------------+
@@ -606,7 +584,6 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Input Port ; Comment                                                                              ;
 +------------+--------------------------------------------------------------------------------------+
 ; enable     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; reset      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +------------+--------------------------------------------------------------------------------------+
 
 
@@ -646,7 +623,6 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 ; Input Port ; Comment                                                                              ;
 +------------+--------------------------------------------------------------------------------------+
 ; enable     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; reset      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
 +------------+--------------------------------------------------------------------------------------+
 
 
@@ -686,128 +662,115 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Thu May  9 13:12:52 2024
+    Info: Processing started: Thu May  9 17:46:17 2024
 Info: Command: quartus_sta AES -c AES
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Info (21076): High junction temperature operating condition is not set. Assuming a default value of '85'.
-Info (21076): Low junction temperature operating condition is not set. Assuming a default value of '0'.
-Warning (335093): The Timing Analyzer is analyzing 136 combinational loops as latches. For more details, run the Check Timing command in the Timing Analyzer or view the "User-Specified and Inferred Latches" table in the Analysis & Synthesis report.
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Warning (335093): The Timing Analyzer is analyzing 9 combinational loops as latches. For more details, run the Check Timing command in the Timing Analyzer or view the "User-Specified and Inferred Latches" table in the Analysis & Synthesis report.
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'AES.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
 Info (332105): Deriving Clocks
     Info (332105): create_clock -period 1.000 -name clk clk
-    Info (332105): create_clock -period 1.000 -name InvCipher:IC|round[0] InvCipher:IC|round[0]
-    Info (332105): create_clock -period 1.000 -name count[0] count[0]
+    Info (332105): create_clock -period 1.000 -name reset reset
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1100mV 85C Model
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -14.815
+Info (332146): Worst-case setup slack is -8.103
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -14.815           -1697.028 InvCipher:IC|round[0] 
-    Info (332119):   -10.994           -4056.214 clk 
-    Info (332119):    -9.060             -70.473 count[0] 
-Info (332146): Worst-case hold slack is -7.646
+    Info (332119):    -8.103           -5451.336 clk 
+    Info (332119):    -8.049             -71.077 reset 
+Info (332146): Worst-case hold slack is 0.359
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -7.646           -1491.946 clk 
-    Info (332119):    -1.055             -39.497 InvCipher:IC|round[0] 
-    Info (332119):     1.384               0.000 count[0] 
+    Info (332119):     0.359               0.000 clk 
+    Info (332119):     1.728               0.000 reset 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -0.394
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.394            -535.325 clk 
-    Info (332119):     0.142               0.000 InvCipher:IC|round[0] 
-    Info (332119):     0.315               0.000 count[0] 
+    Info (332119):    -0.394            -545.594 clk 
+    Info (332119):    -0.254              -0.434 reset 
 Info: Analyzing Slow 1100mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -14.515
+Info (332146): Worst-case setup slack is -7.947
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -14.515           -1661.055 InvCipher:IC|round[0] 
-    Info (332119):   -10.562           -3961.645 clk 
-    Info (332119):    -8.924             -69.528 count[0] 
-Info (332146): Worst-case hold slack is -7.511
+    Info (332119):    -7.947             -70.054 reset 
+    Info (332119):    -7.751           -5159.007 clk 
+Info (332146): Worst-case hold slack is 0.379
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -7.511           -1481.707 clk 
-    Info (332119):    -1.035             -43.968 InvCipher:IC|round[0] 
-    Info (332119):     1.373               0.000 count[0] 
+    Info (332119):     0.379               0.000 clk 
+    Info (332119):     1.521               0.000 reset 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -0.394
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.394            -493.250 clk 
-    Info (332119):     0.109               0.000 InvCipher:IC|round[0] 
-    Info (332119):     0.303               0.000 count[0] 
+    Info (332119):    -0.394            -499.257 clk 
+    Info (332119):    -0.230              -0.377 reset 
 Info: Analyzing Fast 1100mV 85C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -8.449
+Info (332146): Worst-case setup slack is -5.312
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -8.449            -943.788 InvCipher:IC|round[0] 
-    Info (332119):    -7.009           -2277.226 clk 
-    Info (332119):    -4.588             -35.036 count[0] 
-Info (332146): Worst-case hold slack is -4.268
+    Info (332119):    -5.312           -3553.487 clk 
+    Info (332119):    -4.213             -36.757 reset 
+Info (332146): Worst-case hold slack is 0.176
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -4.268            -807.298 clk 
-    Info (332119):    -0.687             -27.056 InvCipher:IC|round[0] 
-    Info (332119):     0.685               0.000 count[0] 
+    Info (332119):     0.176               0.000 clk 
+    Info (332119):     0.983               0.000 reset 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is -0.344
+Info (332146): Worst-case minimum pulse width slack is -0.471
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.344            -259.026 clk 
-    Info (332119):     0.212               0.000 InvCipher:IC|round[0] 
-    Info (332119):     0.326               0.000 count[0] 
+    Info (332119):    -0.471              -2.656 reset 
+    Info (332119):    -0.348            -263.977 clk 
 Info: Analyzing Fast 1100mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -7.730
+Info (332146): Worst-case setup slack is -4.512
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -7.730            -871.960 InvCipher:IC|round[0] 
-    Info (332119):    -6.043           -1966.968 clk 
-    Info (332119):    -4.365             -33.539 count[0] 
-Info (332146): Worst-case hold slack is -4.155
+    Info (332119):    -4.512           -3024.717 clk 
+    Info (332119):    -3.912             -34.237 reset 
+Info (332146): Worst-case hold slack is 0.166
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -4.155            -809.602 clk 
-    Info (332119):    -0.590             -22.799 InvCipher:IC|round[0] 
-    Info (332119):     0.639               0.000 count[0] 
+    Info (332119):     0.166               0.000 clk 
+    Info (332119):     0.823               0.000 reset 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is -0.322
+Info (332146): Worst-case minimum pulse width slack is -0.376
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.322            -242.813 clk 
-    Info (332119):     0.255               0.000 InvCipher:IC|round[0] 
-    Info (332119):     0.354               0.000 count[0] 
+    Info (332119):    -0.376              -2.028 reset 
+    Info (332119):    -0.325            -247.558 clk 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 5222 megabytes
-    Info: Processing ended: Thu May  9 13:13:06 2024
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:28
+    Info: Peak virtual memory: 5208 megabytes
+    Info: Processing ended: Thu May  9 17:46:30 2024
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:26
 
 

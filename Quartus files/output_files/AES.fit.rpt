@@ -1,5 +1,5 @@
 Fitter report for AES
-Thu May  9 13:12:37 2024
+Thu May  9 17:46:03 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -63,15 +63,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +---------------------------------+------------------------------------------------+
-; Fitter Status                   ; Successful - Thu May  9 13:12:37 2024          ;
+; Fitter Status                   ; Successful - Thu May  9 17:46:03 2024          ;
 ; Quartus Prime Version           ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                   ; AES                                            ;
 ; Top-level Entity Name           ; AES                                            ;
 ; Family                          ; Cyclone V                                      ;
 ; Device                          ; 5CSEMA5F31C6                                   ;
 ; Timing Models                   ; Final                                          ;
-; Logic utilization (in ALMs)     ; 3,665 / 32,070 ( 11 % )                        ;
-; Total registers                 ; 768                                            ;
+; Logic utilization (in ALMs)     ; 3,655 / 32,070 ( 11 % )                        ;
+; Total registers                 ; 780                                            ;
 ; Total pins                      ; 25 / 457 ( 5 % )                               ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0 / 4,065,280 ( 0 % )                          ;
@@ -92,6 +92,8 @@ https://fpgasoftware.intel.com/eula.
 ; Option                                                             ; Setting                               ; Default Value                         ;
 +--------------------------------------------------------------------+---------------------------------------+---------------------------------------+
 ; Device                                                             ; 5CSEMA5F31C6                          ;                                       ;
+; Minimum Core Junction Temperature                                  ; 0                                     ;                                       ;
+; Maximum Core Junction Temperature                                  ; 85                                    ;                                       ;
 ; Use smart compilation                                              ; Off                                   ; Off                                   ;
 ; Enable parallel Assembler and Timing Analyzer during compilation   ; On                                    ; On                                    ;
 ; Enable compact report table                                        ; Off                                   ; Off                                   ;
@@ -151,129 +153,24 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.06        ;
+; Average used               ; 1.14        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   2.2%      ;
-;     Processor 3            ;   2.1%      ;
-;     Processor 4            ;   2.0%      ;
+;     Processor 2            ;   5.0%      ;
+;     Processor 3            ;   4.7%      ;
+;     Processor 4            ;   4.6%      ;
 +----------------------------+-------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Fitter Netlist Optimizations                                                                                                                                                                                                                          ;
-+-----------------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+---------------------------------------------+------------------+-----------------------+
-; Node                              ; Action     ; Operation                                         ; Reason                     ; Node Port ; Node Port Name ; Destination Node                            ; Destination Port ; Destination Port Name ;
-+-----------------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+---------------------------------------------+------------------+-----------------------+
-; clk~inputCLKENA0                  ; Created    ; Placement                                         ; Fitter Periphery Placement ;           ;                ;                                             ;                  ;                       ;
-; Cipher:C|RoundInReg[2]            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[2]~DUPLICATE            ;                  ;                       ;
-; Cipher:C|RoundInReg[7]            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[7]~DUPLICATE            ;                  ;                       ;
-; Cipher:C|RoundInReg[9]            ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[9]~DUPLICATE            ;                  ;                       ;
-; Cipher:C|RoundInReg[10]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[10]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[11]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[11]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[15]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[15]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[16]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[16]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[17]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[17]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[21]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[21]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[26]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[26]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[28]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[28]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[29]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[29]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[31]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[31]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[35]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[35]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[37]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[37]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[38]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[38]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[39]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[39]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[41]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[41]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[42]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[42]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[45]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[45]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[47]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[47]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[52]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[52]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[55]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[55]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[57]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[57]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[64]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[64]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[66]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[66]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[67]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[67]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[69]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[69]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[71]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[71]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[72]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[72]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[76]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[76]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[77]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[77]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[81]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[81]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[86]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[86]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[89]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[89]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[92]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[92]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[94]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[94]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[96]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[96]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[97]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[97]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[99]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[99]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|RoundInReg[101]          ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[101]~DUPLICATE          ;                  ;                       ;
-; Cipher:C|RoundInReg[102]          ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[102]~DUPLICATE          ;                  ;                       ;
-; Cipher:C|RoundInReg[103]          ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[103]~DUPLICATE          ;                  ;                       ;
-; Cipher:C|RoundInReg[107]          ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[107]~DUPLICATE          ;                  ;                       ;
-; Cipher:C|RoundInReg[109]          ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[109]~DUPLICATE          ;                  ;                       ;
-; Cipher:C|RoundInReg[110]          ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[110]~DUPLICATE          ;                  ;                       ;
-; Cipher:C|RoundInReg[113]          ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[113]~DUPLICATE          ;                  ;                       ;
-; Cipher:C|RoundInReg[116]          ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[116]~DUPLICATE          ;                  ;                       ;
-; Cipher:C|RoundInReg[118]          ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[118]~DUPLICATE          ;                  ;                       ;
-; Cipher:C|RoundInReg[119]          ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[119]~DUPLICATE          ;                  ;                       ;
-; Cipher:C|RoundInReg[120]          ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[120]~DUPLICATE          ;                  ;                       ;
-; Cipher:C|RoundInReg[121]          ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[121]~DUPLICATE          ;                  ;                       ;
-; Cipher:C|RoundInReg[122]          ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[122]~DUPLICATE          ;                  ;                       ;
-; Cipher:C|RoundInReg[126]          ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[126]~DUPLICATE          ;                  ;                       ;
-; Cipher:C|RoundInReg[127]          ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|RoundInReg[127]~DUPLICATE          ;                  ;                       ;
-; Cipher:C|currentstate.FINAL_ROUND ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|currentstate.FINAL_ROUND~DUPLICATE ;                  ;                       ;
-; Cipher:C|currentstate.ROUNDS      ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|currentstate.ROUNDS~DUPLICATE      ;                  ;                       ;
-; Cipher:C|final_round[4]           ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|final_round[4]~DUPLICATE           ;                  ;                       ;
-; Cipher:C|final_round[68]          ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|final_round[68]~DUPLICATE          ;                  ;                       ;
-; Cipher:C|round[0]                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|round[0]~DUPLICATE                 ;                  ;                       ;
-; Cipher:C|round[1]                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|round[1]~DUPLICATE                 ;                  ;                       ;
-; Cipher:C|round[2]                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|round[2]~DUPLICATE                 ;                  ;                       ;
-; Cipher:C|round[3]                 ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|round[3]~DUPLICATE                 ;                  ;                       ;
-; Cipher:C|tempEncryptedText[0]     ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[0]~DUPLICATE     ;                  ;                       ;
-; Cipher:C|tempEncryptedText[1]     ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[1]~DUPLICATE     ;                  ;                       ;
-; Cipher:C|tempEncryptedText[3]     ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[3]~DUPLICATE     ;                  ;                       ;
-; Cipher:C|tempEncryptedText[7]     ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[7]~DUPLICATE     ;                  ;                       ;
-; Cipher:C|tempEncryptedText[9]     ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[9]~DUPLICATE     ;                  ;                       ;
-; Cipher:C|tempEncryptedText[10]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[10]~DUPLICATE    ;                  ;                       ;
-; Cipher:C|tempEncryptedText[12]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[12]~DUPLICATE    ;                  ;                       ;
-; Cipher:C|tempEncryptedText[13]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[13]~DUPLICATE    ;                  ;                       ;
-; Cipher:C|tempEncryptedText[15]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[15]~DUPLICATE    ;                  ;                       ;
-; Cipher:C|tempEncryptedText[17]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[17]~DUPLICATE    ;                  ;                       ;
-; Cipher:C|tempEncryptedText[21]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[21]~DUPLICATE    ;                  ;                       ;
-; Cipher:C|tempEncryptedText[25]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[25]~DUPLICATE    ;                  ;                       ;
-; Cipher:C|tempEncryptedText[28]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[28]~DUPLICATE    ;                  ;                       ;
-; Cipher:C|tempEncryptedText[30]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[30]~DUPLICATE    ;                  ;                       ;
-; Cipher:C|tempEncryptedText[31]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[31]~DUPLICATE    ;                  ;                       ;
-; Cipher:C|tempEncryptedText[34]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[34]~DUPLICATE    ;                  ;                       ;
-; Cipher:C|tempEncryptedText[35]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[35]~DUPLICATE    ;                  ;                       ;
-; Cipher:C|tempEncryptedText[37]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[37]~DUPLICATE    ;                  ;                       ;
-; Cipher:C|tempEncryptedText[38]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[38]~DUPLICATE    ;                  ;                       ;
-; Cipher:C|tempEncryptedText[39]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[39]~DUPLICATE    ;                  ;                       ;
-; Cipher:C|tempEncryptedText[40]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[40]~DUPLICATE    ;                  ;                       ;
-; Cipher:C|tempEncryptedText[45]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[45]~DUPLICATE    ;                  ;                       ;
-; Cipher:C|tempEncryptedText[51]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[51]~DUPLICATE    ;                  ;                       ;
-; Cipher:C|tempEncryptedText[54]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[54]~DUPLICATE    ;                  ;                       ;
-; Cipher:C|tempEncryptedText[56]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[56]~DUPLICATE    ;                  ;                       ;
-; Cipher:C|tempEncryptedText[61]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[61]~DUPLICATE    ;                  ;                       ;
-; Cipher:C|tempEncryptedText[62]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[62]~DUPLICATE    ;                  ;                       ;
-; Cipher:C|tempEncryptedText[65]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[65]~DUPLICATE    ;                  ;                       ;
-; Cipher:C|tempEncryptedText[68]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[68]~DUPLICATE    ;                  ;                       ;
-; Cipher:C|tempEncryptedText[71]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[71]~DUPLICATE    ;                  ;                       ;
-; Cipher:C|tempEncryptedText[76]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[76]~DUPLICATE    ;                  ;                       ;
-; Cipher:C|tempEncryptedText[85]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[85]~DUPLICATE    ;                  ;                       ;
-; Cipher:C|tempEncryptedText[95]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[95]~DUPLICATE    ;                  ;                       ;
-; Cipher:C|tempEncryptedText[96]    ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[96]~DUPLICATE    ;                  ;                       ;
-; Cipher:C|tempEncryptedText[100]   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[100]~DUPLICATE   ;                  ;                       ;
-; Cipher:C|tempEncryptedText[109]   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[109]~DUPLICATE   ;                  ;                       ;
-; Cipher:C|tempEncryptedText[111]   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[111]~DUPLICATE   ;                  ;                       ;
-; Cipher:C|tempEncryptedText[115]   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[115]~DUPLICATE   ;                  ;                       ;
-; Cipher:C|tempEncryptedText[116]   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[116]~DUPLICATE   ;                  ;                       ;
-; Cipher:C|tempEncryptedText[118]   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[118]~DUPLICATE   ;                  ;                       ;
-; Cipher:C|tempEncryptedText[121]   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[121]~DUPLICATE   ;                  ;                       ;
-; Cipher:C|tempEncryptedText[126]   ; Duplicated ; Router Logic Cell Insertion and Logic Duplication ; Routability optimization   ;           ;                ; Cipher:C|tempEncryptedText[126]~DUPLICATE   ;                  ;                       ;
-+-----------------------------------+------------+---------------------------------------------------+----------------------------+-----------+----------------+---------------------------------------------+------------------+-----------------------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fitter Netlist Optimizations                                                                                                                                   ;
++------------------+---------+-----------+----------------------------+-----------+----------------+------------------+------------------+-----------------------+
+; Node             ; Action  ; Operation ; Reason                     ; Node Port ; Node Port Name ; Destination Node ; Destination Port ; Destination Port Name ;
++------------------+---------+-----------+----------------------------+-----------+----------------+------------------+------------------+-----------------------+
+; clk~inputCLKENA0 ; Created ; Placement ; Fitter Periphery Placement ;           ;                ;                  ;                  ;                       ;
++------------------+---------+-----------+----------------------------+-----------+----------------+------------------+------------------+-----------------------+
 
 
 +---------------------------------------------------------------------------------------------------+
@@ -282,8 +179,8 @@ https://fpgasoftware.intel.com/eula.
 ; Type                ; Total [A + B]       ; From Design Partitions [A] ; From Rapid Recompile [B] ;
 +---------------------+---------------------+----------------------------+--------------------------+
 ; Placement (by node) ;                     ;                            ;                          ;
-;     -- Requested    ; 0.00 % ( 0 / 5082 ) ; 0.00 % ( 0 / 5082 )        ; 0.00 % ( 0 / 5082 )      ;
-;     -- Achieved     ; 0.00 % ( 0 / 5082 ) ; 0.00 % ( 0 / 5082 )        ; 0.00 % ( 0 / 5082 )      ;
+;     -- Requested    ; 0.00 % ( 0 / 5049 ) ; 0.00 % ( 0 / 5049 )        ; 0.00 % ( 0 / 5049 )      ;
+;     -- Achieved     ; 0.00 % ( 0 / 5049 ) ; 0.00 % ( 0 / 5049 )        ; 0.00 % ( 0 / 5049 )      ;
 ;                     ;                     ;                            ;                          ;
 ; Routing (by net)    ;                     ;                            ;                          ;
 ;     -- Requested    ; 0.00 % ( 0 / 0 )    ; 0.00 % ( 0 / 0 )           ; 0.00 % ( 0 / 0 )         ;
@@ -306,7 +203,7 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 ; Partition Name                 ; Preservation Achieved ; Preservation Level Used ; Netlist Type Used ; Preservation Method ; Notes ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
-; Top                            ; 0.00 % ( 0 / 5082 )   ; N/A                     ; Source File       ; N/A                 ;       ;
+; Top                            ; 0.00 % ( 0 / 5049 )   ; N/A                     ; Source File       ; N/A                 ;       ;
 ; hard_block:auto_generated_inst ; 0.00 % ( 0 / 0 )      ; N/A                     ; Source File       ; N/A                 ;       ;
 +--------------------------------+-----------------------+-------------------------+-------------------+---------------------+-------+
 
@@ -322,41 +219,41 @@ The pin-out file can be found in C:/Users/ahmed/OneDrive/Desktop/AES/Quartus fil
 +-------------------------------------------------------------+-----------------------+-------+
 ; Resource                                                    ; Usage                 ; %     ;
 +-------------------------------------------------------------+-----------------------+-------+
-; Logic utilization (ALMs needed / total ALMs on device)      ; 3,665 / 32,070        ; 11 %  ;
-; ALMs needed [=A-B+C]                                        ; 3,665                 ;       ;
-;     [A] ALMs used in final placement [=a+b+c+d]             ; 3,720 / 32,070        ; 12 %  ;
-;         [a] ALMs used for LUT logic and registers           ; 218                   ;       ;
-;         [b] ALMs used for LUT logic                         ; 3,388                 ;       ;
-;         [c] ALMs used for registers                         ; 114                   ;       ;
+; Logic utilization (ALMs needed / total ALMs on device)      ; 3,655 / 32,070        ; 11 %  ;
+; ALMs needed [=A-B+C]                                        ; 3,655                 ;       ;
+;     [A] ALMs used in final placement [=a+b+c+d]             ; 3,730 / 32,070        ; 12 %  ;
+;         [a] ALMs used for LUT logic and registers           ; 277                   ;       ;
+;         [b] ALMs used for LUT logic                         ; 3,340                 ;       ;
+;         [c] ALMs used for registers                         ; 113                   ;       ;
 ;         [d] ALMs used for memory (up to half of total ALMs) ; 0                     ;       ;
-;     [B] Estimate of ALMs recoverable by dense packing       ; 61 / 32,070           ; < 1 % ;
-;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 6 / 32,070            ; < 1 % ;
+;     [B] Estimate of ALMs recoverable by dense packing       ; 89 / 32,070           ; < 1 % ;
+;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 14 / 32,070           ; < 1 % ;
 ;         [a] Due to location constrained logic               ; 0                     ;       ;
 ;         [b] Due to LAB-wide signal conflicts                ; 0                     ;       ;
-;         [c] Due to LAB input limits                         ; 6                     ;       ;
+;         [c] Due to LAB input limits                         ; 14                    ;       ;
 ;         [d] Due to virtual I/Os                             ; 0                     ;       ;
 ;                                                             ;                       ;       ;
 ; Difficulty packing design                                   ; Low                   ;       ;
 ;                                                             ;                       ;       ;
-; Total LABs:  partially or completely used                   ; 418 / 3,207           ; 13 %  ;
-;     -- Logic LABs                                           ; 418                   ;       ;
+; Total LABs:  partially or completely used                   ; 420 / 3,207           ; 13 %  ;
+;     -- Logic LABs                                           ; 420                   ;       ;
 ;     -- Memory LABs (up to half of total LABs)               ; 0                     ;       ;
 ;                                                             ;                       ;       ;
-; Combinational ALUT usage for logic                          ; 4,368                 ;       ;
+; Combinational ALUT usage for logic                          ; 4,218                 ;       ;
 ;     -- 7 input functions                                    ; 0                     ;       ;
-;     -- 6 input functions                                    ; 2,873                 ;       ;
-;     -- 5 input functions                                    ; 306                   ;       ;
-;     -- 4 input functions                                    ; 745                   ;       ;
-;     -- <=3 input functions                                  ; 444                   ;       ;
-; Combinational ALUT usage for route-throughs                 ; 70                    ;       ;
+;     -- 6 input functions                                    ; 3,003                 ;       ;
+;     -- 5 input functions                                    ; 256                   ;       ;
+;     -- 4 input functions                                    ; 650                   ;       ;
+;     -- <=3 input functions                                  ; 309                   ;       ;
+; Combinational ALUT usage for route-throughs                 ; 73                    ;       ;
 ;                                                             ;                       ;       ;
-; Dedicated logic registers                                   ; 768                   ;       ;
+; Dedicated logic registers                                   ; 780                   ;       ;
 ;     -- By type:                                             ;                       ;       ;
-;         -- Primary logic registers                          ; 663 / 64,140          ; 1 %   ;
-;         -- Secondary logic registers                        ; 105 / 64,140          ; < 1 % ;
+;         -- Primary logic registers                          ; 780 / 64,140          ; 1 %   ;
+;         -- Secondary logic registers                        ; 0 / 64,140            ; 0 %   ;
 ;     -- By function:                                         ;                       ;       ;
-;         -- Design implementation registers                  ; 663                   ;       ;
-;         -- Routing optimization registers                   ; 105                   ;       ;
+;         -- Design implementation registers                  ; 780                   ;       ;
+;         -- Routing optimization registers                   ; 0                     ;       ;
 ;                                                             ;                       ;       ;
 ; Virtual pins                                                ; 0                     ;       ;
 ; I/O pins                                                    ; 25 / 457              ; 5 %   ;
@@ -411,12 +308,12 @@ The pin-out file can be found in C:/Users/ahmed/OneDrive/Desktop/AES/Quartus fil
 ; Oscillator blocks                                           ; 0 / 1                 ; 0 %   ;
 ; Impedance control blocks                                    ; 0 / 4                 ; 0 %   ;
 ; Hard Memory Controllers                                     ; 0 / 2                 ; 0 %   ;
-; Average interconnect usage (total/H/V)                      ; 2.7% / 2.8% / 2.4%    ;       ;
-; Peak interconnect usage (total/H/V)                         ; 24.5% / 25.3% / 22.0% ;       ;
-; Maximum fan-out                                             ; 768                   ;       ;
-; Highest non-global fan-out                                  ; 141                   ;       ;
-; Total fan-out                                               ; 25150                 ;       ;
-; Average fan-out                                             ; 4.78                  ;       ;
+; Average interconnect usage (total/H/V)                      ; 2.6% / 2.6% / 2.4%    ;       ;
+; Peak interconnect usage (total/H/V)                         ; 37.4% / 39.3% / 31.8% ;       ;
+; Maximum fan-out                                             ; 780                   ;       ;
+; Highest non-global fan-out                                  ; 393                   ;       ;
+; Total fan-out                                               ; 25190                 ;       ;
+; Average fan-out                                             ; 4.92                  ;       ;
 +-------------------------------------------------------------+-----------------------+-------+
 
 
@@ -425,44 +322,44 @@ The pin-out file can be found in C:/Users/ahmed/OneDrive/Desktop/AES/Quartus fil
 +-------------------------------------------------------------+-----------------------+--------------------------------+
 ; Statistic                                                   ; Top                   ; hard_block:auto_generated_inst ;
 +-------------------------------------------------------------+-----------------------+--------------------------------+
-; Logic utilization (ALMs needed / total ALMs on device)      ; 3665 / 32070 ( 11 % ) ; 0 / 32070 ( 0 % )              ;
-; ALMs needed [=A-B+C]                                        ; 3665                  ; 0                              ;
-;     [A] ALMs used in final placement [=a+b+c+d]             ; 3720 / 32070 ( 12 % ) ; 0 / 32070 ( 0 % )              ;
-;         [a] ALMs used for LUT logic and registers           ; 218                   ; 0                              ;
-;         [b] ALMs used for LUT logic                         ; 3388                  ; 0                              ;
-;         [c] ALMs used for registers                         ; 114                   ; 0                              ;
+; Logic utilization (ALMs needed / total ALMs on device)      ; 3655 / 32070 ( 11 % ) ; 0 / 32070 ( 0 % )              ;
+; ALMs needed [=A-B+C]                                        ; 3655                  ; 0                              ;
+;     [A] ALMs used in final placement [=a+b+c+d]             ; 3730 / 32070 ( 12 % ) ; 0 / 32070 ( 0 % )              ;
+;         [a] ALMs used for LUT logic and registers           ; 277                   ; 0                              ;
+;         [b] ALMs used for LUT logic                         ; 3340                  ; 0                              ;
+;         [c] ALMs used for registers                         ; 113                   ; 0                              ;
 ;         [d] ALMs used for memory (up to half of total ALMs) ; 0                     ; 0                              ;
-;     [B] Estimate of ALMs recoverable by dense packing       ; 61 / 32070 ( < 1 % )  ; 0 / 32070 ( 0 % )              ;
-;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 6 / 32070 ( < 1 % )   ; 0 / 32070 ( 0 % )              ;
+;     [B] Estimate of ALMs recoverable by dense packing       ; 89 / 32070 ( < 1 % )  ; 0 / 32070 ( 0 % )              ;
+;     [C] Estimate of ALMs unavailable [=a+b+c+d]             ; 14 / 32070 ( < 1 % )  ; 0 / 32070 ( 0 % )              ;
 ;         [a] Due to location constrained logic               ; 0                     ; 0                              ;
 ;         [b] Due to LAB-wide signal conflicts                ; 0                     ; 0                              ;
-;         [c] Due to LAB input limits                         ; 6                     ; 0                              ;
+;         [c] Due to LAB input limits                         ; 14                    ; 0                              ;
 ;         [d] Due to virtual I/Os                             ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; Difficulty packing design                                   ; Low                   ; Low                            ;
 ;                                                             ;                       ;                                ;
-; Total LABs:  partially or completely used                   ; 418 / 3207 ( 13 % )   ; 0 / 3207 ( 0 % )               ;
-;     -- Logic LABs                                           ; 418                   ; 0                              ;
+; Total LABs:  partially or completely used                   ; 420 / 3207 ( 13 % )   ; 0 / 3207 ( 0 % )               ;
+;     -- Logic LABs                                           ; 420                   ; 0                              ;
 ;     -- Memory LABs (up to half of total LABs)               ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
-; Combinational ALUT usage for logic                          ; 4368                  ; 0                              ;
+; Combinational ALUT usage for logic                          ; 4218                  ; 0                              ;
 ;     -- 7 input functions                                    ; 0                     ; 0                              ;
-;     -- 6 input functions                                    ; 2873                  ; 0                              ;
-;     -- 5 input functions                                    ; 306                   ; 0                              ;
-;     -- 4 input functions                                    ; 745                   ; 0                              ;
-;     -- <=3 input functions                                  ; 444                   ; 0                              ;
-; Combinational ALUT usage for route-throughs                 ; 70                    ; 0                              ;
+;     -- 6 input functions                                    ; 3003                  ; 0                              ;
+;     -- 5 input functions                                    ; 256                   ; 0                              ;
+;     -- 4 input functions                                    ; 650                   ; 0                              ;
+;     -- <=3 input functions                                  ; 309                   ; 0                              ;
+; Combinational ALUT usage for route-throughs                 ; 73                    ; 0                              ;
 ; Memory ALUT usage                                           ; 0                     ; 0                              ;
 ;     -- 64-address deep                                      ; 0                     ; 0                              ;
 ;     -- 32-address deep                                      ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; Dedicated logic registers                                   ; 0                     ; 0                              ;
 ;     -- By type:                                             ;                       ;                                ;
-;         -- Primary logic registers                          ; 663 / 64140 ( 1 % )   ; 0 / 64140 ( 0 % )              ;
-;         -- Secondary logic registers                        ; 105 / 64140 ( < 1 % ) ; 0 / 64140 ( 0 % )              ;
+;         -- Primary logic registers                          ; 780 / 64140 ( 1 % )   ; 0 / 64140 ( 0 % )              ;
+;         -- Secondary logic registers                        ; 0 / 64140 ( 0 % )     ; 0 / 64140 ( 0 % )              ;
 ;     -- By function:                                         ;                       ;                                ;
-;         -- Design implementation registers                  ; 663                   ; 0                              ;
-;         -- Routing optimization registers                   ; 105                   ; 0                              ;
+;         -- Design implementation registers                  ; 780                   ; 0                              ;
+;         -- Routing optimization registers                   ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
 ;                                                             ;                       ;                                ;
 ; Virtual pins                                                ; 0                     ; 0                              ;
@@ -479,8 +376,8 @@ The pin-out file can be found in C:/Users/ahmed/OneDrive/Desktop/AES/Quartus fil
 ;     -- Registered Output Connections                        ; 0                     ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; Internal Connections                                        ;                       ;                                ;
-;     -- Total Connections                                    ; 25150                 ; 0                              ;
-;     -- Registered Connections                               ; 15553                 ; 0                              ;
+;     -- Total Connections                                    ; 25190                 ; 0                              ;
+;     -- Registered Connections                               ; 15869                 ; 0                              ;
 ;                                                             ;                       ;                                ;
 ; External Connections                                        ;                       ;                                ;
 ;     -- Top                                                  ; 0                     ; 0                              ;
@@ -512,9 +409,9 @@ The pin-out file can be found in C:/Users/ahmed/OneDrive/Desktop/AES/Quartus fil
 +--------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+----------+--------------+--------------+-------------+---------------------------+----------------------+-----------+
 ; Name   ; Pin # ; I/O Bank ; X coordinate ; Y coordinate ; Z coordinate ; Combinational Fan-Out ; Registered Fan-Out ; Global ; Input Register ; PCI I/O Enabled ; Bus Hold ; Weak Pull Up ; I/O Standard ; Termination ; Termination Control Block ; Location assigned by ; Slew Rate ;
 +--------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+----------+--------------+--------------+-------------+---------------------------+----------------------+-----------+
-; clk    ; AA14  ; 3B       ; 36           ; 0            ; 0            ; 768                   ; 0                  ; yes    ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
+; clk    ; AA14  ; 3B       ; 36           ; 0            ; 0            ; 780                   ; 0                  ; yes    ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
 ; enable ; AB12  ; 3A       ; 12           ; 0            ; 17           ; 20                    ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
-; reset  ; AC12  ; 3A       ; 16           ; 0            ; 0            ; 7                     ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
+; reset  ; AC12  ; 3A       ; 16           ; 0            ; 0            ; 217                   ; 0                  ; no     ; no             ; no              ; no       ; Off          ; 2.5 V        ; Off         ; --                        ; User                 ; no        ;
 +--------+-------+----------+--------------+--------------+--------------+-----------------------+--------------------+--------+----------------+-----------------+----------+--------------+--------------+-------------+---------------------------+----------------------+-----------+
 
 
@@ -1513,7 +1410,7 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 +------------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+----------------------------------------------------------------------------------------+---------------+--------------+
 ; Compilation Hierarchy Node               ; ALMs needed [=A-B+C] ; [A] ALMs used in final placement ; [B] Estimate of ALMs recoverable by dense packing ; [C] Estimate of ALMs unavailable ; ALMs used for memory ; Combinational ALUTs ; Dedicated Logic Registers ; I/O Registers ; Block Memory Bits ; M10Ks ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                    ; Entity Name   ; Library Name ;
 +------------------------------------------+----------------------+----------------------------------+---------------------------------------------------+----------------------------------+----------------------+---------------------+---------------------------+---------------+-------------------+-------+------------+------+--------------+----------------------------------------------------------------------------------------+---------------+--------------+
-; |AES                                     ; 3665.0 (70.6)        ; 3719.5 (67.5)                    ; 60.5 (0.0)                                        ; 6.0 (3.1)                        ; 0.0 (0.0)            ; 4368 (84)           ; 768 (7)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 25   ; 0            ; |AES                                                                                   ; AES           ; work         ;
+; |AES                                     ; 3655.0 (73.6)        ; 3730.0 (70.5)                    ; 88.5 (0.0)                                        ; 13.5 (3.1)                       ; 0.0 (0.0)            ; 4218 (79)           ; 780 (5)                   ; 0 (0)         ; 0                 ; 0     ; 0          ; 25   ; 0            ; |AES                                                                                   ; AES           ; work         ;
 ;    |BCD_E:bcd_encoder|                   ; 7.5 (0.0)            ; 7.5 (0.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 8 (0)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|BCD_E:bcd_encoder                                                                 ; BCD_E         ; work         ;
 ;       |ADD3_E:C4|                        ; 3.0 (3.0)            ; 3.0 (3.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 3 (3)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|BCD_E:bcd_encoder|ADD3_E:C4                                                       ; ADD3_E        ; work         ;
 ;       |ADD3_E:C5|                        ; 0.5 (0.5)            ; 0.5 (0.5)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 1 (1)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|BCD_E:bcd_encoder|ADD3_E:C5                                                       ; ADD3_E        ; work         ;
@@ -1521,32 +1418,32 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;       |ADD3_E:C7|                        ; 3.0 (3.0)            ; 3.0 (3.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 3 (3)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|BCD_E:bcd_encoder|ADD3_E:C7                                                       ; ADD3_E        ; work         ;
 ;    |BCDtoSSD:B2S_1|                      ; 7.0 (7.0)            ; 7.0 (7.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 7 (7)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|BCDtoSSD:B2S_1                                                                    ; BCDtoSSD      ; work         ;
 ;    |BCDtoSSD:B2S_2|                      ; 5.0 (5.0)            ; 8.0 (8.0)                        ; 3.0 (3.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 8 (8)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|BCDtoSSD:B2S_2                                                                    ; BCDtoSSD      ; work         ;
-;    |BCDtoSSD:B2S_3|                      ; 3.3 (3.3)            ; 4.0 (4.0)                        ; 0.7 (0.7)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 6 (6)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|BCDtoSSD:B2S_3                                                                    ; BCDtoSSD      ; work         ;
-;    |Cipher:C|                            ; 1646.1 (298.7)       ; 1667.3 (307.8)                   ; 23.2 (9.7)                                        ; 1.9 (0.6)                        ; 0.0 (0.0)            ; 2024 (552)          ; 497 (497)                 ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C                                                                          ; Cipher        ; work         ;
-;       |Round:encryptionRound|            ; 706.0 (0.0)          ; 719.8 (0.0)                      ; 13.8 (0.0)                                        ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 832 (0)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound                                                    ; Round         ; work         ;
-;          |AddRoundKey:ARK|               ; 66.0 (66.0)          ; 81.2 (81.2)                      ; 15.2 (15.2)                                       ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 192 (192)           ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|AddRoundKey:ARK                                    ; AddRoundKey   ; work         ;
-;          |SubBytes:SB|                   ; 638.7 (0.0)          ; 638.7 (0.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 640 (0)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB                                        ; SubBytes      ; work         ;
-;             |SBox:stateLoop[0].S1|       ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[0].S1                   ; SBox          ; work         ;
-;             |SBox:stateLoop[10].S1|      ; 39.7 (39.7)          ; 39.7 (39.7)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[10].S1                  ; SBox          ; work         ;
+;    |BCDtoSSD:B2S_3|                      ; 4.0 (4.0)            ; 4.0 (4.0)                        ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 6 (6)               ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|BCDtoSSD:B2S_3                                                                    ; BCDtoSSD      ; work         ;
+;    |Cipher:C|                            ; 1701.2 (322.8)       ; 1730.1 (347.1)                   ; 31.9 (26.7)                                       ; 3.0 (2.4)                        ; 0.0 (0.0)            ; 2019 (539)          ; 391 (391)                 ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C                                                                          ; Cipher        ; work         ;
+;       |Round:encryptionRound|            ; 738.3 (0.0)          ; 743.3 (0.0)                      ; 5.6 (0.0)                                         ; 0.6 (0.0)                        ; 0.0 (0.0)            ; 840 (0)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound                                                    ; Round         ; work         ;
+;          |AddRoundKey:ARK|               ; 98.3 (98.3)          ; 106.0 (106.0)                    ; 8.2 (8.2)                                         ; 0.5 (0.5)                        ; 0.0 (0.0)            ; 200 (200)           ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|AddRoundKey:ARK                                    ; AddRoundKey   ; work         ;
+;          |SubBytes:SB|                   ; 637.4 (0.0)          ; 637.3 (0.0)                      ; 0.0 (0.0)                                         ; 0.1 (0.0)                        ; 0.0 (0.0)            ; 640 (0)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB                                        ; SubBytes      ; work         ;
+;             |SBox:stateLoop[0].S1|       ; 39.3 (39.3)          ; 39.3 (39.3)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[0].S1                   ; SBox          ; work         ;
+;             |SBox:stateLoop[10].S1|      ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[10].S1                  ; SBox          ; work         ;
 ;             |SBox:stateLoop[11].S1|      ; 39.7 (39.7)          ; 39.7 (39.7)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[11].S1                  ; SBox          ; work         ;
-;             |SBox:stateLoop[12].S1|      ; 39.7 (39.7)          ; 39.7 (39.7)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[12].S1                  ; SBox          ; work         ;
-;             |SBox:stateLoop[13].S1|      ; 39.7 (39.7)          ; 39.7 (39.7)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[13].S1                  ; SBox          ; work         ;
-;             |SBox:stateLoop[14].S1|      ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[14].S1                  ; SBox          ; work         ;
+;             |SBox:stateLoop[12].S1|      ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[12].S1                  ; SBox          ; work         ;
+;             |SBox:stateLoop[13].S1|      ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[13].S1                  ; SBox          ; work         ;
+;             |SBox:stateLoop[14].S1|      ; 39.7 (39.7)          ; 39.7 (39.7)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[14].S1                  ; SBox          ; work         ;
 ;             |SBox:stateLoop[15].S1|      ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[15].S1                  ; SBox          ; work         ;
 ;             |SBox:stateLoop[1].S1|       ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[1].S1                   ; SBox          ; work         ;
 ;             |SBox:stateLoop[2].S1|       ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[2].S1                   ; SBox          ; work         ;
-;             |SBox:stateLoop[3].S1|       ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[3].S1                   ; SBox          ; work         ;
-;             |SBox:stateLoop[4].S1|       ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[4].S1                   ; SBox          ; work         ;
+;             |SBox:stateLoop[3].S1|       ; 39.3 (39.3)          ; 39.3 (39.3)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[3].S1                   ; SBox          ; work         ;
+;             |SBox:stateLoop[4].S1|       ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.1 (0.1)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[4].S1                   ; SBox          ; work         ;
 ;             |SBox:stateLoop[5].S1|       ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[5].S1                   ; SBox          ; work         ;
 ;             |SBox:stateLoop[6].S1|       ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[6].S1                   ; SBox          ; work         ;
-;             |SBox:stateLoop[7].S1|       ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[7].S1                   ; SBox          ; work         ;
+;             |SBox:stateLoop[7].S1|       ; 39.3 (39.3)          ; 39.3 (39.3)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[7].S1                   ; SBox          ; work         ;
 ;             |SBox:stateLoop[8].S1|       ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[8].S1                   ; SBox          ; work         ;
 ;             |SBox:stateLoop[9].S1|       ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[9].S1                   ; SBox          ; work         ;
-;       |SubBytes:SB|                      ; 641.0 (0.0)          ; 639.7 (0.0)                      ; 0.0 (0.0)                                         ; 1.3 (0.0)                        ; 0.0 (0.0)            ; 640 (0)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB                                                              ; SubBytes      ; work         ;
-;          |SBox:stateLoop[0].S1|          ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB|SBox:stateLoop[0].S1                                         ; SBox          ; work         ;
+;       |SubBytes:SB|                      ; 639.7 (0.0)          ; 639.7 (0.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 640 (0)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB                                                              ; SubBytes      ; work         ;
+;          |SBox:stateLoop[0].S1|          ; 39.7 (39.7)          ; 39.7 (39.7)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB|SBox:stateLoop[0].S1                                         ; SBox          ; work         ;
 ;          |SBox:stateLoop[10].S1|         ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB|SBox:stateLoop[10].S1                                        ; SBox          ; work         ;
-;          |SBox:stateLoop[11].S1|         ; 41.3 (41.3)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 1.3 (1.3)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB|SBox:stateLoop[11].S1                                        ; SBox          ; work         ;
-;          |SBox:stateLoop[12].S1|         ; 39.7 (39.7)          ; 39.7 (39.7)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB|SBox:stateLoop[12].S1                                        ; SBox          ; work         ;
+;          |SBox:stateLoop[11].S1|         ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB|SBox:stateLoop[11].S1                                        ; SBox          ; work         ;
+;          |SBox:stateLoop[12].S1|         ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB|SBox:stateLoop[12].S1                                        ; SBox          ; work         ;
 ;          |SBox:stateLoop[13].S1|         ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB|SBox:stateLoop[13].S1                                        ; SBox          ; work         ;
 ;          |SBox:stateLoop[14].S1|         ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB|SBox:stateLoop[14].S1                                        ; SBox          ; work         ;
 ;          |SBox:stateLoop[15].S1|         ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB|SBox:stateLoop[15].S1                                        ; SBox          ; work         ;
@@ -1559,27 +1456,27 @@ Note: Pin directions (input, output or bidir) are based on device operating in u
 ;          |SBox:stateLoop[7].S1|          ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB|SBox:stateLoop[7].S1                                         ; SBox          ; work         ;
 ;          |SBox:stateLoop[8].S1|          ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB|SBox:stateLoop[8].S1                                         ; SBox          ; work         ;
 ;          |SBox:stateLoop[9].S1|          ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|Cipher:C|SubBytes:SB|SBox:stateLoop[9].S1                                         ; SBox          ; work         ;
-;    |InvCipher:IC|                        ; 1925.2 (315.6)       ; 1958.2 (328.3)                   ; 34.0 (13.1)                                       ; 1.0 (0.4)                        ; 0.0 (0.0)            ; 2231 (396)          ; 264 (264)                 ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC                                                                      ; InvCipher     ; work         ;
-;       |InvRound:decryptionRound|         ; 969.5 (0.0)          ; 989.8 (0.0)                      ; 20.9 (0.0)                                        ; 0.6 (0.0)                        ; 0.0 (0.0)            ; 1195 (0)            ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound                                             ; InvRound      ; work         ;
-;          |AddRoundKey:AR_K|              ; 29.7 (29.7)          ; 31.3 (31.3)                      ; 1.7 (1.7)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 63 (63)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|AddRoundKey:AR_K                            ; AddRoundKey   ; work         ;
-;          |InvMixColumns:IM_C|            ; 299.8 (299.8)        ; 324.8 (324.8)                    ; 25.6 (25.6)                                       ; 0.6 (0.6)                        ; 0.0 (0.0)            ; 492 (492)           ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvMixColumns:IM_C                          ; InvMixColumns ; work         ;
-;          |InvSubBytes:IS_B|              ; 633.7 (0.0)          ; 633.7 (0.0)                      ; 0.0 (0.0)                                         ; 0.1 (0.0)                        ; 0.0 (0.0)            ; 640 (0)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B                            ; InvSubBytes   ; work         ;
-;             |InvSBox:InvSubBytes[0].S1|  ; 38.7 (38.7)          ; 38.7 (38.7)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[0].S1  ; InvSBox       ; work         ;
-;             |InvSBox:InvSubBytes[10].S1| ; 39.3 (39.3)          ; 39.3 (39.3)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[10].S1 ; InvSBox       ; work         ;
+;    |InvCipher:IC|                        ; 1856.6 (262.6)       ; 1902.9 (278.4)                   ; 53.8 (19.4)                                       ; 7.4 (3.6)                        ; 0.0 (0.0)            ; 2091 (256)          ; 384 (384)                 ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC                                                                      ; InvCipher     ; work         ;
+;       |InvRound:decryptionRound|         ; 953.9 (0.0)          ; 984.5 (0.0)                      ; 34.3 (0.0)                                        ; 3.8 (0.0)                        ; 0.0 (0.0)            ; 1195 (0)            ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound                                             ; InvRound      ; work         ;
+;          |AddRoundKey:AR_K|              ; 27.1 (27.1)          ; 29.5 (29.5)                      ; 3.0 (3.0)                                         ; 0.6 (0.6)                        ; 0.0 (0.0)            ; 63 (63)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|AddRoundKey:AR_K                            ; AddRoundKey   ; work         ;
+;          |InvMixColumns:IM_C|            ; 286.4 (286.4)        ; 317.3 (317.3)                    ; 33.7 (33.7)                                       ; 2.7 (2.7)                        ; 0.0 (0.0)            ; 492 (492)           ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvMixColumns:IM_C                          ; InvMixColumns ; work         ;
+;          |InvSubBytes:IS_B|              ; 638.1 (0.0)          ; 637.7 (0.0)                      ; 0.0 (0.0)                                         ; 0.5 (0.0)                        ; 0.0 (0.0)            ; 640 (0)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B                            ; InvSubBytes   ; work         ;
+;             |InvSBox:InvSubBytes[0].S1|  ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[0].S1  ; InvSBox       ; work         ;
+;             |InvSBox:InvSubBytes[10].S1| ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[10].S1 ; InvSBox       ; work         ;
 ;             |InvSBox:InvSubBytes[11].S1| ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[11].S1 ; InvSBox       ; work         ;
-;             |InvSBox:InvSubBytes[12].S1| ; 38.7 (38.7)          ; 38.7 (38.7)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[12].S1 ; InvSBox       ; work         ;
-;             |InvSBox:InvSubBytes[13].S1| ; 39.0 (39.0)          ; 39.0 (39.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[13].S1 ; InvSBox       ; work         ;
-;             |InvSBox:InvSubBytes[14].S1| ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[14].S1 ; InvSBox       ; work         ;
-;             |InvSBox:InvSubBytes[15].S1| ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[15].S1 ; InvSBox       ; work         ;
-;             |InvSBox:InvSubBytes[1].S1|  ; 39.7 (39.7)          ; 39.7 (39.7)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[1].S1  ; InvSBox       ; work         ;
-;             |InvSBox:InvSubBytes[2].S1|  ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[2].S1  ; InvSBox       ; work         ;
-;             |InvSBox:InvSubBytes[3].S1|  ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[3].S1  ; InvSBox       ; work         ;
-;             |InvSBox:InvSubBytes[4].S1|  ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[4].S1  ; InvSBox       ; work         ;
-;             |InvSBox:InvSubBytes[5].S1|  ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[5].S1  ; InvSBox       ; work         ;
-;             |InvSBox:InvSubBytes[6].S1|  ; 38.7 (38.7)          ; 38.7 (38.7)                      ; 0.0 (0.0)                                         ; 0.1 (0.1)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[6].S1  ; InvSBox       ; work         ;
+;             |InvSBox:InvSubBytes[12].S1| ; 40.1 (40.1)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.1 (0.1)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[12].S1 ; InvSBox       ; work         ;
+;             |InvSBox:InvSubBytes[13].S1| ; 39.7 (39.7)          ; 39.7 (39.7)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[13].S1 ; InvSBox       ; work         ;
+;             |InvSBox:InvSubBytes[14].S1| ; 39.8 (39.8)          ; 39.7 (39.7)                      ; 0.0 (0.0)                                         ; 0.1 (0.1)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[14].S1 ; InvSBox       ; work         ;
+;             |InvSBox:InvSubBytes[15].S1| ; 40.1 (40.1)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.1 (0.1)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[15].S1 ; InvSBox       ; work         ;
+;             |InvSBox:InvSubBytes[1].S1|  ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[1].S1  ; InvSBox       ; work         ;
+;             |InvSBox:InvSubBytes[2].S1|  ; 40.2 (40.2)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.2 (0.2)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[2].S1  ; InvSBox       ; work         ;
+;             |InvSBox:InvSubBytes[3].S1|  ; 39.7 (39.7)          ; 39.7 (39.7)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[3].S1  ; InvSBox       ; work         ;
+;             |InvSBox:InvSubBytes[4].S1|  ; 39.0 (39.0)          ; 39.0 (39.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[4].S1  ; InvSBox       ; work         ;
+;             |InvSBox:InvSubBytes[5].S1|  ; 39.7 (39.7)          ; 39.7 (39.7)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[5].S1  ; InvSBox       ; work         ;
+;             |InvSBox:InvSubBytes[6].S1|  ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[6].S1  ; InvSBox       ; work         ;
 ;             |InvSBox:InvSubBytes[7].S1|  ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[7].S1  ; InvSBox       ; work         ;
-;             |InvSBox:InvSubBytes[8].S1|  ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[8].S1  ; InvSBox       ; work         ;
-;             |InvSBox:InvSubBytes[9].S1|  ; 39.7 (39.7)          ; 39.7 (39.7)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[9].S1  ; InvSBox       ; work         ;
+;             |InvSBox:InvSubBytes[8].S1|  ; 40.1 (40.1)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.1 (0.1)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[8].S1  ; InvSBox       ; work         ;
+;             |InvSBox:InvSubBytes[9].S1|  ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[9].S1  ; InvSBox       ; work         ;
 ;       |InvSubBytes:SB|                   ; 640.0 (0.0)          ; 640.0 (0.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 640 (0)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvSubBytes:SB                                                       ; InvSubBytes   ; work         ;
 ;          |InvSBox:InvSubBytes[0].S1|     ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[0].S1                             ; InvSBox       ; work         ;
 ;          |InvSBox:InvSubBytes[10].S1|    ; 40.0 (40.0)          ; 40.0 (40.0)                      ; 0.0 (0.0)                                         ; 0.0 (0.0)                        ; 0.0 (0.0)            ; 40 (40)             ; 0 (0)                     ; 0 (0)         ; 0                 ; 0     ; 0          ; 0    ; 0            ; |AES|InvCipher:IC|InvSubBytes:SB|InvSBox:InvSubBytes[10].S1                            ; InvSBox       ; work         ;
@@ -1628,66 +1525,274 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Hunds_seg[2] ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
 ; Hunds_seg[1] ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
 ; Hunds_seg[0] ; Output   ; -- ; --   ; --   ; -- ; (0)  ; (31)  ; --     ; --                     ; --                       ;
-; enable       ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
-; reset        ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
+; enable       ; Input    ; -- ; --   ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
+; reset        ; Input    ; -- ; (0)  ; (0)  ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 ; clk          ; Input    ; -- ; (0)  ; --   ; -- ; --   ; --    ; --     ; --                     ; --                       ;
 +--------------+----------+----+------+------+----+------+-------+--------+------------------------+--------------------------+
 
 
-+--------------------------------------------------------------+
-; Pad To Core Delay Chain Fanout                               ;
-+--------------------------------+-------------------+---------+
-; Source Pin / Fanout            ; Pad To Core Index ; Setting ;
-+--------------------------------+-------------------+---------+
-; enable                         ;                   ;         ;
-;      - BCDtoSSD:B2S_1|seg[0]~0 ; 0                 ; 0       ;
-;      - BCDtoSSD:B2S_1|seg[1]~1 ; 0                 ; 0       ;
-;      - BCDtoSSD:B2S_1|seg[2]~2 ; 0                 ; 0       ;
-;      - BCDtoSSD:B2S_1|seg[3]~3 ; 0                 ; 0       ;
-;      - BCDtoSSD:B2S_1|seg[4]~4 ; 0                 ; 0       ;
-;      - BCDtoSSD:B2S_1|seg[5]~5 ; 0                 ; 0       ;
-;      - BCDtoSSD:B2S_1|seg[6]~6 ; 0                 ; 0       ;
-;      - BCDtoSSD:B2S_2|seg[0]~0 ; 0                 ; 0       ;
-;      - BCDtoSSD:B2S_2|seg[1]~1 ; 0                 ; 0       ;
-;      - BCDtoSSD:B2S_2|seg[2]~3 ; 0                 ; 0       ;
-;      - BCDtoSSD:B2S_2|seg[3]~4 ; 0                 ; 0       ;
-;      - BCDtoSSD:B2S_2|seg[4]~5 ; 0                 ; 0       ;
-;      - BCDtoSSD:B2S_2|seg[5]~6 ; 0                 ; 0       ;
-;      - BCDtoSSD:B2S_2|seg[6]~7 ; 0                 ; 0       ;
-;      - BCDtoSSD:B2S_3|seg[0]~0 ; 0                 ; 0       ;
-;      - BCDtoSSD:B2S_3|seg[1]~2 ; 0                 ; 0       ;
-;      - BCDtoSSD:B2S_3|seg[2]~3 ; 0                 ; 0       ;
-;      - BCDtoSSD:B2S_3|seg[3]~4 ; 0                 ; 0       ;
-;      - BCDtoSSD:B2S_3|seg[4]~5 ; 0                 ; 0       ;
-;      - Hunds_seg[1]~output     ; 0                 ; 0       ;
-; reset                          ;                   ;         ;
-;      - count~0                 ; 1                 ; 0       ;
-;      - count~1                 ; 1                 ; 0       ;
-;      - count~2                 ; 1                 ; 0       ;
-;      - count~3                 ; 1                 ; 0       ;
-;      - count~4                 ; 1                 ; 0       ;
-;      - C_reset~0               ; 1                 ; 0       ;
-;      - IC_reset~1              ; 1                 ; 0       ;
-; clk                            ;                   ;         ;
-;      - clk~inputCLKENA0        ; 0                 ; 0       ;
-+--------------------------------+-------------------+---------+
++----------------------------------------------------------------------------+
+; Pad To Core Delay Chain Fanout                                             ;
++----------------------------------------------+-------------------+---------+
+; Source Pin / Fanout                          ; Pad To Core Index ; Setting ;
++----------------------------------------------+-------------------+---------+
+; enable                                       ;                   ;         ;
+;      - BCDtoSSD:B2S_1|seg[0]~0               ; 1                 ; 0       ;
+;      - BCDtoSSD:B2S_1|seg[1]~1               ; 1                 ; 0       ;
+;      - BCDtoSSD:B2S_1|seg[2]~2               ; 1                 ; 0       ;
+;      - BCDtoSSD:B2S_1|seg[3]~3               ; 1                 ; 0       ;
+;      - BCDtoSSD:B2S_1|seg[4]~4               ; 1                 ; 0       ;
+;      - BCDtoSSD:B2S_1|seg[5]~5               ; 1                 ; 0       ;
+;      - BCDtoSSD:B2S_1|seg[6]~6               ; 1                 ; 0       ;
+;      - BCDtoSSD:B2S_2|seg[0]~0               ; 1                 ; 0       ;
+;      - BCDtoSSD:B2S_2|seg[1]~1               ; 1                 ; 0       ;
+;      - BCDtoSSD:B2S_2|seg[2]~3               ; 1                 ; 0       ;
+;      - BCDtoSSD:B2S_2|seg[3]~4               ; 1                 ; 0       ;
+;      - BCDtoSSD:B2S_2|seg[4]~5               ; 1                 ; 0       ;
+;      - BCDtoSSD:B2S_2|seg[5]~6               ; 1                 ; 0       ;
+;      - BCDtoSSD:B2S_2|seg[6]~7               ; 1                 ; 0       ;
+;      - BCDtoSSD:B2S_3|seg[0]~0               ; 1                 ; 0       ;
+;      - BCDtoSSD:B2S_3|seg[1]~2               ; 1                 ; 0       ;
+;      - BCDtoSSD:B2S_3|seg[2]~3               ; 1                 ; 0       ;
+;      - BCDtoSSD:B2S_3|seg[3]~4               ; 1                 ; 0       ;
+;      - BCDtoSSD:B2S_3|seg[4]~5               ; 1                 ; 0       ;
+;      - Hunds_seg[1]~output                   ; 1                 ; 0       ;
+; reset                                        ;                   ;         ;
+;      - Cipher:C|tempEncryptedText[127]       ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[126]       ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[125]       ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[124]       ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[119]       ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[118]       ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[117]       ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[116]       ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[115]       ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[111]       ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[110]       ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[109]       ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[108]       ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[106]       ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[103]       ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[102]       ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[101]       ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[100]       ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[99]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[98]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[95]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[94]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[93]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[92]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[89]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[87]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[86]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[85]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[84]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[83]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[81]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[79]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[78]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[77]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[76]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[74]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[73]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[71]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[70]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[69]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[68]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[67]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[66]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[65]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[63]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[62]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[61]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[60]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[56]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[55]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[54]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[53]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[52]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[51]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[48]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[47]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[46]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[45]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[44]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[42]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[40]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[39]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[38]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[37]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[36]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[35]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[34]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[32]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[31]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[30]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[29]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[28]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[25]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[24]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[23]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[22]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[21]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[20]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[19]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[17]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[16]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[15]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[14]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[13]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[12]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[10]        ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[9]         ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[8]         ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[7]         ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[6]         ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[5]         ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[4]         ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[3]         ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[2]         ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[1]         ; 1                 ; 0       ;
+;      - Cipher:C|tempEncryptedText[0]         ; 1                 ; 0       ;
+;      - Cipher:C|currentstate.ROUNDS          ; 1                 ; 0       ;
+;      - Cipher:C|currentstate.FINAL_ROUND     ; 1                 ; 0       ;
+;      - displayedOut[126]~0                   ; 1                 ; 0       ;
+;      - displayedOut[121]~1                   ; 0                 ; 0       ;
+;      - displayedOut[125]~2                   ; 1                 ; 0       ;
+;      - displayedOut[124]~3                   ; 1                 ; 0       ;
+;      - displayedOut[123]~4                   ; 1                 ; 0       ;
+;      - displayedOut[122]~5                   ; 1                 ; 0       ;
+;      - displayedOut[120]~6                   ; 1                 ; 0       ;
+;      - displayedOut[121]~7                   ; 1                 ; 0       ;
+;      - displayedOut[127]~8                   ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[7]                ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[6]                ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[5]                ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[4]                ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[3]                ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[1]                ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[2]                ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[0]                ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[47]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[46]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[45]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[44]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[42]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[40]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[81]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[86]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[85]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[84]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[83]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[87]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[126]              ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[125]              ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[124]              ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[127]              ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[39]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[38]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[36]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[35]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[34]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[32]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[37]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[79]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[78]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[73]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[76]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[74]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[77]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[119]              ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[117]              ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[116]              ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[115]              ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[118]              ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[31]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[24]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[29]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[28]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[25]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[30]               ; 1                 ; 0       ;
+;      - InvCipher:IC|tempDecryptedText[127]~0 ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[62]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[61]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[60]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[56]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[63]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[65]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[70]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[69]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[68]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[67]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[71]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[66]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[23]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[16]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[21]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[20]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[19]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[17]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[22]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[111]              ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[109]              ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[108]              ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[106]              ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[110]              ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[89]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[94]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[93]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[92]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[95]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[103]              ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[102]              ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[101]              ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[100]              ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[98]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[99]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[15]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[14]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[13]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[12]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[9]                ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[10]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[8]                ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[55]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[54]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[53]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[52]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[51]               ; 1                 ; 0       ;
+;      - Cipher:C|RoundInReg[48]               ; 1                 ; 0       ;
+;      - count~0                               ; 1                 ; 0       ;
+;      - count~1                               ; 1                 ; 0       ;
+;      - count~2                               ; 1                 ; 0       ;
+;      - count~3                               ; 1                 ; 0       ;
+;      - count~4                               ; 1                 ; 0       ;
+;      - Cipher:C|round[1]~0                   ; 1                 ; 0       ;
+;      - Cipher:C|round[3]~1                   ; 1                 ; 0       ;
+;      - Cipher:C|round[2]~2                   ; 1                 ; 0       ;
+;      - Cipher:C|round[0]~3                   ; 1                 ; 0       ;
+;      - InvCipher:IC|final_round[31]~0        ; 1                 ; 0       ;
+;      - InvCipher:IC|RoundInReg[31]~0         ; 1                 ; 0       ;
+;      - Cipher:C|currentstate~8               ; 1                 ; 0       ;
+;      - successFlag$latch                     ; 1                 ; 0       ;
+; clk                                          ;                   ;         ;
+;      - clk~inputCLKENA0                      ; 0                 ; 0       ;
++----------------------------------------------+-------------------+---------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Control Signals                                                                                                                                                    ;
-+-------------------------------------+----------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; Name                                ; Location             ; Fan-Out ; Usage        ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
-+-------------------------------------+----------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
-; Cipher:C|Selector15~0               ; LABCELL_X56_Y15_N3   ; 141     ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; Cipher:C|Selector262~0              ; LABCELL_X55_Y12_N42  ; 131     ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; Cipher:C|tempEncryptedText[123]~0   ; LABCELL_X43_Y10_N36  ; 34      ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; InvCipher:IC|RoundInReg[118]~0      ; LABCELL_X71_Y16_N6   ; 128     ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; InvCipher:IC|Selector134~0          ; MLABCELL_X78_Y14_N42 ; 129     ; Clock enable ; no     ; --                   ; --               ; --                        ;
-; InvCipher:IC|currentstate.ROUNDS    ; FF_X72_Y15_N11       ; 131     ; Sync. load   ; no     ; --                   ; --               ; --                        ;
-; InvCipher:IC|tempDecryptedText[0]~1 ; LABCELL_X74_Y13_N42  ; 128     ; Latch enable ; no     ; --                   ; --               ; --                        ;
-; clk                                 ; PIN_AA14             ; 768     ; Clock        ; yes    ; Global Clock         ; GCLK6            ; --                        ;
-; displayedOut[121]~1                 ; LABCELL_X64_Y13_N39  ; 8       ; Latch enable ; no     ; --                   ; --               ; --                        ;
-+-------------------------------------+----------------------+---------+--------------+--------+----------------------+------------------+---------------------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Control Signals                                                                                                                                                                               ;
++---------------------------------------+--------------------+---------+-----------------------------------------+--------+----------------------+------------------+---------------------------+
+; Name                                  ; Location           ; Fan-Out ; Usage                                   ; Global ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
++---------------------------------------+--------------------+---------+-----------------------------------------+--------+----------------------+------------------+---------------------------+
+; Cipher:C|currentstate.ROUNDS          ; FF_X17_Y11_N29     ; 393     ; Sync. load                              ; no     ; --                   ; --               ; --                        ;
+; InvCipher:IC|RoundInReg[31]~0         ; LABCELL_X17_Y2_N18 ; 160     ; Clock enable                            ; no     ; --                   ; --               ; --                        ;
+; InvCipher:IC|final_round[31]~0        ; LABCELL_X16_Y2_N27 ; 256     ; Clock enable                            ; no     ; --                   ; --               ; --                        ;
+; InvCipher:IC|tempDecryptedText[127]~0 ; LABCELL_X17_Y2_N48 ; 160     ; Clock enable                            ; no     ; --                   ; --               ; --                        ;
+; clk                                   ; PIN_AA14           ; 780     ; Clock                                   ; yes    ; Global Clock         ; GCLK6            ; --                        ;
+; displayedOut[121]~1                   ; LABCELL_X18_Y5_N42 ; 8       ; Latch enable                            ; no     ; --                   ; --               ; --                        ;
+; reset                                 ; PIN_AC12           ; 217     ; Clock enable, Latch enable, Sync. clear ; no     ; --                   ; --               ; --                        ;
++---------------------------------------+--------------------+---------+-----------------------------------------+--------+----------------------+------------------+---------------------------+
 
 
 +-------------------------------------------------------------------------------------------------+
@@ -1695,7 +1800,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------+----------+---------+----------------------+------------------+---------------------------+
 ; Name ; Location ; Fan-Out ; Global Resource Used ; Global Line Name ; Enable Signal Source Name ;
 +------+----------+---------+----------------------+------------------+---------------------------+
-; clk  ; PIN_AA14 ; 768     ; Global Clock         ; GCLK6            ; --                        ;
+; clk  ; PIN_AA14 ; 780     ; Global Clock         ; GCLK6            ; --                        ;
 +------+----------+---------+----------------------+------------------+---------------------------+
 
 
@@ -1704,14 +1809,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------------------------+-------------------------+
 ; Routing Resource Type                       ; Usage                   ;
 +---------------------------------------------+-------------------------+
-; Block interconnects                         ; 8,350 / 289,320 ( 3 % ) ;
-; C12 interconnects                           ; 165 / 13,420 ( 1 % )    ;
-; C2 interconnects                            ; 2,899 / 119,108 ( 2 % ) ;
-; C4 interconnects                            ; 1,567 / 56,300 ( 3 % )  ;
+; Block interconnects                         ; 8,154 / 289,320 ( 3 % ) ;
+; C12 interconnects                           ; 167 / 13,420 ( 1 % )    ;
+; C2 interconnects                            ; 2,470 / 119,108 ( 2 % ) ;
+; C4 interconnects                            ; 1,429 / 56,300 ( 3 % )  ;
 ; DQS bus muxes                               ; 0 / 25 ( 0 % )          ;
 ; DQS-18 I/O buses                            ; 0 / 25 ( 0 % )          ;
 ; DQS-9 I/O buses                             ; 0 / 25 ( 0 % )          ;
-; Direct links                                ; 485 / 289,320 ( < 1 % ) ;
+; Direct links                                ; 468 / 289,320 ( < 1 % ) ;
 ; Global clocks                               ; 1 / 16 ( 6 % )          ;
 ; HPS SDRAM PLL inputs                        ; 0 / 1 ( 0 % )           ;
 ; HPS SDRAM PLL outputs                       ; 0 / 1 ( 0 % )           ;
@@ -1767,13 +1872,13 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; HPS_INTERFACE_TPIU_TRACE_INPUTs             ; 0 / 2 ( 0 % )           ;
 ; HPS_INTERFACE_TPIU_TRACE_OUTPUTs            ; 0 / 33 ( 0 % )          ;
 ; Horizontal periphery clocks                 ; 0 / 72 ( 0 % )          ;
-; Local interconnects                         ; 2,871 / 84,580 ( 3 % )  ;
+; Local interconnects                         ; 2,680 / 84,580 ( 3 % )  ;
 ; Quadrant clocks                             ; 0 / 66 ( 0 % )          ;
-; R14 interconnects                           ; 603 / 12,676 ( 5 % )    ;
-; R14/C12 interconnect drivers                ; 744 / 20,720 ( 4 % )    ;
-; R3 interconnects                            ; 3,576 / 130,992 ( 3 % ) ;
-; R6 interconnects                            ; 5,545 / 266,960 ( 2 % ) ;
-; Spine clocks                                ; 3 / 360 ( < 1 % )       ;
+; R14 interconnects                           ; 378 / 12,676 ( 3 % )    ;
+; R14/C12 interconnect drivers                ; 479 / 20,720 ( 2 % )    ;
+; R3 interconnects                            ; 2,971 / 130,992 ( 2 % ) ;
+; R6 interconnects                            ; 4,420 / 266,960 ( 2 % ) ;
+; Spine clocks                                ; 2 / 360 ( < 1 % )       ;
 ; Wire stub REs                               ; 0 / 15,858 ( 0 % )      ;
 +---------------------------------------------+-------------------------+
 
@@ -1908,125 +2013,124 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +---------------------------+--------+
 
 
-+-----------------------------------------------------------------+
-; Estimated Delay Added for Hold Timing Summary                   ;
-+-----------------+---------------------------+-------------------+
-; Source Clock(s) ; Destination Clock(s)      ; Delay Added in ns ;
-+-----------------+---------------------------+-------------------+
-; clk             ; clk,InvCipher:IC|round[0] ; 3057.6            ;
-; clk             ; clk                       ; 1338.8            ;
-; clk             ; InvCipher:IC|round[0]     ; 164.1             ;
-+-----------------+---------------------------+-------------------+
++------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Summary              ;
++-----------------+----------------------+-------------------+
+; Source Clock(s) ; Destination Clock(s) ; Delay Added in ns ;
++-----------------+----------------------+-------------------+
+; clk,I/O         ; clk                  ; 931.7             ;
+; I/O             ; clk                  ; 498.7             ;
++-----------------+----------------------+-------------------+
 Note: For more information on problematic transfers, consider running the Fitter again with the Optimize hold timing option (Settings Menu) turned off.
 This will disable optimization of problematic paths and expose them for further analysis using the Timing Analyzer.
 
 
-+----------------------------------------------------------------------------------+
-; Estimated Delay Added for Hold Timing Details                                    ;
-+------------------------------+-------------------------------+-------------------+
-; Source Register              ; Destination Register          ; Delay Added in ns ;
-+------------------------------+-------------------------------+-------------------+
-; InvCipher:IC|round[0]        ; InvCipher:IC|round[0]         ; 13.434            ;
-; count[0]                     ; count[1]                      ; 11.009            ;
-; InvCipher:IC|round[1]        ; InvCipher:IC|final_round[30]  ; 9.711             ;
-; InvCipher:IC|round[3]        ; InvCipher:IC|final_round[30]  ; 9.711             ;
-; InvCipher:IC|round[2]        ; InvCipher:IC|final_round[30]  ; 9.711             ;
-; InvCipher:IC|RoundInReg[110] ; InvCipher:IC|final_round[12]  ; 6.956             ;
-; InvCipher:IC|RoundInReg[104] ; InvCipher:IC|final_round[12]  ; 6.956             ;
-; InvCipher:IC|RoundInReg[105] ; InvCipher:IC|final_round[12]  ; 6.956             ;
-; InvCipher:IC|RoundInReg[111] ; InvCipher:IC|final_round[12]  ; 6.956             ;
-; InvCipher:IC|RoundInReg[108] ; InvCipher:IC|final_round[12]  ; 6.956             ;
-; InvCipher:IC|RoundInReg[106] ; InvCipher:IC|final_round[12]  ; 6.956             ;
-; InvCipher:IC|RoundInReg[107] ; InvCipher:IC|final_round[12]  ; 6.956             ;
-; InvCipher:IC|RoundInReg[109] ; InvCipher:IC|final_round[12]  ; 6.956             ;
-; InvCipher:IC|RoundInReg[15]  ; InvCipher:IC|final_round[47]  ; 6.724             ;
-; InvCipher:IC|RoundInReg[14]  ; InvCipher:IC|final_round[47]  ; 6.724             ;
-; InvCipher:IC|RoundInReg[9]   ; InvCipher:IC|final_round[47]  ; 6.724             ;
-; InvCipher:IC|RoundInReg[8]   ; InvCipher:IC|final_round[47]  ; 6.724             ;
-; InvCipher:IC|RoundInReg[12]  ; InvCipher:IC|final_round[47]  ; 6.724             ;
-; InvCipher:IC|RoundInReg[11]  ; InvCipher:IC|final_round[47]  ; 6.724             ;
-; InvCipher:IC|RoundInReg[13]  ; InvCipher:IC|final_round[47]  ; 6.724             ;
-; InvCipher:IC|RoundInReg[10]  ; InvCipher:IC|final_round[47]  ; 6.724             ;
-; InvCipher:IC|RoundInReg[38]  ; InvCipher:IC|final_round[44]  ; 6.656             ;
-; InvCipher:IC|RoundInReg[36]  ; InvCipher:IC|final_round[44]  ; 6.656             ;
-; InvCipher:IC|RoundInReg[35]  ; InvCipher:IC|final_round[44]  ; 6.656             ;
-; InvCipher:IC|RoundInReg[39]  ; InvCipher:IC|final_round[44]  ; 6.656             ;
-; InvCipher:IC|RoundInReg[32]  ; InvCipher:IC|final_round[44]  ; 6.656             ;
-; InvCipher:IC|RoundInReg[33]  ; InvCipher:IC|final_round[44]  ; 6.656             ;
-; InvCipher:IC|RoundInReg[37]  ; InvCipher:IC|final_round[44]  ; 6.656             ;
-; InvCipher:IC|RoundInReg[34]  ; InvCipher:IC|final_round[44]  ; 6.656             ;
-; InvCipher:IC|RoundInReg[78]  ; InvCipher:IC|final_round[127] ; 6.483             ;
-; InvCipher:IC|RoundInReg[73]  ; InvCipher:IC|final_round[127] ; 6.483             ;
-; InvCipher:IC|RoundInReg[76]  ; InvCipher:IC|final_round[127] ; 6.483             ;
-; InvCipher:IC|RoundInReg[79]  ; InvCipher:IC|final_round[127] ; 6.483             ;
-; InvCipher:IC|RoundInReg[75]  ; InvCipher:IC|final_round[127] ; 6.483             ;
-; InvCipher:IC|RoundInReg[72]  ; InvCipher:IC|final_round[127] ; 6.483             ;
-; InvCipher:IC|RoundInReg[77]  ; InvCipher:IC|final_round[127] ; 6.483             ;
-; InvCipher:IC|RoundInReg[74]  ; InvCipher:IC|final_round[127] ; 6.483             ;
-; InvCipher:IC|RoundInReg[6]   ; InvCipher:IC|final_round[5]   ; 6.424             ;
-; InvCipher:IC|RoundInReg[4]   ; InvCipher:IC|final_round[5]   ; 6.424             ;
-; InvCipher:IC|RoundInReg[3]   ; InvCipher:IC|final_round[5]   ; 6.424             ;
-; InvCipher:IC|RoundInReg[2]   ; InvCipher:IC|final_round[5]   ; 6.424             ;
-; InvCipher:IC|RoundInReg[0]   ; InvCipher:IC|final_round[5]   ; 6.424             ;
-; InvCipher:IC|RoundInReg[1]   ; InvCipher:IC|final_round[5]   ; 6.424             ;
-; InvCipher:IC|RoundInReg[5]   ; InvCipher:IC|final_round[5]   ; 6.424             ;
-; InvCipher:IC|RoundInReg[7]   ; InvCipher:IC|final_round[5]   ; 6.424             ;
-; InvCipher:IC|RoundInReg[86]  ; InvCipher:IC|final_round[22]  ; 6.285             ;
-; InvCipher:IC|RoundInReg[87]  ; InvCipher:IC|final_round[22]  ; 6.285             ;
-; InvCipher:IC|RoundInReg[81]  ; InvCipher:IC|final_round[22]  ; 6.285             ;
-; InvCipher:IC|RoundInReg[83]  ; InvCipher:IC|final_round[22]  ; 6.285             ;
-; InvCipher:IC|RoundInReg[82]  ; InvCipher:IC|final_round[22]  ; 6.285             ;
-; InvCipher:IC|RoundInReg[84]  ; InvCipher:IC|final_round[22]  ; 6.285             ;
-; InvCipher:IC|RoundInReg[85]  ; InvCipher:IC|final_round[22]  ; 6.285             ;
-; InvCipher:IC|RoundInReg[80]  ; InvCipher:IC|final_round[22]  ; 6.285             ;
-; InvCipher:IC|RoundInReg[30]  ; InvCipher:IC|final_round[125] ; 6.066             ;
-; InvCipher:IC|RoundInReg[27]  ; InvCipher:IC|final_round[125] ; 6.066             ;
-; InvCipher:IC|RoundInReg[28]  ; InvCipher:IC|final_round[125] ; 6.066             ;
-; InvCipher:IC|RoundInReg[25]  ; InvCipher:IC|final_round[125] ; 6.066             ;
-; InvCipher:IC|RoundInReg[24]  ; InvCipher:IC|final_round[125] ; 6.066             ;
-; InvCipher:IC|RoundInReg[29]  ; InvCipher:IC|final_round[125] ; 6.066             ;
-; InvCipher:IC|RoundInReg[26]  ; InvCipher:IC|final_round[125] ; 6.066             ;
-; InvCipher:IC|RoundInReg[31]  ; InvCipher:IC|final_round[125] ; 6.066             ;
-; InvCipher:IC|RoundInReg[102] ; InvCipher:IC|final_round[124] ; 6.021             ;
-; InvCipher:IC|RoundInReg[99]  ; InvCipher:IC|final_round[124] ; 6.021             ;
-; InvCipher:IC|RoundInReg[97]  ; InvCipher:IC|final_round[124] ; 6.021             ;
-; InvCipher:IC|RoundInReg[101] ; InvCipher:IC|final_round[124] ; 6.021             ;
-; InvCipher:IC|RoundInReg[103] ; InvCipher:IC|final_round[124] ; 6.021             ;
-; InvCipher:IC|RoundInReg[96]  ; InvCipher:IC|final_round[124] ; 6.021             ;
-; InvCipher:IC|RoundInReg[100] ; InvCipher:IC|final_round[124] ; 6.021             ;
-; InvCipher:IC|RoundInReg[98]  ; InvCipher:IC|final_round[124] ; 6.021             ;
-; InvCipher:IC|RoundInReg[62]  ; InvCipher:IC|final_round[12]  ; 5.942             ;
-; InvCipher:IC|RoundInReg[59]  ; InvCipher:IC|final_round[12]  ; 5.942             ;
-; InvCipher:IC|RoundInReg[61]  ; InvCipher:IC|final_round[12]  ; 5.942             ;
-; InvCipher:IC|RoundInReg[56]  ; InvCipher:IC|final_round[12]  ; 5.942             ;
-; InvCipher:IC|RoundInReg[60]  ; InvCipher:IC|final_round[12]  ; 5.942             ;
-; InvCipher:IC|RoundInReg[57]  ; InvCipher:IC|final_round[12]  ; 5.942             ;
-; InvCipher:IC|RoundInReg[58]  ; InvCipher:IC|final_round[12]  ; 5.942             ;
-; InvCipher:IC|RoundInReg[63]  ; InvCipher:IC|final_round[12]  ; 5.942             ;
-; InvCipher:IC|RoundInReg[46]  ; InvCipher:IC|final_round[70]  ; 5.936             ;
-; InvCipher:IC|RoundInReg[47]  ; InvCipher:IC|final_round[70]  ; 5.936             ;
-; InvCipher:IC|RoundInReg[40]  ; InvCipher:IC|final_round[70]  ; 5.936             ;
-; InvCipher:IC|RoundInReg[41]  ; InvCipher:IC|final_round[70]  ; 5.936             ;
-; InvCipher:IC|RoundInReg[44]  ; InvCipher:IC|final_round[70]  ; 5.936             ;
-; InvCipher:IC|RoundInReg[43]  ; InvCipher:IC|final_round[70]  ; 5.936             ;
-; InvCipher:IC|RoundInReg[45]  ; InvCipher:IC|final_round[70]  ; 5.936             ;
-; InvCipher:IC|RoundInReg[42]  ; InvCipher:IC|final_round[70]  ; 5.936             ;
-; InvCipher:IC|RoundInReg[22]  ; InvCipher:IC|final_round[77]  ; 5.931             ;
-; InvCipher:IC|RoundInReg[16]  ; InvCipher:IC|final_round[77]  ; 5.931             ;
-; InvCipher:IC|RoundInReg[20]  ; InvCipher:IC|final_round[77]  ; 5.931             ;
-; InvCipher:IC|RoundInReg[19]  ; InvCipher:IC|final_round[77]  ; 5.931             ;
-; InvCipher:IC|RoundInReg[18]  ; InvCipher:IC|final_round[77]  ; 5.931             ;
-; InvCipher:IC|RoundInReg[21]  ; InvCipher:IC|final_round[77]  ; 5.931             ;
-; InvCipher:IC|RoundInReg[23]  ; InvCipher:IC|final_round[77]  ; 5.931             ;
-; InvCipher:IC|RoundInReg[17]  ; InvCipher:IC|final_round[77]  ; 5.931             ;
-; InvCipher:IC|RoundInReg[70]  ; InvCipher:IC|final_round[90]  ; 5.914             ;
-; InvCipher:IC|RoundInReg[67]  ; InvCipher:IC|final_round[90]  ; 5.914             ;
-; InvCipher:IC|RoundInReg[68]  ; InvCipher:IC|final_round[90]  ; 5.914             ;
-; InvCipher:IC|RoundInReg[66]  ; InvCipher:IC|final_round[90]  ; 5.914             ;
-; InvCipher:IC|RoundInReg[71]  ; InvCipher:IC|final_round[90]  ; 5.914             ;
-; InvCipher:IC|RoundInReg[64]  ; InvCipher:IC|final_round[90]  ; 5.914             ;
-; InvCipher:IC|RoundInReg[65]  ; InvCipher:IC|final_round[90]  ; 5.914             ;
-+------------------------------+-------------------------------+-------------------+
++-------------------------------------------------------------------------------------------+
+; Estimated Delay Added for Hold Timing Details                                             ;
++-------------------------------------+---------------------------------+-------------------+
+; Source Register                     ; Destination Register            ; Delay Added in ns ;
++-------------------------------------+---------------------------------+-------------------+
+; reset                               ; count[3]                        ; 7.372             ;
+; Cipher:C|currentstate.FINAL_ROUND   ; InvCipher:IC|RoundInReg[103]    ; 3.815             ;
+; Cipher:C|round[1]                   ; InvCipher:IC|RoundInReg[103]    ; 3.815             ;
+; Cipher:C|round[3]                   ; InvCipher:IC|RoundInReg[103]    ; 3.815             ;
+; Cipher:C|round[2]                   ; InvCipher:IC|RoundInReg[103]    ; 3.815             ;
+; Cipher:C|currentstate.ROUNDS        ; InvCipher:IC|RoundInReg[103]    ; 3.815             ;
+; Cipher:C|round[0]                   ; InvCipher:IC|final_round[102]   ; 3.755             ;
+; InvCipher:IC|tempDecryptedText[124] ; displayedOut[124]               ; 1.904             ;
+; count[4]                            ; displayedOut[124]               ; 1.904             ;
+; count[3]                            ; displayedOut[124]               ; 1.904             ;
+; count[2]                            ; displayedOut[124]               ; 1.904             ;
+; Cipher:C|tempEncryptedText[124]     ; displayedOut[124]               ; 1.904             ;
+; InvCipher:IC|tempDecryptedText[120] ; displayedOut[120]               ; 1.889             ;
+; Cipher:C|tempEncryptedText[120]     ; displayedOut[120]               ; 1.889             ;
+; InvCipher:IC|tempDecryptedText[122] ; displayedOut[122]               ; 1.784             ;
+; Cipher:C|tempEncryptedText[122]     ; displayedOut[122]               ; 1.784             ;
+; InvCipher:IC|tempDecryptedText[125] ; displayedOut[125]               ; 1.749             ;
+; Cipher:C|tempEncryptedText[125]     ; displayedOut[125]               ; 1.749             ;
+; InvCipher:IC|tempDecryptedText[121] ; displayedOut[121]               ; 1.707             ;
+; Cipher:C|tempEncryptedText[121]     ; displayedOut[121]               ; 1.707             ;
+; InvCipher:IC|tempDecryptedText[126] ; displayedOut[126]               ; 1.682             ;
+; Cipher:C|tempEncryptedText[126]     ; displayedOut[126]               ; 1.682             ;
+; InvCipher:IC|tempDecryptedText[123] ; displayedOut[123]               ; 1.509             ;
+; Cipher:C|tempEncryptedText[123]     ; displayedOut[123]               ; 1.509             ;
+; InvCipher:IC|tempDecryptedText[127] ; displayedOut[127]               ; 1.419             ;
+; Cipher:C|tempEncryptedText[127]     ; displayedOut[127]               ; 1.419             ;
+; Cipher:C|tempEncryptedText[50]      ; successFlag$latch               ; 0.651             ;
+; Cipher:C|tempEncryptedText[96]      ; successFlag$latch               ; 0.492             ;
+; Cipher:C|tempEncryptedText[16]      ; successFlag$latch               ; 0.364             ;
+; Cipher:C|tempEncryptedText[20]      ; Cipher:C|tempEncryptedText[20]  ; 0.354             ;
+; Cipher:C|tempEncryptedText[55]      ; successFlag$latch               ; 0.350             ;
+; Cipher:C|tempEncryptedText[19]      ; Cipher:C|tempEncryptedText[19]  ; 0.349             ;
+; Cipher:C|tempEncryptedText[117]     ; Cipher:C|tempEncryptedText[117] ; 0.339             ;
+; Cipher:C|tempEncryptedText[95]      ; Cipher:C|tempEncryptedText[95]  ; 0.339             ;
+; Cipher:C|tempEncryptedText[34]      ; Cipher:C|tempEncryptedText[34]  ; 0.336             ;
+; Cipher:C|tempEncryptedText[40]      ; Cipher:C|tempEncryptedText[40]  ; 0.334             ;
+; Cipher:C|tempEncryptedText[108]     ; Cipher:C|tempEncryptedText[108] ; 0.333             ;
+; Cipher:C|tempEncryptedText[49]      ; successFlag$latch               ; 0.332             ;
+; count[1]                            ; count[4]                        ; 0.329             ;
+; Cipher:C|tempEncryptedText[92]      ; Cipher:C|tempEncryptedText[92]  ; 0.325             ;
+; Cipher:C|tempEncryptedText[9]       ; Cipher:C|tempEncryptedText[9]   ; 0.320             ;
+; Cipher:C|tempEncryptedText[48]      ; successFlag$latch               ; 0.320             ;
+; Cipher:C|tempEncryptedText[44]      ; Cipher:C|tempEncryptedText[44]  ; 0.319             ;
+; Cipher:C|tempEncryptedText[103]     ; Cipher:C|tempEncryptedText[103] ; 0.311             ;
+; Cipher:C|tempEncryptedText[8]       ; Cipher:C|tempEncryptedText[8]   ; 0.310             ;
+; Cipher:C|tempEncryptedText[18]      ; successFlag$latch               ; 0.309             ;
+; Cipher:C|tempEncryptedText[119]     ; Cipher:C|tempEncryptedText[119] ; 0.308             ;
+; Cipher:C|tempEncryptedText[60]      ; Cipher:C|tempEncryptedText[60]  ; 0.308             ;
+; Cipher:C|tempEncryptedText[73]      ; Cipher:C|tempEncryptedText[73]  ; 0.306             ;
+; Cipher:C|tempEncryptedText[110]     ; Cipher:C|tempEncryptedText[110] ; 0.303             ;
+; Cipher:C|tempEncryptedText[56]      ; Cipher:C|tempEncryptedText[56]  ; 0.300             ;
+; Cipher:C|tempEncryptedText[74]      ; Cipher:C|tempEncryptedText[74]  ; 0.296             ;
+; Cipher:C|tempEncryptedText[32]      ; Cipher:C|tempEncryptedText[32]  ; 0.292             ;
+; Cipher:C|tempEncryptedText[46]      ; Cipher:C|tempEncryptedText[46]  ; 0.291             ;
+; Cipher:C|currentstate.INITIAL_ROUND ; Cipher:C|tempEncryptedText[97]  ; 0.284             ;
+; Cipher:C|RoundInReg[47]             ; Cipher:C|tempEncryptedText[2]   ; 0.281             ;
+; Cipher:C|RoundInReg[44]             ; Cipher:C|tempEncryptedText[2]   ; 0.281             ;
+; Cipher:C|RoundInReg[41]             ; Cipher:C|tempEncryptedText[2]   ; 0.281             ;
+; Cipher:C|RoundInReg[43]             ; Cipher:C|tempEncryptedText[2]   ; 0.281             ;
+; Cipher:C|RoundInReg[40]             ; Cipher:C|tempEncryptedText[2]   ; 0.281             ;
+; Cipher:C|RoundInReg[45]             ; Cipher:C|tempEncryptedText[2]   ; 0.281             ;
+; Cipher:C|RoundInReg[46]             ; Cipher:C|tempEncryptedText[2]   ; 0.281             ;
+; Cipher:C|RoundInReg[42]             ; Cipher:C|tempEncryptedText[2]   ; 0.281             ;
+; Cipher:C|tempEncryptedText[24]      ; Cipher:C|tempEncryptedText[24]  ; 0.281             ;
+; Cipher:C|tempEncryptedText[107]     ; successFlag$latch               ; 0.280             ;
+; Cipher:C|tempEncryptedText[65]      ; Cipher:C|tempEncryptedText[65]  ; 0.278             ;
+; Cipher:C|tempEncryptedText[81]      ; Cipher:C|tempEncryptedText[81]  ; 0.274             ;
+; Cipher:C|tempEncryptedText[94]      ; Cipher:C|tempEncryptedText[94]  ; 0.272             ;
+; Cipher:C|tempEncryptedText[22]      ; Cipher:C|tempEncryptedText[22]  ; 0.270             ;
+; Cipher:C|tempEncryptedText[66]      ; Cipher:C|tempEncryptedText[66]  ; 0.264             ;
+; Cipher:C|tempEncryptedText[63]      ; Cipher:C|tempEncryptedText[63]  ; 0.263             ;
+; Cipher:C|tempEncryptedText[28]      ; Cipher:C|tempEncryptedText[28]  ; 0.261             ;
+; Cipher:C|RoundInReg[67]             ; Cipher:C|tempEncryptedText[88]  ; 0.260             ;
+; Cipher:C|RoundInReg[71]             ; Cipher:C|tempEncryptedText[88]  ; 0.260             ;
+; Cipher:C|RoundInReg[66]             ; Cipher:C|tempEncryptedText[88]  ; 0.260             ;
+; Cipher:C|RoundInReg[69]             ; Cipher:C|tempEncryptedText[88]  ; 0.260             ;
+; Cipher:C|RoundInReg[68]             ; Cipher:C|tempEncryptedText[77]  ; 0.260             ;
+; Cipher:C|RoundInReg[64]             ; Cipher:C|tempEncryptedText[88]  ; 0.260             ;
+; Cipher:C|tempEncryptedText[115]     ; Cipher:C|tempEncryptedText[115] ; 0.257             ;
+; Cipher:C|tempEncryptedText[12]      ; Cipher:C|tempEncryptedText[12]  ; 0.256             ;
+; Cipher:C|tempEncryptedText[79]      ; Cipher:C|tempEncryptedText[79]  ; 0.255             ;
+; Cipher:C|tempEncryptedText[78]      ; Cipher:C|tempEncryptedText[78]  ; 0.255             ;
+; Cipher:C|tempEncryptedText[93]      ; Cipher:C|tempEncryptedText[93]  ; 0.250             ;
+; Cipher:C|tempEncryptedText[45]      ; successFlag$latch               ; 0.249             ;
+; Cipher:C|tempEncryptedText[47]      ; successFlag$latch               ; 0.249             ;
+; Cipher:C|tempEncryptedText[35]      ; Cipher:C|tempEncryptedText[35]  ; 0.247             ;
+; count[0]                            ; count[4]                        ; 0.244             ;
+; Cipher:C|tempEncryptedText[77]      ; Cipher:C|tempEncryptedText[77]  ; 0.241             ;
+; Cipher:C|tempEncryptedText[89]      ; Cipher:C|tempEncryptedText[89]  ; 0.236             ;
+; Cipher:C|RoundInReg[65]             ; Cipher:C|tempEncryptedText[77]  ; 0.233             ;
+; Cipher:C|RoundInReg[70]             ; Cipher:C|tempEncryptedText[77]  ; 0.233             ;
+; Cipher:C|tempEncryptedText[99]      ; Cipher:C|tempEncryptedText[99]  ; 0.230             ;
+; Cipher:C|tempEncryptedText[101]     ; successFlag$latch               ; 0.225             ;
+; Cipher:C|tempEncryptedText[17]      ; Cipher:C|tempEncryptedText[17]  ; 0.225             ;
+; Cipher:C|tempEncryptedText[105]     ; successFlag$latch               ; 0.223             ;
+; Cipher:C|tempEncryptedText[86]      ; Cipher:C|tempEncryptedText[86]  ; 0.206             ;
+; Cipher:C|tempEncryptedText[67]      ; Cipher:C|tempEncryptedText[67]  ; 0.202             ;
+; Cipher:C|tempEncryptedText[10]      ; successFlag$latch               ; 0.198             ;
+; Cipher:C|tempEncryptedText[14]      ; successFlag$latch               ; 0.198             ;
+; Cipher:C|tempEncryptedText[36]      ; Cipher:C|tempEncryptedText[36]  ; 0.195             ;
++-------------------------------------+---------------------------------+-------------------+
 Note: This table only shows the top 100 path(s) that have the largest delay added for hold.
 
 
@@ -2036,14 +2140,14 @@ Note: This table only shows the top 100 path(s) that have the largest delay adde
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (119006): Selected device 5CSEMA5F31C6 for design "AES"
-Info (21076): High junction temperature operating condition is not set. Assuming a default value of '85'.
-Info (21076): Low junction temperature operating condition is not set. Assuming a default value of '0'.
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
 Info (171003): Fitter is performing an Auto Fit compilation, which may decrease Fitter effort to reduce compilation time
 Warning (292013): Feature LogicLock is only available with a valid subscription license. You can purchase a software subscription to gain full access to this feature.
 Warning (15714): Some pins have incomplete I/O assignments. Refer to the I/O Assignment Warnings report for details
 Info (184020): Starting Fitter periphery placement operations
 Info (11191): Automatically promoted 1 clock (1 global)
-    Info (11162): clk~inputCLKENA0 with 663 fanout uses global clock CLKCTRL_G4
+    Info (11162): clk~inputCLKENA0 with 780 fanout uses global clock CLKCTRL_G4
         Info (12525): This signal is driven by core routing -- it may be moved during placement to reduce routing delays
 Warning (16406): 1 global input pin(s) will use non-dedicated clock routing
     Warning (16407): Source REFCLK I/O is not placed onto a dedicated REFCLK input pin for global clock driver clk~inputCLKENA0, placed at CLKCTRL_G4
@@ -2052,8 +2156,8 @@ Info (184021): Fitter periphery placement operations ending: elapsed time is 00:
 Info (176233): Starting register packing
 Info (176235): Finished register packing
     Extra Info (176219): No registers were packed into other blocks
-Info (11798): Fitter preparation operations ending: elapsed time is 00:00:13
-Warning (335093): The Timing Analyzer is analyzing 136 combinational loops as latches. For more details, run the Check Timing command in the Timing Analyzer or view the "User-Specified and Inferred Latches" table in the Analysis & Synthesis report.
+Info (11798): Fitter preparation operations ending: elapsed time is 00:00:12
+Warning (335093): The Timing Analyzer is analyzing 9 combinational loops as latches. For more details, run the Check Timing command in the Timing Analyzer or view the "User-Specified and Inferred Latches" table in the Analysis & Synthesis report.
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'AES.sdc'. A Synopsys Design Constraints File is required by the Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332144): No user constrained base clocks found in the design
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
@@ -2061,30 +2165,28 @@ Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Tim
 Info (332130): Timing requirements not specified -- quality metrics such as performance may be sacrificed to reduce compilation time.
 Info (170189): Fitter placement preparation operations beginning
 Info (14951): The Fitter is using Advanced Physical Optimization.
-Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:24
+Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:21
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
 Info (170192): Fitter placement operations ending: elapsed time is 00:00:09
 Info (170193): Fitter routing operations beginning
-Info (170089): 4e+03 ns of routing delay (approximately 2.1% of available device routing delay) has been added to meet hold timing. For more information, refer to the Estimated Delay Added for Hold Timing section in the Fitter report.
-Info (170195): Router estimated average interconnect usage is 4% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 39% of the available device resources in the region that extends from location X67_Y11 to location X77_Y22
-Info (188005): Design requires adding a large amount of routing delay for some signals to meet hold time requirements, and there is an excessive demand for the available routing resources. The Fitter is reducing the routing delays of some signals to help the routing algorithm converge, but doing so may cause hold time failures. For more information, refer to the "Estimated Delay Added for Hold Timing" section in the Fitter report.
+Info (170195): Router estimated average interconnect usage is 2% of the available device resources
+    Info (170196): Router estimated peak interconnect usage is 28% of the available device resources in the region that extends from location X22_Y0 to location X32_Y10
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:04:36
-Info (11888): Total time spent on timing analysis during the Fitter is 12.09 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:46
+Info (11888): Total time spent on timing analysis during the Fitter is 8.05 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:16
+Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:17
 Info (144001): Generated suppressed messages file C:/Users/ahmed/OneDrive/Desktop/AES/Quartus files/output_files/AES.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 6514 megabytes
-    Info: Processing ended: Thu May  9 13:12:39 2024
-    Info: Elapsed time: 00:06:28
-    Info: Total CPU time (on all processors): 00:09:56
+    Info: Peak virtual memory: 6496 megabytes
+    Info: Processing ended: Thu May  9 17:46:05 2024
+    Info: Elapsed time: 00:02:33
+    Info: Total CPU time (on all processors): 00:05:50
 
 
 +----------------------------+
