@@ -24,7 +24,7 @@ KeysGenerator KG (key, keysContainer);
 Cipher #(4, 10) C (clk, C_reset, plainText, keysContainer, encryptedText);
 InvCipher #(4, 10) IC (clk, IC_reset, encryptedText, keysContainer, outPlainText);
 
-reg [4:0] count = 5'd0;
+reg [4:0] roundNumber = 5'd0;
 
 //convert least significant byte of the state to BCD
 BCD_E bcd_encoder(displayedOut[127-:8], units, tens, hunds);
@@ -38,19 +38,19 @@ always@(*)begin
         C_reset = 1'b1;
         IC_reset = 1'b1;
     end 
-    if(count == 11) begin
+    if(roundNumber == 11) begin
         successFlag = (encryptedText == expectedEncrypt) ? 1'b1:1'b0;
         end
-    else if(count == 22) begin
+    else if(roundNumber == 22) begin
         successFlag = (outPlainText == plainText) ? 1'b1:1'b0;  
         end
     else begin
         successFlag=1'b0;
      end
-    if(count <= 11) begin
+    if(roundNumber <= 11) begin
         displayedOut = encryptedText;
         end
-     else if(count <=22) begin
+     else if(roundNumber <=22) begin
         displayedOut = outPlainText;
         end 
         
@@ -69,29 +69,29 @@ BCDtoSSD B2S_3 (Hunds_reg, enable, Hunds_seg);
 always @(posedge clk) begin 
 
     if (reset) begin
-        count <= 5'd0;
+        roundNumber <= 5'd0;
     end 
     else begin
-        if(count <= 10) begin
+        if(roundNumber <= 10) begin
             C_reset <= 1'b0;
            // displayedOut <= encryptedText;
         end
-        else if(count <= 21) begin
+        else if(roundNumber <= 21) begin
            IC_reset <= 1'b0;
            //displayedOut <= outPlainText;
         end 
-        if(count == 10) begin
+        if(roundNumber == 10) begin
             IC_reset <= 1'b1;
         end
-        if(count == 21)
+        if(roundNumber == 21)
         begin
             C_reset <= 1'b1;
         end 
-            count <= count + 1;
+            roundNumber <= roundNumber + 1;
     end 
     $display("round out :%h ",encryptedText);
     $display("inround out :%h ",outPlainText);
-    $display("count :%d ",count);
+    $display("roundNumber :%d ",roundNumber);
     $display("successFlag :%b ",successFlag);
     $display("displayedOut :%h ",displayedOut);
     $display("Units_re :%d ",Units_reg);

@@ -1,4 +1,4 @@
-module Cipher #(parameter Nk=4,parameter Nr = Nk + 6) ( clks, reset, enable, plainText, keys, encryptedText); 
+module Cipher #(parameter Nk=4,parameter Nr = Nk + 6) (clks, reset, enable, plainText, keys, encryptedText); 
 
 // Main module parameters
 input clks, reset,enable;
@@ -34,33 +34,36 @@ always @(posedge clks) begin
     if (reset) begin
         round <= 4'b0000;
         currentstate <= INITIAL_ROUND;
-    end else begin
-   // if(1) begin
+    end 
+    else begin
         case (currentstate)
-            INITIAL_ROUND: begin
-                RoundInReg <= RoundIn;
-                tempEncryptedText <= RoundIn;
-                round <= round + 4'b0001;
-                currentstate <= ROUNDS;
+            
+        INITIAL_ROUND: begin
+        RoundInReg <= RoundIn;
+        tempEncryptedText <= RoundIn;
+        round <= round + 4'b0001;
+        currentstate <= ROUNDS;
+        end
+        
+        ROUNDS: begin
+        if (round < Nr ) begin 
+            RoundInReg <= RoundOut;
+            tempEncryptedText <= RoundOut;
+            round <= round + 4'b0001; // Encrement round number
+        if(round == Nr-1 ) begin
+            final_round <= RoundOut;
+            currentstate <= FINAL_ROUND;
             end
-            ROUNDS: begin
-                if (round < Nr ) begin 
-                    RoundInReg <= RoundOut;
-                    tempEncryptedText <= RoundOut;
-                    round <= round + 4'b0001;
-                    if(round == Nr-1 ) begin
-                        final_round <= RoundOut;
-                        currentstate <= FINAL_ROUND;
-                        end
-                end
+        end
+        end
+       
+        FINAL_ROUND: begin
+            if(round == Nr) begin
+            tempEncryptedText <= RoundOut1; 
+            round <= 4'b0000;
+            currentstate <= INITIAL_ROUND;
             end
-            FINAL_ROUND: begin
-              if(round==Nr) begin
-                tempEncryptedText <= RoundOut1; 
-                round <= 4'b0000;
-                currentstate <= INITIAL_ROUND;
-                end
-            end
+        end
         endcase
         end
     
