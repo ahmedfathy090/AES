@@ -1,13 +1,13 @@
-Fitter Status : Successful - Sat May 11 23:32:48 2024
+Fitter Status : Successful - Sun May 12 00:58:19 2024
 Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 Revision Name : AES
 Top-level Entity Name : AES
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 10,258 / 32,070 ( 32 % )
+Logic utilization (in ALMs) : 10,237 / 32,070 ( 32 % )
 Total registers : 2332
-Total pins : 25 / 457 ( 5 % )
+Total pins : 27 / 457 ( 6 % )
 Total virtual pins : 0
 Total block memory bits : 0 / 4,065,280 ( 0 % )
 Total RAM Blocks : 0 / 397 ( 0 % )

@@ -99,4 +99,4 @@ module Cipher_tb;
     // Toggle the clock
     always #100 clks = ~clks;
 
-    endmodule
+endmodule

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for AES
-Sat May 11 23:18:28 2024
+Sun May 12 00:46:08 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -157,14 +157,14 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Sat May 11 23:18:28 2024          ;
+; Analysis & Synthesis Status     ; Successful - Sun May 12 00:46:08 2024          ;
 ; Quartus Prime Version           ; 23.1std.0 Build 991 11/28/2023 SC Lite Edition ;
 ; Revision Name                   ; AES                                            ;
 ; Top-level Entity Name           ; AES                                            ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
 ; Total registers                 ; 2332                                           ;
-; Total pins                      ; 25                                             ;
+; Total pins                      ; 27                                             ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0                                              ;
 ; Total DSP Blocks                ; 0                                              ;
@@ -272,19 +272,17 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 12          ;
 ; Maximum allowed            ; 10          ;
 ;                            ;             ;
-; Average used               ; 1.01        ;
+; Average used               ; 1.00        ;
 ; Maximum used               ; 10          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.1%      ;
-;     Processor 3            ;   0.1%      ;
-;     Processor 4            ;   0.1%      ;
-;     Processor 5            ;   0.1%      ;
-;     Processor 6            ;   0.1%      ;
-;     Processor 7            ;   0.1%      ;
-;     Processor 8            ;   0.1%      ;
-;     Processors 9-10        ;   0.1%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processors 7-10        ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -319,24 +317,24 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 10235     ;
+; Estimate of Logic utilization (ALMs needed) ; 10213     ;
 ;                                             ;           ;
-; Combinational ALUT usage for logic          ; 11318     ;
+; Combinational ALUT usage for logic          ; 11255     ;
 ;     -- 7 input functions                    ; 11        ;
-;     -- 6 input functions                    ; 8907      ;
-;     -- 5 input functions                    ; 1147      ;
-;     -- 4 input functions                    ; 436       ;
-;     -- <=3 input functions                  ; 817       ;
+;     -- 6 input functions                    ; 8926      ;
+;     -- 5 input functions                    ; 1081      ;
+;     -- 4 input functions                    ; 439       ;
+;     -- <=3 input functions                  ; 798       ;
 ;                                             ;           ;
 ; Dedicated logic registers                   ; 2332      ;
 ;                                             ;           ;
-; I/O pins                                    ; 25        ;
+; I/O pins                                    ; 27        ;
 ;                                             ;           ;
 ; Total DSP Blocks                            ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 2332      ;
-; Total fan-out                               ; 70920     ;
+; Total fan-out                               ; 70668     ;
 ; Average fan-out                             ; 5.18      ;
 +---------------------------------------------+-----------+
 
@@ -346,7 +344,7 @@ https://fpgasoftware.intel.com/eula.
 +------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------+---------------+--------------+
 ; Compilation Hierarchy Node               ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                       ; Entity Name   ; Library Name ;
 +------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------------------------------------------------------------+---------------+--------------+
-; |AES                                     ; 11318 (471)         ; 2332 (7)                  ; 0                 ; 0          ; 25   ; 0            ; |AES                                                                                      ; AES           ; work         ;
+; |AES                                     ; 11255 (409)         ; 2332 (7)                  ; 0                 ; 0          ; 27   ; 0            ; |AES                                                                                      ; AES           ; work         ;
 ;    |BCD_E:bcd_encoder|                   ; 14 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|BCD_E:bcd_encoder                                                                    ; BCD_E         ; work         ;
 ;       |ADD3_E:C1|                        ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|BCD_E:bcd_encoder|ADD3_E:C1                                                          ; ADD3_E        ; work         ;
 ;       |ADD3_E:C2|                        ; 1 (1)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|BCD_E:bcd_encoder|ADD3_E:C2                                                          ; ADD3_E        ; work         ;
@@ -545,9 +543,9 @@ https://fpgasoftware.intel.com/eula.
 ;          |InvSBox:InvSubBytes[7].S1|     ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC192|InvSubBytes:SB|InvSBox:InvSubBytes[7].S1                             ; InvSBox       ; work         ;
 ;          |InvSBox:InvSubBytes[8].S1|     ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC192|InvSubBytes:SB|InvSBox:InvSubBytes[8].S1                             ; InvSBox       ; work         ;
 ;          |InvSBox:InvSubBytes[9].S1|     ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC192|InvSubBytes:SB|InvSBox:InvSubBytes[9].S1                             ; InvSBox       ; work         ;
-;    |InvCipher:IC256|                     ; 1749 (143)          ; 384 (384)                 ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC256                                                                      ; InvCipher     ; work         ;
-;       |InvRound:decryptionRound|         ; 966 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC256|InvRound:decryptionRound                                             ; InvRound      ; work         ;
-;          |InvMixColumns:IM_C|            ; 326 (326)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC256|InvRound:decryptionRound|InvMixColumns:IM_C                          ; InvMixColumns ; work         ;
+;    |InvCipher:IC256|                     ; 1748 (143)          ; 384 (384)                 ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC256                                                                      ; InvCipher     ; work         ;
+;       |InvRound:decryptionRound|         ; 965 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC256|InvRound:decryptionRound                                             ; InvRound      ; work         ;
+;          |InvMixColumns:IM_C|            ; 325 (325)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC256|InvRound:decryptionRound|InvMixColumns:IM_C                          ; InvMixColumns ; work         ;
 ;          |InvSubBytes:IS_B|              ; 640 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC256|InvRound:decryptionRound|InvSubBytes:IS_B                            ; InvSubBytes   ; work         ;
 ;             |InvSBox:InvSubBytes[0].S1|  ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC256|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[0].S1  ; InvSBox       ; work         ;
 ;             |InvSBox:InvSubBytes[10].S1| ; 40 (40)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |AES|InvCipher:IC256|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[10].S1 ; InvSBox       ; work         ;
@@ -663,106 +661,106 @@ Encoding Type:  One-Hot
 +------------------------------------------------------+---------------------+------------------------+
 ; Latch Name                                           ; Latch Enable Signal ; Free of Timing Hazards ;
 +------------------------------------------------------+---------------------+------------------------+
-; expectedOutput[127]                                  ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[126]                                  ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[125]                                  ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[124]                                  ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[123]                                  ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[122]                                  ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[121]                                  ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[120]                                  ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[119]                                  ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[118]                                  ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[117]                                  ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[116]                                  ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[115]                                  ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[114]                                  ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[112]                                  ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[111]                                  ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[109]                                  ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[108]                                  ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[107]                                  ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[106]                                  ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[105]                                  ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[104]                                  ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[103]                                  ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[102]                                  ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[101]                                  ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[100]                                  ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[99]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[98]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[96]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[95]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[94]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[92]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[91]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[90]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[87]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[86]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[85]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[84]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[83]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[82]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[81]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[80]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[79]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[78]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[77]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[75]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[74]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[73]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[70]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[69]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[67]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[66]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[65]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[64]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[63]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[62]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[61]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[60]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[59]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[57]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[56]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[55]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[54]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[52]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[51]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[50]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[49]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[48]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[47]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[46]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[45]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[44]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[43]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[42]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[39]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[38]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[37]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[36]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[35]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[34]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[33]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[32]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[31]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[30]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[29]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[28]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[27]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[26]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[25]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[24]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[23]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[22]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[21]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[20]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[19]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[17]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[16]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[15]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[14]                                   ; expectedOutput[83]  ; yes                    ;
-; expectedOutput[13]                                   ; expectedOutput[83]  ; yes                    ;
+; expectedOutput[127]                                  ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[126]                                  ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[125]                                  ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[124]                                  ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[123]                                  ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[122]                                  ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[121]                                  ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[120]                                  ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[119]                                  ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[118]                                  ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[117]                                  ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[116]                                  ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[115]                                  ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[114]                                  ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[112]                                  ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[111]                                  ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[109]                                  ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[108]                                  ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[107]                                  ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[106]                                  ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[105]                                  ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[104]                                  ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[103]                                  ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[102]                                  ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[101]                                  ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[100]                                  ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[99]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[98]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[96]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[95]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[94]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[92]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[91]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[90]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[87]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[86]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[85]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[84]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[83]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[82]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[81]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[80]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[79]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[78]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[77]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[75]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[74]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[73]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[70]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[69]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[67]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[66]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[65]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[64]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[63]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[62]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[61]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[60]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[59]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[57]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[56]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[55]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[54]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[52]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[51]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[50]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[49]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[48]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[47]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[46]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[45]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[44]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[43]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[42]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[39]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[38]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[37]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[36]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[35]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[34]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[33]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[32]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[31]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[30]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[29]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[28]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[27]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[26]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[25]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[24]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[23]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[22]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[21]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[20]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[19]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[17]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[16]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[15]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[14]                                   ; expectedOutput[81]  ; yes                    ;
+; expectedOutput[13]                                   ; expectedOutput[81]  ; yes                    ;
 ; Number of user-specified and inferred latches = 113  ;                     ;                        ;
 +------------------------------------------------------+---------------------+------------------------+
 Table restricted to first 100 entries. Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
@@ -818,33 +816,33 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
-; 3:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |AES|roundNumber[0]                         ;
-; 4:1                ; 128 bits  ; 256 LEs       ; 0 LEs                ; 256 LEs                ; Yes        ; |AES|InvCipher:IC256|RoundInReg[117]        ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |AES|Cipher:C256|RoundInReg[50]             ;
-; 4:1                ; 128 bits  ; 256 LEs       ; 0 LEs                ; 256 LEs                ; Yes        ; |AES|InvCipher:IC192|RoundInReg[47]         ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |AES|Cipher:C192|RoundInReg[104]            ;
-; 4:1                ; 128 bits  ; 256 LEs       ; 0 LEs                ; 256 LEs                ; Yes        ; |AES|InvCipher:IC128|RoundInReg[65]         ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |AES|Cipher:C128|RoundInReg[43]             ;
-; 5:1                ; 128 bits  ; 384 LEs       ; 256 LEs              ; 128 LEs                ; Yes        ; |AES|InvCipher:IC256|tempDecryptedText[3]   ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |AES|Cipher:C256|tempEncryptedText[123]     ;
-; 5:1                ; 128 bits  ; 384 LEs       ; 256 LEs              ; 128 LEs                ; Yes        ; |AES|InvCipher:IC192|tempDecryptedText[55]  ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |AES|Cipher:C192|tempEncryptedText[57]      ;
-; 5:1                ; 128 bits  ; 384 LEs       ; 256 LEs              ; 128 LEs                ; Yes        ; |AES|InvCipher:IC128|tempDecryptedText[124] ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |AES|Cipher:C128|tempEncryptedText[41]      ;
-; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |AES|InvCipher:IC256|round[3]               ;
-; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |AES|Cipher:C256|round[3]                   ;
+; 4:1                ; 128 bits  ; 256 LEs       ; 0 LEs                ; 256 LEs                ; Yes        ; |AES|InvCipher:IC256|RoundInReg[45]         ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |AES|Cipher:C256|RoundInReg[105]            ;
+; 4:1                ; 128 bits  ; 256 LEs       ; 0 LEs                ; 256 LEs                ; Yes        ; |AES|InvCipher:IC192|RoundInReg[103]        ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |AES|Cipher:C192|RoundInReg[50]             ;
+; 4:1                ; 128 bits  ; 256 LEs       ; 0 LEs                ; 256 LEs                ; Yes        ; |AES|InvCipher:IC128|RoundInReg[96]         ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |AES|Cipher:C128|RoundInReg[88]             ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 21 LEs               ; 0 LEs                  ; Yes        ; |AES|roundNumber[4]                         ;
+; 5:1                ; 128 bits  ; 384 LEs       ; 256 LEs              ; 128 LEs                ; Yes        ; |AES|InvCipher:IC256|tempDecryptedText[123] ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |AES|Cipher:C256|tempEncryptedText[64]      ;
+; 5:1                ; 128 bits  ; 384 LEs       ; 256 LEs              ; 128 LEs                ; Yes        ; |AES|InvCipher:IC192|tempDecryptedText[99]  ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |AES|Cipher:C192|tempEncryptedText[41]      ;
+; 5:1                ; 128 bits  ; 384 LEs       ; 256 LEs              ; 128 LEs                ; Yes        ; |AES|InvCipher:IC128|tempDecryptedText[47]  ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 64 LEs               ; 32 LEs                 ; Yes        ; |AES|Cipher:C128|tempEncryptedText[59]      ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |AES|InvCipher:IC256|round[2]               ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |AES|Cipher:C256|round[0]                   ;
 ; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |AES|InvCipher:IC192|round[3]               ;
-; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |AES|Cipher:C192|round[2]                   ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |AES|Cipher:C192|round[0]                   ;
 ; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |AES|InvCipher:IC128|round[3]               ;
 ; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |AES|Cipher:C128|round[3]                   ;
-; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |AES|expectedOutput[87]                     ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |AES|BCDtoSSD:B2S_3|seg[0]                  ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |AES|BCDtoSSD:B2S_3|seg[5]                  ;
+; 3:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |AES|expectedOutput[84]                     ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |AES|BCDtoSSD:B2S_3|seg[3]                  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |AES|BCDtoSSD:B2S_3|seg[2]                  ;
 ; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |AES|BCDtoSSD:B2S_1|seg[1]                  ;
 ; 6:1                ; 2 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |AES|BCDtoSSD:B2S_2|seg[0]                  ;
-; 7:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |AES|BCDtoSSD:B2S_1|seg[3]                  ;
-; 7:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |AES|BCDtoSSD:B2S_2|seg[3]                  ;
-; 8:1                ; 128 bits  ; 640 LEs       ; 640 LEs              ; 0 LEs                  ; No         ; |AES|displayedOut[2]                        ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |AES|BCDtoSSD:B2S_1|seg[6]                  ;
+; 7:1                ; 3 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; No         ; |AES|BCDtoSSD:B2S_2|seg[6]                  ;
+; 8:1                ; 128 bits  ; 640 LEs       ; 640 LEs              ; 0 LEs                  ; No         ; |AES|displayedOut[5]                        ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
 
 
@@ -2396,22 +2394,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA SLD           ; 384                         ;
 ;     SCLR              ; 13                          ;
 ;     plain             ; 15                          ;
-; arriav_lcell_comb     ; 11319                       ;
+; arriav_lcell_comb     ; 11256                       ;
 ;     arith             ; 7                           ;
 ;         1 data inputs ; 7                           ;
 ;     extend            ; 11                          ;
 ;         7 data inputs ; 11                          ;
-;     normal            ; 11301                       ;
+;     normal            ; 11238                       ;
 ;         1 data inputs ; 37                          ;
-;         2 data inputs ; 245                         ;
-;         3 data inputs ; 529                         ;
-;         4 data inputs ; 436                         ;
-;         5 data inputs ; 1147                        ;
-;         6 data inputs ; 8907                        ;
-; boundary_port         ; 25                          ;
+;         2 data inputs ; 238                         ;
+;         3 data inputs ; 517                         ;
+;         4 data inputs ; 439                         ;
+;         5 data inputs ; 1081                        ;
+;         6 data inputs ; 8926                        ;
+; boundary_port         ; 27                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 7.00                        ;
-; Average LUT depth     ; 4.14                        ;
+; Max LUT depth         ; 8.00                        ;
+; Average LUT depth     ; 4.15                        ;
 +-----------------------+-----------------------------+
 
 
@@ -2420,7 +2418,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:43     ;
+; Top            ; 00:00:36     ;
 +----------------+--------------+
 
 
@@ -2430,7 +2428,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Sat May 11 23:17:32 2024
+    Info: Processing started: Sun May 12 00:45:19 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off AES -c AES
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
@@ -2475,11 +2473,11 @@ Info (12021): Found 1 design units, including 1 entities, in source file /users/
 Warning (10222): Verilog HDL Parameter Declaration warning at InvCipher.v(6): Parameter Declaration in module "InvCipher" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/InvCipher.v Line: 6
 Warning (10222): Verilog HDL Parameter Declaration warning at Cipher.v(6): Parameter Declaration in module "Cipher" behaves as a Local Parameter Declaration because the module has a Module Parameter Port List File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/Cipher.v Line: 6
 Info (12127): Elaborating entity "AES" for the top level hierarchy
-Warning (10855): Verilog HDL warning at AES.v(18): initial value for variable displayedOut should be constant File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 18
-Warning (10230): Verilog HDL assignment warning at AES.v(82): truncated value with size 256 to match size of target (128) File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 82
-Warning (10240): Verilog HDL Always Construct warning at AES.v(56): inferring latch(es) for variable "expectedOutput", which holds its previous value in one or more paths through the always construct File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 56
-Warning (10240): Verilog HDL Always Construct warning at AES.v(56): inferring latch(es) for variable "ciphersEnables", which holds its previous value in one or more paths through the always construct File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 56
-Warning (10230): Verilog HDL assignment warning at AES.v(122): truncated value with size 32 to match size of target (7) File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 122
+Warning (10855): Verilog HDL warning at AES.v(19): initial value for variable displayedOut should be constant File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 19
+Warning (10230): Verilog HDL assignment warning at AES.v(89): truncated value with size 256 to match size of target (128) File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 89
+Warning (10240): Verilog HDL Always Construct warning at AES.v(57): inferring latch(es) for variable "expectedOutput", which holds its previous value in one or more paths through the always construct File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 57
+Warning (10240): Verilog HDL Always Construct warning at AES.v(57): inferring latch(es) for variable "ciphersEnables", which holds its previous value in one or more paths through the always construct File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 57
+Warning (10230): Verilog HDL assignment warning at AES.v(129): truncated value with size 32 to match size of target (7) File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 129
 Info (10041): Inferred latch for "ciphersEnables[0]" at AES.v(65) File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
 Info (10041): Inferred latch for "ciphersEnables[1]" at AES.v(65) File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
 Info (10041): Inferred latch for "ciphersEnables[2]" at AES.v(65) File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
@@ -2614,40 +2612,40 @@ Info (10041): Inferred latch for "expectedOutput[3]" at AES.v(65) File: C:/Users
 Info (10041): Inferred latch for "expectedOutput[2]" at AES.v(65) File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
 Info (10041): Inferred latch for "expectedOutput[1]" at AES.v(65) File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
 Info (10041): Inferred latch for "expectedOutput[0]" at AES.v(65) File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
-Info (12128): Elaborating entity "KeysGenerator" for hierarchy "KeysGenerator:KG128" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 27
+Info (12128): Elaborating entity "KeysGenerator" for hierarchy "KeysGenerator:KG128" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 28
 Warning (10230): Verilog HDL assignment warning at KeysGenerator.v(8): truncated value with size 32 to match size of target (4) File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/Keys/KeysGenerator.v Line: 8
 Info (12128): Elaborating entity "key_expansion" for hierarchy "KeysGenerator:KG128|key_expansion:keyG[1].KE" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/Keys/KeysGenerator.v Line: 9
 Warning (10855): Verilog HDL warning at Key_expansion.v(310): initial value for variable temp_wOut should be constant File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/Keys/Key_expansion.v Line: 310
 Warning (10030): Net "temp_wOut" at Key_expansion.v(307) has no driver or initial value, using a default initial value '0' File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/Keys/Key_expansion.v Line: 307
-Info (12128): Elaborating entity "Cipher" for hierarchy "Cipher:C128" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 28
+Info (12128): Elaborating entity "Cipher" for hierarchy "Cipher:C128" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 29
 Info (12128): Elaborating entity "AddRoundKey" for hierarchy "Cipher:C128|AddRoundKey:ARK" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/Cipher.v Line: 23
 Info (12128): Elaborating entity "Round" for hierarchy "Cipher:C128|Round:encryptionRound" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/Cipher.v Line: 24
 Info (12128): Elaborating entity "SubBytes" for hierarchy "Cipher:C128|Round:encryptionRound|SubBytes:SB" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/Rounds/Round.v Line: 12
 Info (12128): Elaborating entity "SBox" for hierarchy "Cipher:C128|Round:encryptionRound|SubBytes:SB|SBox:stateLoop[0].S1" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/Encryption/SubBytes/SubBytes.v Line: 6
 Info (12128): Elaborating entity "shift_rows" for hierarchy "Cipher:C128|Round:encryptionRound|shift_rows:SR" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/Rounds/Round.v Line: 13
 Info (12128): Elaborating entity "MixColumns" for hierarchy "Cipher:C128|Round:encryptionRound|MixColumns:MC" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/Rounds/Round.v Line: 14
-Info (12128): Elaborating entity "InvCipher" for hierarchy "InvCipher:IC128" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 29
+Info (12128): Elaborating entity "InvCipher" for hierarchy "InvCipher:IC128" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 30
 Info (12128): Elaborating entity "InvRound" for hierarchy "InvCipher:IC128|InvRound:decryptionRound" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/InvCipher.v Line: 25
 Info (12128): Elaborating entity "Invshift_rows" for hierarchy "InvCipher:IC128|InvRound:decryptionRound|Invshift_rows:IS_R" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/Rounds/InvRound.v Line: 13
 Info (12128): Elaborating entity "InvSubBytes" for hierarchy "InvCipher:IC128|InvRound:decryptionRound|InvSubBytes:IS_B" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/Rounds/InvRound.v Line: 14
 Info (12128): Elaborating entity "InvSBox" for hierarchy "InvCipher:IC128|InvRound:decryptionRound|InvSubBytes:IS_B|InvSBox:InvSubBytes[0].S1" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/Decryption/InvSubBytes/InvSubBytes.v Line: 6
 Info (12128): Elaborating entity "InvMixColumns" for hierarchy "InvCipher:IC128|InvRound:decryptionRound|InvMixColumns:IM_C" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/Rounds/InvRound.v Line: 16
-Info (12128): Elaborating entity "KeysGenerator" for hierarchy "KeysGenerator:KG192" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 36
+Info (12128): Elaborating entity "KeysGenerator" for hierarchy "KeysGenerator:KG192" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 37
 Warning (10230): Verilog HDL assignment warning at KeysGenerator.v(8): truncated value with size 32 to match size of target (4) File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/Keys/KeysGenerator.v Line: 8
-Info (12128): Elaborating entity "Cipher" for hierarchy "Cipher:C192" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 37
+Info (12128): Elaborating entity "Cipher" for hierarchy "Cipher:C192" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 38
 Info (12128): Elaborating entity "Round" for hierarchy "Cipher:C192|Round:encryptionRound" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/Cipher.v Line: 24
-Info (12128): Elaborating entity "InvCipher" for hierarchy "InvCipher:IC192" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 38
+Info (12128): Elaborating entity "InvCipher" for hierarchy "InvCipher:IC192" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 39
 Info (12128): Elaborating entity "InvRound" for hierarchy "InvCipher:IC192|InvRound:decryptionRound" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/InvCipher.v Line: 25
-Info (12128): Elaborating entity "KeysGenerator" for hierarchy "KeysGenerator:KG256" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 45
+Info (12128): Elaborating entity "KeysGenerator" for hierarchy "KeysGenerator:KG256" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 46
 Warning (10230): Verilog HDL assignment warning at KeysGenerator.v(8): truncated value with size 32 to match size of target (4) File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/Keys/KeysGenerator.v Line: 8
-Info (12128): Elaborating entity "Cipher" for hierarchy "Cipher:C256" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 46
+Info (12128): Elaborating entity "Cipher" for hierarchy "Cipher:C256" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 47
 Info (12128): Elaborating entity "Round" for hierarchy "Cipher:C256|Round:encryptionRound" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/Cipher.v Line: 24
-Info (12128): Elaborating entity "InvCipher" for hierarchy "InvCipher:IC256" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 47
+Info (12128): Elaborating entity "InvCipher" for hierarchy "InvCipher:IC256" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 48
 Info (12128): Elaborating entity "InvRound" for hierarchy "InvCipher:IC256|InvRound:decryptionRound" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/InvCipher.v Line: 25
-Info (12128): Elaborating entity "BCD_E" for hierarchy "BCD_E:bcd_encoder" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 53
+Info (12128): Elaborating entity "BCD_E" for hierarchy "BCD_E:bcd_encoder" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 54
 Info (12128): Elaborating entity "ADD3_E" for hierarchy "BCD_E:bcd_encoder|ADD3_E:C1" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/Convertors/BCD_E.v Line: 8
 Warning (10230): Verilog HDL assignment warning at BCD_E.v(30): truncated value with size 32 to match size of target (4) File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/Convertors/BCD_E.v Line: 30
-Info (12128): Elaborating entity "BCDtoSSD" for hierarchy "BCDtoSSD:B2S_1" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 112
+Info (12128): Elaborating entity "BCDtoSSD" for hierarchy "BCDtoSSD:B2S_1" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 119
 Warning (12011): Net is missing source, defaulting to GND
     Warning (12110): Net "KeysGenerator:KG256|allKeys[256]" is missing source, defaulting to GND File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/Keys/KeysGenerator.v Line: 1
     Warning (12110): Net "KeysGenerator:KG256|allKeys[257]" is missing source, defaulting to GND File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/Keys/KeysGenerator.v Line: 1
@@ -5130,9 +5128,9 @@ Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
     Info (13026): Duplicate LATCH primitive "expectedOutput[112]" merged with LATCH primitive "expectedOutput[126]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
     Info (13026): Duplicate LATCH primitive "expectedOutput[117]" merged with LATCH primitive "expectedOutput[126]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
     Info (13026): Duplicate LATCH primitive "expectedOutput[121]" merged with LATCH primitive "expectedOutput[126]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
-    Info (13026): Duplicate LATCH primitive "expectedOutput[80]" merged with LATCH primitive "expectedOutput[126]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
     Info (13026): Duplicate LATCH primitive "expectedOutput[43]" merged with LATCH primitive "expectedOutput[126]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
     Info (13026): Duplicate LATCH primitive "expectedOutput[27]" merged with LATCH primitive "expectedOutput[126]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
+    Info (13026): Duplicate LATCH primitive "expectedOutput[80]" merged with LATCH primitive "expectedOutput[126]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
     Info (13026): Duplicate LATCH primitive "expectedOutput[92]" merged with LATCH primitive "expectedOutput[125]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
     Info (13026): Duplicate LATCH primitive "expectedOutput[94]" merged with LATCH primitive "expectedOutput[125]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
     Info (13026): Duplicate LATCH primitive "expectedOutput[95]" merged with LATCH primitive "expectedOutput[125]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
@@ -5146,9 +5144,9 @@ Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
     Info (13026): Duplicate LATCH primitive "expectedOutput[59]" merged with LATCH primitive "expectedOutput[124]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
     Info (13026): Duplicate LATCH primitive "expectedOutput[47]" merged with LATCH primitive "expectedOutput[124]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
     Info (13026): Duplicate LATCH primitive "expectedOutput[33]" merged with LATCH primitive "expectedOutput[124]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
+    Info (13026): Duplicate LATCH primitive "expectedOutput[82]" merged with LATCH primitive "expectedOutput[123]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
     Info (13026): Duplicate LATCH primitive "expectedOutput[109]" merged with LATCH primitive "expectedOutput[123]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
     Info (13026): Duplicate LATCH primitive "expectedOutput[79]" merged with LATCH primitive "expectedOutput[123]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
-    Info (13026): Duplicate LATCH primitive "expectedOutput[82]" merged with LATCH primitive "expectedOutput[123]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
     Info (13026): Duplicate LATCH primitive "expectedOutput[83]" merged with LATCH primitive "expectedOutput[119]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
     Info (13026): Duplicate LATCH primitive "expectedOutput[98]" merged with LATCH primitive "expectedOutput[119]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
     Info (13026): Duplicate LATCH primitive "expectedOutput[44]" merged with LATCH primitive "expectedOutput[119]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
@@ -5166,14 +5164,14 @@ Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
     Info (13026): Duplicate LATCH primitive "expectedOutput[20]" merged with LATCH primitive "expectedOutput[115]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
     Info (13026): Duplicate LATCH primitive "expectedOutput[12]" merged with LATCH primitive "expectedOutput[115]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
     Info (13026): Duplicate LATCH primitive "expectedOutput[3]" merged with LATCH primitive "expectedOutput[115]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
-    Info (13026): Duplicate LATCH primitive "expectedOutput[2]" merged with LATCH primitive "expectedOutput[106]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
-    Info (13026): Duplicate LATCH primitive "expectedOutput[9]" merged with LATCH primitive "expectedOutput[106]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
-    Info (13026): Duplicate LATCH primitive "expectedOutput[13]" merged with LATCH primitive "expectedOutput[106]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
-    Info (13026): Duplicate LATCH primitive "expectedOutput[34]" merged with LATCH primitive "expectedOutput[106]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
-    Info (13026): Duplicate LATCH primitive "expectedOutput[36]" merged with LATCH primitive "expectedOutput[106]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
-    Info (13026): Duplicate LATCH primitive "expectedOutput[67]" merged with LATCH primitive "expectedOutput[106]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
     Info (13026): Duplicate LATCH primitive "expectedOutput[85]" merged with LATCH primitive "expectedOutput[106]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
     Info (13026): Duplicate LATCH primitive "expectedOutput[99]" merged with LATCH primitive "expectedOutput[106]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
+    Info (13026): Duplicate LATCH primitive "expectedOutput[67]" merged with LATCH primitive "expectedOutput[106]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
+    Info (13026): Duplicate LATCH primitive "expectedOutput[36]" merged with LATCH primitive "expectedOutput[106]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
+    Info (13026): Duplicate LATCH primitive "expectedOutput[34]" merged with LATCH primitive "expectedOutput[106]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
+    Info (13026): Duplicate LATCH primitive "expectedOutput[13]" merged with LATCH primitive "expectedOutput[106]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
+    Info (13026): Duplicate LATCH primitive "expectedOutput[9]" merged with LATCH primitive "expectedOutput[106]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
+    Info (13026): Duplicate LATCH primitive "expectedOutput[2]" merged with LATCH primitive "expectedOutput[106]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
     Info (13026): Duplicate LATCH primitive "expectedOutput[84]" merged with LATCH primitive "expectedOutput[105]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
     Info (13026): Duplicate LATCH primitive "expectedOutput[91]" merged with LATCH primitive "expectedOutput[105]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
     Info (13026): Duplicate LATCH primitive "expectedOutput[75]" merged with LATCH primitive "expectedOutput[105]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
@@ -5217,46 +5215,46 @@ Info (13025): Duplicate LATCH primitives merged into single LATCH primitive
     Info (13026): Duplicate LATCH primitive "expectedOutput[8]" merged with LATCH primitive "expectedOutput[77]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
     Info (13026): Duplicate LATCH primitive "expectedOutput[4]" merged with LATCH primitive "expectedOutput[77]" File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
 Warning (13012): Latch expectedOutput[127] has unsafe behavior File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal roundNumber[6] File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 117
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal roundNumber[6] File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 124
 Warning (13012): Latch expectedOutput[126] has unsafe behavior File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal roundNumber[6] File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 117
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal roundNumber[6] File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 124
 Warning (13012): Latch expectedOutput[125] has unsafe behavior File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal roundNumber[6] File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 117
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal roundNumber[6] File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 124
 Warning (13012): Latch expectedOutput[124] has unsafe behavior File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal roundNumber[6] File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 117
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal roundNumber[6] File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 124
 Warning (13012): Latch expectedOutput[123] has unsafe behavior File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal roundNumber[6] File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 117
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal roundNumber[6] File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 124
 Warning (13012): Latch expectedOutput[119] has unsafe behavior File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal roundNumber[6] File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 117
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal roundNumber[6] File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 124
 Warning (13012): Latch expectedOutput[115] has unsafe behavior File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal roundNumber[6] File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 117
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal roundNumber[6] File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 124
 Warning (13012): Latch expectedOutput[106] has unsafe behavior File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal roundNumber[6] File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 117
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal roundNumber[6] File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 124
 Warning (13012): Latch expectedOutput[105] has unsafe behavior File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal roundNumber[6] File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 117
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal roundNumber[6] File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 124
 Warning (13012): Latch expectedOutput[103] has unsafe behavior File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal roundNumber[6] File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 117
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal roundNumber[6] File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 124
 Warning (13012): Latch expectedOutput[101] has unsafe behavior File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal roundNumber[6] File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 117
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal roundNumber[6] File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 124
 Warning (13012): Latch expectedOutput[87] has unsafe behavior File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal roundNumber[6] File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 117
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal roundNumber[6] File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 124
 Warning (13012): Latch expectedOutput[81] has unsafe behavior File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal roundNumber[6] File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 117
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal roundNumber[6] File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 124
 Warning (13012): Latch expectedOutput[77] has unsafe behavior File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 65
-    Warning (13013): Ports D and ENA on the latch are fed by the same signal roundNumber[6] File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 117
+    Warning (13013): Ports D and ENA on the latch are fed by the same signal roundNumber[6] File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 124
 Info (286030): Timing-Driven Synthesis is running
 Info (144001): Generated suppressed messages file C:/Users/tasne/OneDrive/Desktop/AES!/AES/Quartus files/output_files/AES.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 12315 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 3 input pins
+Info (21057): Implemented 12254 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
     Info (21059): Implemented 22 output pins
-    Info (21061): Implemented 12290 logic cells
+    Info (21061): Implemented 12227 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2413 warnings
-    Info: Peak virtual memory: 5088 megabytes
-    Info: Processing ended: Sat May 11 23:18:28 2024
-    Info: Elapsed time: 00:00:56
-    Info: Total CPU time (on all processors): 00:00:14
+    Info: Peak virtual memory: 5097 megabytes
+    Info: Processing ended: Sun May 12 00:46:08 2024
+    Info: Elapsed time: 00:00:49
+    Info: Total CPU time (on all processors): 00:00:17
 
 
 +------------------------------------------+

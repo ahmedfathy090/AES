@@ -92,6 +92,14 @@
 					"strict" : false
 				},
 				{
+					"name" : "modeSelector[0]",
+					"strict" : false
+				},
+				{
+					"name" : "modeSelector[1]",
+					"strict" : false
+				},
+				{
 					"name" : "reset",
 					"strict" : false
 				},

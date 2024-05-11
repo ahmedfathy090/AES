@@ -1,11 +1,11 @@
-Analysis & Synthesis Status : Successful - Sat May 11 23:18:28 2024
+Analysis & Synthesis Status : Successful - Sun May 12 00:46:08 2024
 Quartus Prime Version : 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 Revision Name : AES
 Top-level Entity Name : AES
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
 Total registers : 2332
-Total pins : 25
+Total pins : 27
 Total virtual pins : 0
 Total block memory bits : 0
 Total DSP Blocks : 0

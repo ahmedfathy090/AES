@@ -1,5 +1,5 @@
 Timing Analyzer report for AES
-Sat May 11 23:33:29 2024
+Sun May 12 00:58:58 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -100,40 +100,41 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 12          ;
 ; Maximum allowed            ; 10          ;
 ;                            ;             ;
-; Average used               ; 4.55        ;
+; Average used               ; 4.39        ;
 ; Maximum used               ; 10          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  44.4%      ;
-;     Processor 3            ;  44.4%      ;
-;     Processor 4            ;  44.4%      ;
-;     Processor 5            ;  37.0%      ;
-;     Processor 6            ;  37.0%      ;
-;     Processor 7            ;  37.0%      ;
-;     Processor 8            ;  37.0%      ;
-;     Processor 9            ;  37.0%      ;
-;     Processor 10           ;  36.9%      ;
+;     Processor 2            ;  43.9%      ;
+;     Processor 3            ;  43.8%      ;
+;     Processor 4            ;  43.8%      ;
+;     Processor 5            ;  34.6%      ;
+;     Processor 6            ;  34.5%      ;
+;     Processor 7            ;  34.5%      ;
+;     Processor 8            ;  34.5%      ;
+;     Processor 9            ;  34.5%      ;
+;     Processor 10           ;  34.5%      ;
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Clocks                                                                                                                                                                            ;
-+------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------+
-; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets   ;
-+------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------+
-; clk        ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk }   ;
-; reset      ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { reset } ;
-+------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+-----------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                                           ;
++-----------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------------+
+; Clock Name      ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets             ;
++-----------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------------+
+; clk             ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { clk }             ;
+; modeSelector[0] ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { modeSelector[0] } ;
++-----------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+---------------------+
 
 
-+--------------------------------------------------+
-; Slow 1100mV 85C Model Fmax Summary               ;
-+------------+-----------------+------------+------+
-; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
-+------------+-----------------+------------+------+
-; 120.32 MHz ; 120.32 MHz      ; clk        ;      ;
-+------------+-----------------+------------+------+
++-------------------------------------------------------+
+; Slow 1100mV 85C Model Fmax Summary                    ;
++------------+-----------------+-----------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name      ; Note ;
++------------+-----------------+-----------------+------+
+; 131.03 MHz ; 131.03 MHz      ; clk             ;      ;
+; 143.14 MHz ; 143.14 MHz      ; modeSelector[0] ;      ;
++------------+-----------------+-----------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
@@ -143,24 +144,24 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 HTML report is unavailable in plain text report export.
 
 
-+-------------------------------------+
-; Slow 1100mV 85C Model Setup Summary ;
-+-------+--------+--------------------+
-; Clock ; Slack  ; End Point TNS      ;
-+-------+--------+--------------------+
-; clk   ; -7.311 ; -14410.662         ;
-; reset ; -6.633 ; -85.212            ;
-+-------+--------+--------------------+
++------------------------------------------+
+; Slow 1100mV 85C Model Setup Summary      ;
++-----------------+--------+---------------+
+; Clock           ; Slack  ; End Point TNS ;
++-----------------+--------+---------------+
+; modeSelector[0] ; -8.422 ; -107.555      ;
+; clk             ; -6.632 ; -9533.932     ;
++-----------------+--------+---------------+
 
 
-+------------------------------------+
-; Slow 1100mV 85C Model Hold Summary ;
-+-------+-------+--------------------+
-; Clock ; Slack ; End Point TNS      ;
-+-------+-------+--------------------+
-; clk   ; 0.358 ; 0.000              ;
-; reset ; 1.527 ; 0.000              ;
-+-------+-------+--------------------+
++-----------------------------------------+
+; Slow 1100mV 85C Model Hold Summary      ;
++-----------------+-------+---------------+
+; Clock           ; Slack ; End Point TNS ;
++-----------------+-------+---------------+
+; clk             ; 0.355 ; 0.000         ;
+; modeSelector[0] ; 0.869 ; 0.000         ;
++-----------------+-------+---------------+
 
 
 ------------------------------------------
@@ -177,12 +178,12 @@ No paths to report.
 
 +---------------------------------------------------+
 ; Slow 1100mV 85C Model Minimum Pulse Width Summary ;
-+-------+--------+----------------------------------+
-; Clock ; Slack  ; End Point TNS                    ;
-+-------+--------+----------------------------------+
-; clk   ; -0.394 ; -1642.187                        ;
-; reset ; 0.025  ; 0.000                            ;
-+-------+--------+----------------------------------+
++-----------------+--------+------------------------+
+; Clock           ; Slack  ; End Point TNS          ;
++-----------------+--------+------------------------+
+; clk             ; -0.394 ; -1641.510              ;
+; modeSelector[0] ; -0.287 ; -6.232                 ;
++-----------------+--------+------------------------+
 
 
 -----------------------------------------------
@@ -191,34 +192,35 @@ No paths to report.
 No synchronizer chains to report.
 
 
-+--------------------------------------------------+
-; Slow 1100mV 0C Model Fmax Summary                ;
-+------------+-----------------+------------+------+
-; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
-+------------+-----------------+------------+------+
-; 125.09 MHz ; 125.09 MHz      ; clk        ;      ;
-+------------+-----------------+------------+------+
++-------------------------------------------------------+
+; Slow 1100mV 0C Model Fmax Summary                     ;
++------------+-----------------+-----------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name      ; Note ;
++------------+-----------------+-----------------+------+
+; 137.48 MHz ; 137.48 MHz      ; clk             ;      ;
+; 149.61 MHz ; 149.61 MHz      ; modeSelector[0] ;      ;
++------------+-----------------+-----------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
-+------------------------------------+
-; Slow 1100mV 0C Model Setup Summary ;
-+-------+--------+-------------------+
-; Clock ; Slack  ; End Point TNS     ;
-+-------+--------+-------------------+
-; clk   ; -6.994 ; -13633.390        ;
-; reset ; -6.612 ; -85.698           ;
-+-------+--------+-------------------+
++------------------------------------------+
+; Slow 1100mV 0C Model Setup Summary       ;
++-----------------+--------+---------------+
+; Clock           ; Slack  ; End Point TNS ;
++-----------------+--------+---------------+
+; modeSelector[0] ; -8.370 ; -106.966      ;
+; clk             ; -6.274 ; -9416.284     ;
++-----------------+--------+---------------+
 
 
-+-----------------------------------+
-; Slow 1100mV 0C Model Hold Summary ;
-+-------+-------+-------------------+
-; Clock ; Slack ; End Point TNS     ;
-+-------+-------+-------------------+
-; clk   ; 0.378 ; 0.000             ;
-; reset ; 1.629 ; 0.000             ;
-+-------+-------+-------------------+
++-----------------------------------------+
+; Slow 1100mV 0C Model Hold Summary       ;
++-----------------+-------+---------------+
+; Clock           ; Slack ; End Point TNS ;
++-----------------+-------+---------------+
+; clk             ; 0.332 ; 0.000         ;
+; modeSelector[0] ; 0.704 ; 0.000         ;
++-----------------+-------+---------------+
 
 
 -----------------------------------------
@@ -235,12 +237,12 @@ No paths to report.
 
 +--------------------------------------------------+
 ; Slow 1100mV 0C Model Minimum Pulse Width Summary ;
-+-------+--------+---------------------------------+
-; Clock ; Slack  ; End Point TNS                   ;
-+-------+--------+---------------------------------+
-; clk   ; -0.394 ; -1500.190                       ;
-; reset ; -0.007 ; -0.020                          ;
-+-------+--------+---------------------------------+
++-----------------+--------+-----------------------+
+; Clock           ; Slack  ; End Point TNS         ;
++-----------------+--------+-----------------------+
+; clk             ; -0.394 ; -1498.534             ;
+; modeSelector[0] ; -0.319 ; -6.618                ;
++-----------------+--------+-----------------------+
 
 
 ----------------------------------------------
@@ -249,24 +251,24 @@ No paths to report.
 No synchronizer chains to report.
 
 
-+-------------------------------------+
-; Fast 1100mV 85C Model Setup Summary ;
-+-------+--------+--------------------+
-; Clock ; Slack  ; End Point TNS      ;
-+-------+--------+--------------------+
-; clk   ; -4.567 ; -9219.039          ;
-; reset ; -3.345 ; -42.042            ;
-+-------+--------+--------------------+
++------------------------------------------+
+; Fast 1100mV 85C Model Setup Summary      ;
++-----------------+--------+---------------+
+; Clock           ; Slack  ; End Point TNS ;
++-----------------+--------+---------------+
+; clk             ; -4.589 ; -4886.026     ;
+; modeSelector[0] ; -4.288 ; -53.748       ;
++-----------------+--------+---------------+
 
 
-+------------------------------------+
-; Fast 1100mV 85C Model Hold Summary ;
-+-------+-------+--------------------+
-; Clock ; Slack ; End Point TNS      ;
-+-------+-------+--------------------+
-; clk   ; 0.176 ; 0.000              ;
-; reset ; 0.698 ; 0.000              ;
-+-------+-------+--------------------+
++-----------------------------------------+
+; Fast 1100mV 85C Model Hold Summary      ;
++-----------------+-------+---------------+
+; Clock           ; Slack ; End Point TNS ;
++-----------------+-------+---------------+
+; clk             ; 0.176 ; 0.000         ;
+; modeSelector[0] ; 0.560 ; 0.000         ;
++-----------------+-------+---------------+
 
 
 ------------------------------------------
@@ -283,12 +285,12 @@ No paths to report.
 
 +---------------------------------------------------+
 ; Fast 1100mV 85C Model Minimum Pulse Width Summary ;
-+-------+--------+----------------------------------+
-; Clock ; Slack  ; End Point TNS                    ;
-+-------+--------+----------------------------------+
-; clk   ; -0.347 ; -790.285                         ;
-; reset ; -0.254 ; -5.844                           ;
-+-------+--------+----------------------------------+
++-----------------+--------+------------------------+
+; Clock           ; Slack  ; End Point TNS          ;
++-----------------+--------+------------------------+
+; clk             ; -0.348 ; -789.486               ;
+; modeSelector[0] ; -0.274 ; -7.186                 ;
++-----------------+--------+------------------------+
 
 
 -----------------------------------------------
@@ -297,24 +299,24 @@ No paths to report.
 No synchronizer chains to report.
 
 
-+------------------------------------+
-; Fast 1100mV 0C Model Setup Summary ;
-+-------+--------+-------------------+
-; Clock ; Slack  ; End Point TNS     ;
-+-------+--------+-------------------+
-; clk   ; -3.893 ; -7832.091         ;
-; reset ; -3.215 ; -40.870           ;
-+-------+--------+-------------------+
++------------------------------------------+
+; Fast 1100mV 0C Model Setup Summary       ;
++-----------------+--------+---------------+
+; Clock           ; Slack  ; End Point TNS ;
++-----------------+--------+---------------+
+; modeSelector[0] ; -4.022 ; -50.500       ;
+; clk             ; -3.883 ; -4233.546     ;
++-----------------+--------+---------------+
 
 
-+-----------------------------------+
-; Fast 1100mV 0C Model Hold Summary ;
-+-------+-------+-------------------+
-; Clock ; Slack ; End Point TNS     ;
-+-------+-------+-------------------+
-; clk   ; 0.167 ; 0.000             ;
-; reset ; 0.800 ; 0.000             ;
-+-------+-------+-------------------+
++-----------------------------------------+
+; Fast 1100mV 0C Model Hold Summary       ;
++-----------------+-------+---------------+
+; Clock           ; Slack ; End Point TNS ;
++-----------------+-------+---------------+
+; clk             ; 0.166 ; 0.000         ;
+; modeSelector[0] ; 0.399 ; 0.000         ;
++-----------------+-------+---------------+
 
 
 -----------------------------------------
@@ -331,12 +333,12 @@ No paths to report.
 
 +--------------------------------------------------+
 ; Fast 1100mV 0C Model Minimum Pulse Width Summary ;
-+-------+--------+---------------------------------+
-; Clock ; Slack  ; End Point TNS                   ;
-+-------+--------+---------------------------------+
-; clk   ; -0.325 ; -742.558                        ;
-; reset ; -0.249 ; -5.913                          ;
-+-------+--------+---------------------------------+
++-----------------+--------+-----------------------+
+; Clock           ; Slack  ; End Point TNS         ;
++-----------------+--------+-----------------------+
+; clk             ; -0.326 ; -739.361              ;
+; modeSelector[0] ; -0.266 ; -7.009                ;
++-----------------+--------+-----------------------+
 
 
 ----------------------------------------------
@@ -345,18 +347,18 @@ No paths to report.
 No synchronizer chains to report.
 
 
-+----------------------------------------------------------------------------------+
-; Multicorner Timing Analysis Summary                                              ;
-+------------------+------------+-------+----------+---------+---------------------+
-; Clock            ; Setup      ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
-+------------------+------------+-------+----------+---------+---------------------+
-; Worst-case Slack ; -7.311     ; 0.167 ; N/A      ; N/A     ; -0.394              ;
-;  clk             ; -7.311     ; 0.167 ; N/A      ; N/A     ; -0.394              ;
-;  reset           ; -6.633     ; 0.698 ; N/A      ; N/A     ; -0.254              ;
-; Design-wide TNS  ; -14495.874 ; 0.0   ; 0.0      ; 0.0     ; -1642.187           ;
-;  clk             ; -14410.662 ; 0.000 ; N/A      ; N/A     ; -1642.187           ;
-;  reset           ; -85.698    ; 0.000 ; N/A      ; N/A     ; -5.913              ;
-+------------------+------------+-------+----------+---------+---------------------+
++---------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                             ;
++------------------+-----------+-------+----------+---------+---------------------+
+; Clock            ; Setup     ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+-----------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -8.422    ; 0.166 ; N/A      ; N/A     ; -0.394              ;
+;  clk             ; -6.632    ; 0.166 ; N/A      ; N/A     ; -0.394              ;
+;  modeSelector[0] ; -8.422    ; 0.399 ; N/A      ; N/A     ; -0.319              ;
+; Design-wide TNS  ; -9641.487 ; 0.0   ; 0.0      ; 0.0     ; -1647.742           ;
+;  clk             ; -9533.932 ; 0.000 ; N/A      ; N/A     ; -1641.510           ;
+;  modeSelector[0] ; -107.555  ; 0.000 ; N/A      ; N/A     ; -7.186              ;
++------------------+-----------+-------+----------+---------+---------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -389,15 +391,17 @@ No synchronizer chains to report.
 +--------------+--------------+-------------------+-------------------------+-------------------------+---------------+---------------------+----------------+------------------+--------+------------------+------------------------+------------------------+--------------+---------------+-----------------+-------+---------------------+--------------------+---------------+-----------------+-------------+
 
 
-+-----------------------------------------------------------+
-; Input Transition Times                                    ;
-+--------+--------------+-----------------+-----------------+
-; Pin    ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
-+--------+--------------+-----------------+-----------------+
-; reset  ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
-; enable ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
-; clk    ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
-+--------+--------------+-----------------+-----------------+
++--------------------------------------------------------------------+
+; Input Transition Times                                             ;
++-----------------+--------------+-----------------+-----------------+
+; Pin             ; I/O Standard ; 10-90 Rise Time ; 90-10 Fall Time ;
++-----------------+--------------+-----------------+-----------------+
+; modeSelector[0] ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; modeSelector[1] ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; reset           ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; enable          ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
+; clk             ; 2.5 V        ; 2000 ps         ; 2000 ps         ;
++-----------------+--------------+-----------------+-----------------+
 
 
 +-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -520,27 +524,29 @@ No synchronizer chains to report.
 +--------------+--------------+---------------------+---------------------+------------------------------+------------------------------+---------------------+---------------------+--------------------------------------+--------------------------------------+-----------------------------+-----------------------------+----------------------------+----------------------------+-----------------------------+-----------------------------+--------------------+--------------------+-------------------------------------+-------------------------------------+----------------------------+----------------------------+---------------------------+---------------------------+
 
 
-+-------------------------------------------------------------------+
-; Setup Transfers                                                   ;
-+------------+----------+----------+----------+----------+----------+
-; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
-+------------+----------+----------+----------+----------+----------+
-; clk        ; clk      ; 654608   ; 0        ; 0        ; 0        ;
-; reset      ; clk      ; 2332     ; 2332     ; 0        ; 0        ;
-; clk        ; reset    ; 206      ; 0        ; 0        ; 0        ;
-+------------+----------+----------+----------+----------+----------+
++-------------------------------------------------------------------------------+
+; Setup Transfers                                                               ;
++-----------------+-----------------+----------+----------+----------+----------+
+; From Clock      ; To Clock        ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-----------------+-----------------+----------+----------+----------+----------+
+; clk             ; clk             ; 654608   ; 0        ; 0        ; 0        ;
+; modeSelector[0] ; clk             ; 7        ; 7        ; 0        ; 0        ;
+; clk             ; modeSelector[0] ; 0        ; 0        ; 98       ; 0        ;
+; modeSelector[0] ; modeSelector[0] ; 0        ; 0        ; 12       ; 12       ;
++-----------------+-----------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
-+-------------------------------------------------------------------+
-; Hold Transfers                                                    ;
-+------------+----------+----------+----------+----------+----------+
-; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
-+------------+----------+----------+----------+----------+----------+
-; clk        ; clk      ; 654608   ; 0        ; 0        ; 0        ;
-; reset      ; clk      ; 2332     ; 2332     ; 0        ; 0        ;
-; clk        ; reset    ; 206      ; 0        ; 0        ; 0        ;
-+------------+----------+----------+----------+----------+----------+
++-------------------------------------------------------------------------------+
+; Hold Transfers                                                                ;
++-----------------+-----------------+----------+----------+----------+----------+
+; From Clock      ; To Clock        ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++-----------------+-----------------+----------+----------+----------+----------+
+; clk             ; clk             ; 654608   ; 0        ; 0        ; 0        ;
+; modeSelector[0] ; clk             ; 7        ; 7        ; 0        ; 0        ;
+; clk             ; modeSelector[0] ; 0        ; 0        ; 98       ; 0        ;
+; modeSelector[0] ; modeSelector[0] ; 0        ; 0        ; 12       ; 12       ;
++-----------------+-----------------+----------+----------+----------+----------+
 Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
@@ -563,31 +569,33 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 2     ; 2    ;
-; Unconstrained Input Port Paths  ; 42    ; 42   ;
+; Unconstrained Input Ports       ; 4     ; 4    ;
+; Unconstrained Input Port Paths  ; 2435  ; 2435 ;
 ; Unconstrained Output Ports      ; 22    ; 22   ;
-; Unconstrained Output Port Paths ; 1811  ; 1811 ;
+; Unconstrained Output Port Paths ; 1853  ; 1853 ;
 +---------------------------------+-------+------+
 
 
-+-------------------------------------+
-; Clock Status Summary                ;
-+--------+-------+------+-------------+
-; Target ; Clock ; Type ; Status      ;
-+--------+-------+------+-------------+
-; clk    ; clk   ; Base ; Constrained ;
-; reset  ; reset ; Base ; Constrained ;
-+--------+-------+------+-------------+
++--------------------------------------------------------+
+; Clock Status Summary                                   ;
++-----------------+-----------------+------+-------------+
+; Target          ; Clock           ; Type ; Status      ;
++-----------------+-----------------+------+-------------+
+; clk             ; clk             ; Base ; Constrained ;
+; modeSelector[0] ; modeSelector[0] ; Base ; Constrained ;
++-----------------+-----------------+------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------+
-; Unconstrained Input Ports                                                                         ;
-+------------+--------------------------------------------------------------------------------------+
-; Input Port ; Comment                                                                              ;
-+------------+--------------------------------------------------------------------------------------+
-; enable     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; reset      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-+------------+--------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                              ;
++-----------------+--------------------------------------------------------------------------------------+
+; Input Port      ; Comment                                                                              ;
++-----------------+--------------------------------------------------------------------------------------+
+; enable          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; modeSelector[0] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; modeSelector[1] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; reset           ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-----------------+--------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------+
@@ -620,14 +628,16 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 +--------------+---------------------------------------------------------------------------------------+
 
 
-+---------------------------------------------------------------------------------------------------+
-; Unconstrained Input Ports                                                                         ;
-+------------+--------------------------------------------------------------------------------------+
-; Input Port ; Comment                                                                              ;
-+------------+--------------------------------------------------------------------------------------+
-; enable     ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-; reset      ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
-+------------+--------------------------------------------------------------------------------------+
++--------------------------------------------------------------------------------------------------------+
+; Unconstrained Input Ports                                                                              ;
++-----------------+--------------------------------------------------------------------------------------+
+; Input Port      ; Comment                                                                              ;
++-----------------+--------------------------------------------------------------------------------------+
+; enable          ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; modeSelector[0] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; modeSelector[1] ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
+; reset           ; No input delay, min/max delays, false-path exceptions, or max skew assignments found ;
++-----------------+--------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------------------------------------------------------+
@@ -666,7 +676,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Sat May 11 23:33:12 2024
+    Info: Processing started: Sun May 12 00:58:40 2024
 Info: Command: quartus_sta AES -c AES
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -678,103 +688,115 @@ Critical Warning (332012): Synopsys Design Constraints File file not found: 'AES
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
 Info (332105): Deriving Clocks
     Info (332105): create_clock -period 1.000 -name clk clk
-    Info (332105): create_clock -period 1.000 -name reset reset
+    Info (332105): create_clock -period 1.000 -name modeSelector[0] modeSelector[0]
+Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+    Info (332098): Cell: expectedOutput[81]~1  from: datac  to: combout
+    Info (332098): Cell: expectedOutput[81]~2  from: datab  to: combout
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1100mV 85C Model
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -7.311
+Info (332146): Worst-case setup slack is -8.422
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -7.311          -14410.662 clk 
-    Info (332119):    -6.633             -85.212 reset 
-Info (332146): Worst-case hold slack is 0.358
+    Info (332119):    -8.422            -107.555 modeSelector[0] 
+    Info (332119):    -6.632           -9533.932 clk 
+Info (332146): Worst-case hold slack is 0.355
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.358               0.000 clk 
-    Info (332119):     1.527               0.000 reset 
+    Info (332119):     0.355               0.000 clk 
+    Info (332119):     0.869               0.000 modeSelector[0] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -0.394
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.394           -1642.187 clk 
-    Info (332119):     0.025               0.000 reset 
+    Info (332119):    -0.394           -1641.510 clk 
+    Info (332119):    -0.287              -6.232 modeSelector[0] 
 Info: Analyzing Slow 1100mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
+Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+    Info (332098): Cell: expectedOutput[81]~1  from: datac  to: combout
+    Info (332098): Cell: expectedOutput[81]~2  from: datab  to: combout
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -6.994
+Info (332146): Worst-case setup slack is -8.370
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -6.994          -13633.390 clk 
-    Info (332119):    -6.612             -85.698 reset 
-Info (332146): Worst-case hold slack is 0.378
+    Info (332119):    -8.370            -106.966 modeSelector[0] 
+    Info (332119):    -6.274           -9416.284 clk 
+Info (332146): Worst-case hold slack is 0.332
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.378               0.000 clk 
-    Info (332119):     1.629               0.000 reset 
+    Info (332119):     0.332               0.000 clk 
+    Info (332119):     0.704               0.000 modeSelector[0] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -0.394
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.394           -1500.190 clk 
-    Info (332119):    -0.007              -0.020 reset 
+    Info (332119):    -0.394           -1498.534 clk 
+    Info (332119):    -0.319              -6.618 modeSelector[0] 
 Info: Analyzing Fast 1100mV 85C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
+Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+    Info (332098): Cell: expectedOutput[81]~1  from: datac  to: combout
+    Info (332098): Cell: expectedOutput[81]~2  from: datab  to: combout
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -4.567
+Info (332146): Worst-case setup slack is -4.589
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -4.567           -9219.039 clk 
-    Info (332119):    -3.345             -42.042 reset 
+    Info (332119):    -4.589           -4886.026 clk 
+    Info (332119):    -4.288             -53.748 modeSelector[0] 
 Info (332146): Worst-case hold slack is 0.176
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
     Info (332119):     0.176               0.000 clk 
-    Info (332119):     0.698               0.000 reset 
+    Info (332119):     0.560               0.000 modeSelector[0] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is -0.347
+Info (332146): Worst-case minimum pulse width slack is -0.348
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.347            -790.285 clk 
-    Info (332119):    -0.254              -5.844 reset 
+    Info (332119):    -0.348            -789.486 clk 
+    Info (332119):    -0.274              -7.186 modeSelector[0] 
 Info: Analyzing Fast 1100mV 0C Model
+Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+    Info (332098): Cell: expectedOutput[81]~1  from: datac  to: combout
+    Info (332098): Cell: expectedOutput[81]~2  from: datab  to: combout
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -3.893
+Info (332146): Worst-case setup slack is -4.022
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -3.893           -7832.091 clk 
-    Info (332119):    -3.215             -40.870 reset 
-Info (332146): Worst-case hold slack is 0.167
+    Info (332119):    -4.022             -50.500 modeSelector[0] 
+    Info (332119):    -3.883           -4233.546 clk 
+Info (332146): Worst-case hold slack is 0.166
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.167               0.000 clk 
-    Info (332119):     0.800               0.000 reset 
+    Info (332119):     0.166               0.000 clk 
+    Info (332119):     0.399               0.000 modeSelector[0] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is -0.325
+Info (332146): Worst-case minimum pulse width slack is -0.326
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.325            -742.558 clk 
-    Info (332119):    -0.249              -5.913 reset 
+    Info (332119):    -0.326            -739.361 clk 
+    Info (332119):    -0.266              -7.009 modeSelector[0] 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 7 warnings
-    Info: Peak virtual memory: 5390 megabytes
-    Info: Processing ended: Sat May 11 23:33:29 2024
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:38
+    Info: Peak virtual memory: 5394 megabytes
+    Info: Processing ended: Sun May 12 00:58:58 2024
+    Info: Elapsed time: 00:00:18
+    Info: Total CPU time (on all processors): 00:00:33
 
 
