@@ -284,7 +284,7 @@ end
 endfunction
 
 
-  function [0:31] roundConst ( input [0:3] roundNum);
+  function [0:31] roundConst ( input roundNum);
 begin
     case(roundNum)
     1: roundConst = 32'h01000000;
