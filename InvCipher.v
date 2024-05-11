@@ -1,9 +1,9 @@
-module InvCipher #(parameter Nk=4,parameter Nr = Nk + 6) (clks, reset, enable, encryptedText, keys, decryptedText); 
-
+module InvCipher #(parameter Nk=4)(clks, reset, enable, encryptedText, keys, decryptedText); 
 
 // Main module parameters
 input clks, reset,enable;
 input [0:127] encryptedText;
+parameter Nr = Nk + 6;
 input [0:(Nk*32) * (Nr + 1) - 1] keys; // whole keys
 output  [0:127] decryptedText;
  reg [0:127] tempDecryptedText;
@@ -22,26 +22,10 @@ localparam INITIAL_ROUND = 2'b00, ROUNDS = 2'b01, FINAL_ROUND = 2'b10;
 reg[1:0] currentstate = INITIAL_ROUND; // Initial state
 
 AddRoundKey ARK (encryptedText, keys[1407-:128], RoundIn);
-InvRound #(Nk,Nr) decryptionRound (clks, RoundInReg, keys[(128*(Nr-round+1)-1)-:128], RoundOut);
+InvRound #(Nk) decryptionRound (clks, RoundInReg, keys[(128*(Nr-round+1)-1)-:128], RoundOut); 
 InvSubBytes SB (final_round, Inv_SB_OUT);
 Invshift_rows SR(Inv_SB_OUT, Inv_SR_OUT);
 AddRoundKey ARK1 (Inv_SR_OUT, keys[0:127], RoundOut1);
-
-/*
-always @(*) begin
-if(enable) begin
-   if(round==0)begin 
-    tempDecryptedText=RoundIn;
-   end
-   else if(round<Nr)begin
-    tempDecryptedText=RoundOut;
-   end
-   else if(round==Nr)begin
-    tempDecryptedText=RoundOut1;
-   end
-end
-end
-*/
 
 always @(posedge clks) begin
     
@@ -67,7 +51,7 @@ always @(posedge clks) begin
                     if(round == Nr-1 ) begin
                         final_round = RoundOut;
                         currentstate <= FINAL_ROUND;
-                        end
+                    end
                 end
             end
             FINAL_ROUND: begin

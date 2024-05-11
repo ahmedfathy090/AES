@@ -1,5 +1,4 @@
-module Round #(parameter Nk=4, parameter Nr=10) (clk,state, key, roundOut); 
-
+module Round #(parameter Nk=4) (clk,state, key, roundOut); 
 // Main module parameters
 input clk;
 input [0:127] state;
@@ -10,7 +9,6 @@ output [0:127] roundOut;
 wire [0:127] SB_OUT, SR_OUT, MC_OUT, ARK_OUT;
 
 // Round steps
-
 SubBytes SB (state, SB_OUT);
 shift_rows SR(SB_OUT, SR_OUT);
 MixColumns MC(SR_OUT,MC_OUT);

@@ -1,11 +1,35 @@
 
-State Machine - |AES|InvCipher:IC|currentstate
+State Machine - |AES|InvCipher:IC256|currentstate
 Name currentstate.INITIAL_ROUND currentstate.FINAL_ROUND currentstate.ROUNDS 
 currentstate.INITIAL_ROUND 0 0 0 
 currentstate.ROUNDS 1 0 1 
 currentstate.FINAL_ROUND 1 1 0 
 
-State Machine - |AES|Cipher:C|currentstate
+State Machine - |AES|Cipher:C256|currentstate
+Name currentstate.INITIAL_ROUND currentstate.FINAL_ROUND currentstate.ROUNDS 
+currentstate.INITIAL_ROUND 0 0 0 
+currentstate.ROUNDS 1 0 1 
+currentstate.FINAL_ROUND 1 1 0 
+
+State Machine - |AES|InvCipher:IC192|currentstate
+Name currentstate.INITIAL_ROUND currentstate.FINAL_ROUND currentstate.ROUNDS 
+currentstate.INITIAL_ROUND 0 0 0 
+currentstate.ROUNDS 1 0 1 
+currentstate.FINAL_ROUND 1 1 0 
+
+State Machine - |AES|Cipher:C192|currentstate
+Name currentstate.INITIAL_ROUND currentstate.FINAL_ROUND currentstate.ROUNDS 
+currentstate.INITIAL_ROUND 0 0 0 
+currentstate.ROUNDS 1 0 1 
+currentstate.FINAL_ROUND 1 1 0 
+
+State Machine - |AES|InvCipher:IC128|currentstate
+Name currentstate.INITIAL_ROUND currentstate.FINAL_ROUND currentstate.ROUNDS 
+currentstate.INITIAL_ROUND 0 0 0 
+currentstate.ROUNDS 1 0 1 
+currentstate.FINAL_ROUND 1 1 0 
+
+State Machine - |AES|Cipher:C128|currentstate
 Name currentstate.INITIAL_ROUND currentstate.FINAL_ROUND currentstate.ROUNDS 
 currentstate.INITIAL_ROUND 0 0 0 
 currentstate.ROUNDS 1 0 1 

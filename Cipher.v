@@ -1,8 +1,9 @@
-module Cipher #(parameter Nk=4,parameter Nr = Nk + 6) (clks, reset, enable, plainText, keys, encryptedText); 
+module Cipher #(parameter Nk=4) (clks, reset, enable, plainText, keys, encryptedText); 
 
 // Main module parameters
 input clks, reset,enable;
 input [0:127] plainText;
+parameter Nr = Nk + 6;
 input [0:(Nk*32) * (Nr + 1) - 1] keys; // whole keys
 output [0:127] encryptedText;
 reg [0:127] tempEncryptedText;
@@ -20,7 +21,7 @@ localparam INITIAL_ROUND = 2'b00, ROUNDS = 2'b01, FINAL_ROUND = 2'b10;
 reg[1:0] currentstate = INITIAL_ROUND; // Initial state
 
 AddRoundKey ARK (plainText, keys[0:127], RoundIn);
-Round #(Nk,Nr) encryptionRound (clks ,RoundInReg, keys[128*(round)+:128], RoundOut);
+Round #(Nk) encryptionRound (clks ,RoundInReg, keys[128*(round)+:128], RoundOut);
 SubBytes SB (final_round, SB_OUT);
 shift_rows SR(SB_OUT, SR_OUT);
 AddRoundKey ARK1 (SR_OUT, keys[(Nr)*128+:128], RoundOut1);
@@ -84,7 +85,7 @@ module Cipher_tb;
     wire [0:127] encryptedText;
 
     // Instantiate the Cipher module
-    Cipher #(4, 10) cipher(clks, reset, plainText, keys, encryptedText);
+    Cipher #(4) cipher(clks, reset, plainText, keys, encryptedText);
 
     // Initialize the inputs
     initial begin

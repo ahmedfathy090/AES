@@ -1,5 +1,5 @@
 Assembler report for AES
-Thu May  9 17:46:16 2024
+Sat May 11 23:33:10 2024
 Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
 
 
@@ -10,7 +10,7 @@ Quartus Prime Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
   2. Assembler Summary
   3. Assembler Settings
   4. Assembler Generated Files
-  5. Assembler Device Options: C:/Users/ahmed/OneDrive/Desktop/AES/Quartus files/output_files/AES.sof
+  5. Assembler Device Options: C:/Users/tasne/OneDrive/Desktop/AES!/AES/Quartus files/output_files/AES.sof
   6. Assembler Messages
 
 
@@ -38,7 +38,7 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Thu May  9 17:46:16 2024 ;
+; Assembler Status      ; Successful - Sat May 11 23:33:10 2024 ;
 ; Revision Name         ; AES                                   ;
 ; Top-level Entity Name ; AES                                   ;
 ; Family                ; Cyclone V                             ;
@@ -53,23 +53,23 @@ https://fpgasoftware.intel.com/eula.
 +--------+---------+---------------+
 
 
-+------------------------------------------------------------------------+
-; Assembler Generated Files                                              ;
-+------------------------------------------------------------------------+
-; File Name                                                              ;
-+------------------------------------------------------------------------+
-; C:/Users/ahmed/OneDrive/Desktop/AES/Quartus files/output_files/AES.sof ;
-+------------------------------------------------------------------------+
++-----------------------------------------------------------------------------+
+; Assembler Generated Files                                                   ;
++-----------------------------------------------------------------------------+
+; File Name                                                                   ;
++-----------------------------------------------------------------------------+
+; C:/Users/tasne/OneDrive/Desktop/AES!/AES/Quartus files/output_files/AES.sof ;
++-----------------------------------------------------------------------------+
 
 
-+--------------------------------------------------------------------------------------------------+
-; Assembler Device Options: C:/Users/ahmed/OneDrive/Desktop/AES/Quartus files/output_files/AES.sof ;
-+----------------+---------------------------------------------------------------------------------+
-; Option         ; Setting                                                                         ;
-+----------------+---------------------------------------------------------------------------------+
-; JTAG usercode  ; 0x0121DB34                                                                      ;
-; Checksum       ; 0x0121DB34                                                                      ;
-+----------------+---------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------+
+; Assembler Device Options: C:/Users/tasne/OneDrive/Desktop/AES!/AES/Quartus files/output_files/AES.sof ;
++----------------+--------------------------------------------------------------------------------------+
+; Option         ; Setting                                                                              ;
++----------------+--------------------------------------------------------------------------------------+
+; JTAG usercode  ; 0x01F3B0F7                                                                           ;
+; Checksum       ; 0x01F3B0F7                                                                           ;
++----------------+--------------------------------------------------------------------------------------+
 
 
 +--------------------+
@@ -78,14 +78,14 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 23.1std.0 Build 991 11/28/2023 SC Lite Edition
-    Info: Processing started: Thu May  9 17:46:06 2024
+    Info: Processing started: Sat May 11 23:32:59 2024
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off AES -c AES
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4883 megabytes
-    Info: Processing ended: Thu May  9 17:46:16 2024
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:10
+    Info: Peak virtual memory: 4947 megabytes
+    Info: Processing ended: Sat May 11 23:33:10 2024
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:02
 
 

@@ -1,4 +1,4 @@
-module InvRound #(parameter Nk=4,parameter Nr=10) (clk ,state, key, InvRoundOut);
+module InvRound #(parameter Nk=4) (clk ,state, key, InvRoundOut);
 
 // Main module parameters
 input clk;
@@ -23,9 +23,7 @@ always @(posedge clk) begin
     $display("InvRound: SR_OUT = %h", Inv_SR_OUT);
     $display("InvRound: SB_OUT = %h", Inv_SB_OUT);
     $display("InvRound: ARK_OUT = %h", Inv_ARK_OUT);
-    $display("InvRound: MC_OUT = %h \n\n", Inv_MC_OUT);
-   
+    $display("InvRound: MC_OUT = %h", Inv_MC_OUT); 
 end
-
 
 endmodule

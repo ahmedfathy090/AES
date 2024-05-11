@@ -1,3 +1,4 @@
-Warning (10268): Verilog HDL information at InvCipher.v(46): always construct contains both blocking and non-blocking assignments File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 46
-Info (10281): Verilog HDL Declaration information at InvCipher.v(14): object "final_round" differs only in case from object "FINAL_ROUND" in the same scope File: C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v Line: 14
-Info (10281): Verilog HDL Declaration information at Cipher.v(13): object "final_round" differs only in case from object "FINAL_ROUND" in the same scope File: C:/Users/ahmed/OneDrive/Desktop/AES/Cipher.v Line: 13
+Warning (10268): Verilog HDL information at InvCipher.v(30): always construct contains both blocking and non-blocking assignments File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/InvCipher.v Line: 30
+Info (10281): Verilog HDL Declaration information at InvCipher.v(14): object "final_round" differs only in case from object "FINAL_ROUND" in the same scope File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/InvCipher.v Line: 14
+Info (10281): Verilog HDL Declaration information at Cipher.v(14): object "final_round" differs only in case from object "FINAL_ROUND" in the same scope File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/Cipher.v Line: 14
+Warning (10268): Verilog HDL information at AES.v(56): always construct contains both blocking and non-blocking assignments File: C:/Users/tasne/OneDrive/Desktop/AES!/AES/AES.v Line: 56

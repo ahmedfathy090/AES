@@ -1,4 +1,5 @@
-module key_expansion (input [0:127] wIn, output [0:127] wOut , input [0:3] roundNum);
+module key_expansion #(parameter Nk=4, parameter Nr = Nk + 6) (input [0: (32 * Nk) - 1] wIn, output [0:(32 * Nk) - 1] wOut , input [0:3] roundNum); 
+
 function [0:7] SBox (input [0:7] In);
 begin
 case (In)
@@ -284,7 +285,7 @@ end
 endfunction
 
 
-  function [0:31] roundConst ( input roundNum);
+  function [0:31] roundConst ( input [0:3] roundNum);
 begin
     case(roundNum)
     1: roundConst = 32'h01000000;
@@ -302,13 +303,27 @@ begin
 end
 endfunction
 
-wire [0:31] temp;
 
+reg [0:31] temp_wOut;
+assign wOut [0:31] = temp_wOut;
 
-assign wOut[0:31] = subWord(rotWord(wIn[96:127])) ^ roundConst(roundNum) ^ wIn[0:31];  //w0
-assign wOut[32:63] =  wOut[0:31] ^ wIn[32:63];  //w1
-assign wOut[64:95] =  wOut[32:63] ^ wIn[64:95];  //w2
-assign wOut[96:127] = wOut[64:95] ^ wIn[96:127];  //w3
+initial begin
+    if(Nk == 4)
+        temp_wOut[0:31] = subWord(rotWord(wIn[96:127])) ^ roundConst(roundNum) ^ wIn[0:31]; 
+    else if (Nk == 6)
+        temp_wOut[0:31] = subWord(rotWord(wIn[160:191])) ^ roundConst(roundNum) ^ wIn[0:31];
+    else if (Nk == 8)
+        temp_wOut[0:31] = subWord(rotWord(wIn[160:255])) ^ roundConst(roundNum) ^ wIn[0:31];
+end
 
+genvar i;
+generate 
+for(i = 1; i < Nk; i = i + 1) begin : KE
+    if(Nk == 8 && i == 4) 
+       assign wOut[i*32 +: 32] = subWord(wOut[(i-1)*32 +: 32]) ^ wIn[i*32 +: 32];
+    else
+       assign wOut[i*32 +: 32] = wOut[(i-1)*32 +: 32] ^ wIn[i*32 +: 32];
+end
+endgenerate
 
-endmodule
+endmodule 
