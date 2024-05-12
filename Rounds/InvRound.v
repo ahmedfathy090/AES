@@ -1,4 +1,4 @@
-module InvRound #(parameter Nk=4) (clk ,state, key, InvRoundOut);
+module InvRound (clk ,state, key, InvRoundOut);
 
 // Main module parameters
 input clk;

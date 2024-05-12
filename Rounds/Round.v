@@ -1,8 +1,8 @@
-module Round #(parameter Nk=4) (clk,state, key, roundOut); 
+module Round (clk,state, key, roundOut); 
 // Main module parameters
 input clk;
 input [0:127] state;
-input [0 : 32*Nk -1] key;
+input [0 : 32*4 -1] key;
 output [0:127] roundOut;
 
 // Temp wires
