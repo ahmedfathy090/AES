@@ -307,7 +307,7 @@ endfunction
 reg [0:31] temp_wOut;
 assign wOut [0:31] = temp_wOut;
 
-initial begin
+always @(*) begin
     if(Nk == 4)
         temp_wOut[0:31] = subWord(rotWord(wIn[96:127])) ^ roundConst(roundNum) ^ wIn[0:31]; 
     else if (Nk == 6)
@@ -327,3 +327,5 @@ end
 endgenerate
 
 endmodule 
+
+

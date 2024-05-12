@@ -1,8 +1,8 @@
-module Round (clk,state, key, roundOut); 
+module Round  (clk,state, key, roundOut); 
 // Main module parameters
 input clk;
 input [0:127] state;
-input [0 : 32*4 -1] key;
+input [0 : 127] key;
 output [0:127] roundOut;
 
 // Temp wires
@@ -14,7 +14,7 @@ shift_rows SR(SB_OUT, SR_OUT);
 MixColumns MC(SR_OUT,MC_OUT);
 AddRoundKey ARK(MC_OUT, key, ARK_OUT);
 assign roundOut = ARK_OUT;
-
+/*
 always @(posedge clk) begin
     $display("Round: state = %h, key = %h", state, key);
     $display("Round: SB_OUT = %h", SB_OUT);
@@ -22,5 +22,5 @@ always @(posedge clk) begin
     $display("Round: MC_OUT = %h", MC_OUT);
     $display("Round: ARK_OUT = %h", ARK_OUT);
 end
-
+*/
 endmodule
