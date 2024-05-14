@@ -37,18 +37,18 @@ endmodule
 //     end
 
 // endmodule
-module key_expansion_tb;
-    reg [0:127] wIn;
-    wire [0:127] wOut;
-    reg [0:3] roundNum;
-    key_expansion KE (wIn, wOut, roundNum);
-    initial begin
-        wIn = 128'h000102030405060708090a0b0c0d0e0f;
-        roundNum = 4'd1;
-        $display("wOut: %h", wOut);
+// module key_expansion_tb;
+//     reg [0:127] wIn;
+//     wire [0:127] wOut;
+//     reg [0:3] roundNum;
+//     key_expansion KE (wIn, wOut, roundNum);
+//     initial begin
+//         wIn = 128'h000102030405060708090a0b0c0d0e0f;
+//         roundNum = 4'd1;
+//         $display("wOut: %h", wOut);
 
-    end
+//     end
 
-endmodule 
+// endmodule 
  
 

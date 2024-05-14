@@ -19,13 +19,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	SBox
 
-} {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/InvCipher.v {1 {vlog -work work -stats=none {C:\Users\ahmed\OneDrive\Desktop\AES\InvCipher.v}
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module InvCipher
-
-Top level modules:
-	InvCipher
-
 } {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/ShiftRows/shift_rows.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/ShiftRows/shift_rows.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module shift_rows
@@ -43,11 +36,9 @@ Top level modules:
 } {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Keys/KeysGenerator.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Keys/KeysGenerator.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module KeysGenerator
--- Compiling module key_expansion_tb
 
 Top level modules:
 	KeysGenerator
-	key_expansion_tb
 
 } {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSBox.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InvSubBytes/InvSBox.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -55,13 +46,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 
 Top level modules:
 	InvSBox
-
-} {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Rounds/InvRound.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Rounds/InvRound.v
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module InvRound
-
-Top level modules:
-	InvRound
 
 } {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/MixColumns/MixColumns.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/MixColumns/MixColumns.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -85,20 +69,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	BCD_E
 
-} {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Rounds/Round.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Rounds/Round.v
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module Round
-
-Top level modules:
-	Round
-
-} {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Convertors/BCDtoSSD.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Convertors/BCDtoSSD.v
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module BCDtoSSD
-
-Top level modules:
-	BCDtoSSD
-
 } {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InverseShiftRows/InvShiftRows.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Decryption/InverseShiftRows/InvShiftRows.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module Invshift_rows
@@ -106,13 +76,12 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	Invshift_rows
 
-} {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Cipher.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Cipher.v
+} {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Convertors/BCDtoSSD.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Convertors/BCDtoSSD.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module Cipher
--- Compiling module Cipher_tb
+-- Compiling module BCDtoSSD
 
 Top level modules:
-	Cipher_tb
+	BCDtoSSD
 
 } {} {}} C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SubBytes.v {1 {vlog -work work -stats=none C:/Users/ahmed/OneDrive/Desktop/AES/Encryption/SubBytes/SubBytes.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020

@@ -17,13 +17,4 @@ InvMixColumns IM_C(Inv_ARK_OUT, Inv_MC_OUT);
 
 assign InvRoundOut = Inv_MC_OUT;
 
-/*
-always @(posedge clk) begin
-    $display("InvRound: state = %h, key = %h", state, key);
-    $display("InvRound: SR_OUT = %h", Inv_SR_OUT);
-    $display("InvRound: SB_OUT = %h", Inv_SB_OUT);
-    $display("InvRound: ARK_OUT = %h", Inv_ARK_OUT);
-    $display("InvRound: MC_OUT = %h", Inv_MC_OUT); 
-end*/
-
 endmodule

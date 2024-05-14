@@ -100,11 +100,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "reset",
+					"name" : "enable",
 					"strict" : false
 				},
 				{
-					"name" : "enable",
+					"name" : "reset",
 					"strict" : false
 				},
 				{

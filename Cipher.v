@@ -1,7 +1,7 @@
-module Cipher #(parameter Nk=4, parameter Nr = Nk + 6) (clks, reset, enable, plainText, keys, encryptedText); 
+module Cipher #(parameter Nk=4, parameter Nr = Nk + 6) (clks, reset, plainText, keys, encryptedText); 
 
 // Main module parameters
-input clks, reset,enable;
+input clks, reset;
 input [0:127] plainText;
 input [0:128*(Nr+1) - 1] keys; // whole keys
 
@@ -29,9 +29,7 @@ AddRoundKey ARK1 (SR_OUT, keys[(Nr)*128+:128], RoundOut1);
 
 
 always @(posedge clks) begin
-   // $display("Round cipher:%d ",round);
-   //  $display("Cpher ::  :: :: :: :: :: :: :: :: :: encryptedText :%h ",RoundIn);
-   // $display("Cpher ::  :: :: :: :: :: :: :: :: :: decryptedText :%h ",RoundOut);
+
     if (reset) begin
         round <= 5'b00000;
         currentstate <= INITIAL_ROUND;
@@ -72,12 +70,12 @@ end
 
 
 assign encryptedText = tempEncryptedText;
-
-
-
 endmodule
 
 
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// TestBench
 module Cipher_tb;
     reg clks, reset;
     reg [0:127] plainText;

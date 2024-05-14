@@ -1,7 +1,7 @@
-module InvCipher #(parameter Nk=4, parameter Nr = Nk + 6) (clks, reset, enable, encryptedText, keys, decryptedText); 
+module InvCipher #(parameter Nk=4, parameter Nr = Nk + 6) (clks, reset, encryptedText, keys, decryptedText); 
 
 // Main module parameters
-input clks, reset,enable;
+input clks, reset;
 input [0:127] encryptedText;
 input [0:128*(Nr+1) - 1] keys; // whole keys
 output  [0:127] decryptedText;
@@ -27,10 +27,7 @@ Invshift_rows SR(Inv_SB_OUT, Inv_SR_OUT);
 AddRoundKey ARK1 (Inv_SR_OUT, keys[0:127], RoundOut1);
 
 always @(posedge clks) begin
-    
-    //$display("Round :%d ",round);
-    //$display("InvCpher ::  :: :: :: :: :: :: :: :: :: encryptedText :%h ",RoundIn);
-    //$display("InvCpher ::  :: :: :: :: :: :: :: :: :: decryptedText :%h ",RoundOut);
+
     if (reset) begin
         round <= 5'b00000;
         currentstate <= INITIAL_ROUND;
