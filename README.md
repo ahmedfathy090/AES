@@ -9,9 +9,7 @@
 ---
 ## 📃Classes structure:
 
-![image](https://github.com/ahmedfathy090/AES/assets/137416623/d034b056-1357-4d04-a3b3-9ee81f1d5cf7)
-
-
+![image](https://github.com/ahmedfathy090/AES/assets/137416623/40a5cf39-c18d-44e1-9bbc-60c9212fb449)
 >[image resource](https://www.researchgate.net/figure/The-overall-structure-of-the-AES-algorithm-1_fig1_320162676)
 
 Top-Level Module `AES.v`
