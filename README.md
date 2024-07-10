@@ -1,6 +1,5 @@
-<div align="center">
-<h1> AES: Advanced Encryption System 🔐</h1> 
-</div>
+<div align="center"> <h1> AES: Advanced Encryption System 🔐</h1> </div>
+ 
  This repository contains a Verilog implementation of the Advanced Encryption Standard (AES) algorithm, developed as part of a first-year computer engineering course on advanced logic design.
  --------
  ## 🚀Features 
@@ -10,7 +9,8 @@
 ---
 ## 📃Classes structure:
 
-![[Pasted image 20240710201903.png]]
+![image](https://github.com/ahmedfathy090/AES/assets/137416623/d034b056-1357-4d04-a3b3-9ee81f1d5cf7)
+
 
 >[image resource](https://www.researchgate.net/figure/The-overall-structure-of-the-AES-algorithm-1_fig1_320162676)
 
