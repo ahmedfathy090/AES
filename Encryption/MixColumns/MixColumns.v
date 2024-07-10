@@ -15,7 +15,6 @@ module MixColumns(input  [0:127] stateIn, output [0:127] stateOut);
 		 end
 	endfunction
 	
-	// 11 = 01 ^ 10
 	function [0:7] Multiply_3(input[0:7] stateByte);
 	    begin
 	        Multiply_3 = Multiply_2(stateByte) ^ stateByte;
@@ -26,6 +25,7 @@ module MixColumns(input  [0:127] stateIn, output [0:127] stateOut);
 	temporary loop variable to be used during 
 	generation and won't be available during simulation
 	*/
+	
 	genvar i;
 	generate
 	    for(i = 0; i < 4; i = i + 1) begin : MixColumns

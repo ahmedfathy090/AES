@@ -1,4 +1,4 @@
-module InvRound (clk ,state, key, InvRoundOut);
+module InvRound (clk ,state, key, InvRoundOut);// the clk was used to debug the code, it is not used in the final implementation
 
 // Main module parameters
 input clk;

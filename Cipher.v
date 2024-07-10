@@ -26,8 +26,6 @@ SubBytes SB (final_round, SB_OUT);
 shift_rows SR(SB_OUT, SR_OUT);
 AddRoundKey ARK1 (SR_OUT, keys[(Nr)*128+:128], RoundOut1);
 
-
-
 always @(posedge clks) begin
 
     if (reset) begin
@@ -37,32 +35,32 @@ always @(posedge clks) begin
     else begin
         case (currentstate)
             
-        INITIAL_ROUND: begin
-        RoundInReg <= RoundIn;
-        tempEncryptedText <= RoundIn;
-        round <= round + 5'b00001;
-        currentstate <= ROUNDS;
-        end
-        
-        ROUNDS: begin
-        if (round < Nr ) begin 
-            RoundInReg <= RoundOut;
-            tempEncryptedText <= RoundOut;
-            round <= round + 5'b00001; // Encrement round number
-        if(round == Nr-1 ) begin
-            final_round <= RoundOut;
-            currentstate <= FINAL_ROUND;
+            INITIAL_ROUND: begin
+                RoundInReg <= RoundIn;
+                tempEncryptedText <= RoundIn;
+                round <= round + 5'b00001;
+                currentstate <= ROUNDS;
             end
-        end
-        end
-       
-        FINAL_ROUND: begin
-            if(round == Nr) begin
-            tempEncryptedText <= RoundOut1; 
-            round <= 5'b00000;
-            currentstate <= INITIAL_ROUND;
+            
+            ROUNDS: begin
+            if (round < Nr ) begin 
+                RoundInReg <= RoundOut;
+                tempEncryptedText <= RoundOut;
+                round <= round + 5'b00001; // Encrement round number
+            if(round == Nr-1 ) begin
+                final_round <= RoundOut;
+                currentstate <= FINAL_ROUND;
+                end
             end
-        end
+            end
+
+            FINAL_ROUND: begin
+                if(round == Nr) begin
+                tempEncryptedText <= RoundOut1; 
+                round <= 5'b00000;
+                currentstate <= INITIAL_ROUND;
+                end
+            end
         endcase
         end
     
@@ -75,7 +73,7 @@ endmodule
 
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// TestBench
+////////////////////////////////////////////////////////////////////////////////////// TestBench
 module Cipher_tb;
     reg clks, reset;
     reg [0:127] plainText;

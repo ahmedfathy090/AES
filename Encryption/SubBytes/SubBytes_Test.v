@@ -32,6 +32,5 @@ module SubBytes_Test();
         else 
             $display("Test passed for 128 bit input");
         #10;
-
     end
 endmodule

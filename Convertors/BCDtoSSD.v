@@ -13,13 +13,6 @@ module BCDtoSSD (input wire [3:0]  state, input enable, output [6:0] seg);
     (state == 7) ?  7'b0001111 :
     (state == 8) ?  7'b0000000 :
     (state == 9) ?  7'b0000100 :
-    /*
-    (state == 4'ha) ? 7'b0001000 :
-    (state == 4'hb) ? 7'b0000011 :
-    (state == 4'hc) ? 7'b1000110 :
-    (state == 4'hd) ? 7'b0100001 :
-    (state == 4'he) ? 7'b0000110 :
-    (state == 4'hf) ? 7'b0001110 :
-    */
     7'b1111111; // default : turn off
+    
 endmodule

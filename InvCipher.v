@@ -4,8 +4,9 @@ module InvCipher #(parameter Nk=4, parameter Nr = Nk + 6) (clks, reset, encrypte
 input clks, reset;
 input [0:127] encryptedText;
 input [0:128*(Nr+1) - 1] keys; // whole keys
-output  [0:127] decryptedText;
- reg [0:127] tempDecryptedText;
+
+output [0:127] decryptedText;
+reg [0:127] tempDecryptedText;
 
 // temp parameters
 wire [0:127] Inv_SB_IN, Inv_SB_OUT, Inv_SR_OUT;
@@ -13,7 +14,6 @@ wire [0:127] RoundIn, RoundOut,RoundOut1;
 reg [0:127] final_round;
 reg [0:127] RoundInReg;
 reg [4:0] round = 5'b00000; // Counter for the current round
-
 
 
 localparam INITIAL_ROUND = 2'b00, ROUNDS = 2'b01, FINAL_ROUND = 2'b10;
@@ -31,14 +31,17 @@ always @(posedge clks) begin
     if (reset) begin
         round <= 5'b00000;
         currentstate <= INITIAL_ROUND;
-    end  else begin
+    end 
+    else begin
         case (currentstate)
+
             INITIAL_ROUND: begin
                  RoundInReg <= RoundIn;
                 round <= round + 5'b00001;
                 tempDecryptedText<=RoundIn;
                 currentstate <= ROUNDS;
             end
+
             ROUNDS: begin
                 if (round < Nr ) begin 
                     RoundInReg <= RoundOut;
@@ -50,12 +53,12 @@ always @(posedge clks) begin
                     end
                 end
             end
+
             FINAL_ROUND: begin
              if(round==Nr) begin
                 round <= 5'b00000;
                 tempDecryptedText<=RoundOut1;
                 currentstate <= INITIAL_ROUND;
-
              end
             end
         endcase

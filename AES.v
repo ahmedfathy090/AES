@@ -132,22 +132,6 @@ always @(posedge clk) begin
         else if (roundNumber256 == 30)
             roundNumber256 <= 5'd1;
      end
-     $display("********************************************************************* ");
-     $display("***** round out 128 :%h ",encryptedText128);
-     $display("***** inround out 128 :%h ",outPlainText128);
-     $display("***** round out 192 :%h ",encryptedText192);
-     $display("***** inround out 192 :%h ",outPlainText192);
-     $display("***** round out 256 :%h ",encryptedText256);
-     $display("***** inround out 256 :%h ",outPlainText256);
-     $display("***** roundNumber128 :%d ",roundNumber128);
-     $display("***** roundNumber192 :%d ",roundNumber192);
-     $display("***** roundNumber256 :%d ",roundNumber256);
-     $display(" ***** successFlag :%b ",successFlag);
-     $display("***** &&&&& displayedOut &&&&&&&&& :%h ",displayedOut);
-     $display("***** Units_re :%d ",Units_reg);
-     $display("***** Tens_re :%d ",Tens_reg);
-     $display("***** Hunds_re :%d ",Hunds_reg);
-     $display("********************************************************************* ");
  end 
 
 
